@@ -1,0 +1,119 @@
+{
+ "built": "2026-07-24",
+ "problems": [
+  {
+   "title": 15,
+   "chapter": "15-210",
+   "issue": "listed more than once in the LRB Directory",
+   "verdict": "source defect, both listings kept",
+   "catchlines_agree": true,
+   "listings": [
+    {
+     "catchline": "Rules, Regulations, Charges, and Fees for Public Parks",
+     "subtitle": "Subtitle 4. Hawaii Community Development Authority",
+     "repealed": false
+    },
+    {
+     "catchline": "Rules, Regulations, Charges, and Fees for Public Parks",
+     "subtitle": "Subtitle 6. High Technology Development Corporation",
+     "repealed": false
+    }
+   ]
+  },
+  {
+   "title": 15,
+   "chapter": "15-211",
+   "issue": "listed more than once in the LRB Directory",
+   "verdict": "source defect, both listings kept",
+   "catchlines_agree": true,
+   "listings": [
+    {
+     "catchline": "Kewalo Basin Rules for Kewalo Harbor and Tariff",
+     "subtitle": "Subtitle 4. Hawaii Community Development Authority",
+     "repealed": false
+    },
+    {
+     "catchline": "Kewalo Basin Rules for Kewalo Harbor and Tariff",
+     "subtitle": "Subtitle 6. High Technology Development Corporation",
+     "repealed": false
+    }
+   ]
+  },
+  {
+   "title": 15,
+   "chapter": "15-321",
+   "issue": "listed more than once in the LRB Directory",
+   "verdict": "source defect, both listings kept",
+   "catchlines_agree": true,
+   "listings": [
+    {
+     "catchline": "Affordable Homeownership Revolving Fund Program",
+     "subtitle": "Subtitle 4. Hawaii Community Development Authority",
+     "repealed": false
+    },
+    {
+     "catchline": "Affordable Homeownership Revolving Fund Program",
+     "subtitle": "Subtitle 14. Hawaii Housing Finance and Development Corporation",
+     "repealed": false
+    }
+   ]
+  },
+  {
+   "title": 15,
+   "chapter": "15-301",
+   "issue": "listed more than once in the LRB Directory",
+   "verdict": "source defect, both listings kept",
+   "catchlines_agree": false,
+   "listings": [
+    {
+     "catchline": "Kikala-Keokea Revolving Loan Program",
+     "subtitle": "Subtitle 5. Hawaii Housing Finance and Development Corporation",
+     "repealed": false
+    },
+    {
+     "catchline": "Kikala-Keokea Housing Revolving Fund Program",
+     "subtitle": "Subtitle 14. Hawaii Housing Finance and Development Corporation",
+     "repealed": false
+    }
+   ]
+  },
+  {
+   "title": 15,
+   "chapter": "15-310",
+   "issue": "listed more than once in the LRB Directory",
+   "verdict": "source defect, both listings kept",
+   "catchlines_agree": false,
+   "listings": [
+    {
+     "catchline": "Pineapple Workers and Retirees Housing Assistance Fund Program",
+     "subtitle": "Subtitle 5. Hawaii Housing Finance and Development Corporation",
+     "repealed": false
+    },
+    {
+     "catchline": "Pineapple Workers and Retirees Housing Assistance Program",
+     "subtitle": "Subtitle 14. Hawaii Housing Finance and Development Corporation",
+     "repealed": false
+    }
+   ]
+  },
+  {
+   "title": 19,
+   "chapter": "19-150",
+   "issue": "listed more than once in the LRB Directory",
+   "verdict": "source defect, both listings kept",
+   "catchlines_agree": false,
+   "listings": [
+    {
+     "catchline": "Autonomous Vehicle Regulations",
+     "subtitle": "Subtitle 5. Motor Vehicle Safety Office",
+     "repealed": false
+    },
+    {
+     "catchline": "Repealed",
+     "subtitle": "Subtitle 6. Statewide Transportation Planning Office",
+     "repealed": true
+    }
+   ]
+  }
+ ]
+}

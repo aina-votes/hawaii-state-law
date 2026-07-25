@@ -12,9 +12,17 @@
 __pycache__/
 *.pyc
 
-# graph/hrs.db is a build artifact, but it IS tracked deliberately: it is small,
-# it makes the graph queryable straight from a fresh clone without re-running the
-# pipeline, and a diff on it is a signal that the statutes changed.
+# SQLite build artifacts, deliberately NOT tracked. Derived from graph/*.json
+# (which are tracked) by one command. A page-structured binary also has near-zero
+# delta headroom: a one-row change reshuffles headers, b-tree pointers and the
+# freelist across the whole file, so every commit stores a full copy forever, on
+# every clone. graph/sections.json already gives a readable diff when law moves.
+graph/*.db
+
+# PDFs. Already-compressed binary; same permanent-history cost as above. Store the
+# extracted text plus a SHA-256 manifest of the source PDF instead - the hash
+# proves the text came from that fetch, and the harvester can re-pull on demand.
+*.pdf
 
 # frontier-sizing cache (rebuildable, 15 requests)
 tools/.chapmap.json
