@@ -15,3 +15,6 @@ __pycache__/
 # graph/hrs.db is a build artifact, but it IS tracked deliberately: it is small,
 # it makes the graph queryable straight from a fresh clone without re-running the
 # pipeline, and a diff on it is a signal that the statutes changed.
+
+# frontier-sizing cache (rebuildable, 15 requests)
+tools/.chapmap.json
