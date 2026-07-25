@@ -148,13 +148,30 @@ This is how a 393-page corpus stays regenerable without becoming write-only.
      time or you will silently drop real cross-references. Never normalise inside `raw/`.
    - `elections.hawaii.gov/election-information/` **404s**; the dates widget lives in the sidebar
      of ordinary pages like `/voting/`.
+   - **`csc.hawaii.gov` is a dead stub.** It answers HTTP 200 with 135 bytes whose whole body is
+     `<META HTTP-EQUIV="Refresh" ... URL=http://ags.hawaii.gov/campaign/">`. A meta-refresh is
+     **not** an HTTP redirect, so `curl -L` does not follow it and a fetcher gets a success code
+     and an empty document. The Campaign Spending Commission lives at `ags.hawaii.gov/campaign/`,
+     under DAGS. Found 2026-07-24. Treat any sub-200-byte 200 as a failure and look for a refresh.
    - Every retrieved source is saved to `raw/` with a provenance header **containing provenance
      only**. Derived fields (catchline, part, citations) belong in `graph/`, never in an immutable
      header — otherwise a parser fix forces a re-fetch of the whole corpus.
-1. **Primary sources beat everything.** capitol.hawaii.gov (HRS/HAR/session laws), csc.hawaii.gov,
-   elections.hawaii.gov, county clerk pages, court opinions, the Federal Register. A .gov summary
-   page is still secondary — cite the statute, not the FAQ that describes it. Vendors, news, and
-   aggregators are a provenance step down and get `unverified` until traced.
+1. **Primary sources beat everything**, and each layer of law has its own. Verified 2026-07-24:
+
+   | Layer | Primary source |
+   |---|---|
+   | Hawaiʻi Constitution | `lrb.hawaii.gov/constitution/` — **not** in the HRS index |
+   | HRS | `capitol.hawaii.gov/hrscurrent/` |
+   | Session laws | `capitol.hawaii.gov/slh/` |
+   | HAR | `ltgov.hawaii.gov/the-office/administrative-rules/`, indexed by **department** title |
+   | Case law | `courts.state.hi.us/opinions_and_orders/opinions` |
+   | Campaign finance | `ags.hawaii.gov/campaign/` (NOT `csc.hawaii.gov`, see rule 0) |
+   | Elections admin | `elections.hawaii.gov`, plus the four county clerks |
+   | Federal | uscode.house.gov, federalregister.gov |
+
+   A .gov summary page is still secondary — cite the statute, not the FAQ that describes it.
+   Vendors, news, and aggregators are a provenance step down and get `unverified` until traced.
+   **HRS is one layer of eight and the graph cannot see the other seven** — [[sources-of-law]].
 2. **Quote, then interpret — never blend.** Statute text appears on the page verbatim inside a
    blockquote, marked as such. Claude's reading of it goes in a separate, clearly labeled section.
    A reader must always be able to tell which words are the law's and which are ours.

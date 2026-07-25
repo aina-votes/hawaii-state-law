@@ -50,6 +50,7 @@ lawyer.
 | Page | What it is |
 |---|---|
 | [[overview]] | Front door. Six territories of the domain with coverage status. |
+| [[sources-of-law]] | **What this vault does not hold.** All eight layers of Hawaiʻi law, the verified primary source for each, and why the citation graph cannot see seven of them. Read before trusting any answer to be complete. |
 | [[hrs-citation-graph]] | **How to ask what a statute references.** The query tool, the three citation zones, what the graph does and does not claim. |
 | [[deadlines]] | Every date-driven obligation for the 2026 cycle, reconciled against statute. `verified` |
 | [[citation-queue]] | Everything the corpus cites but does not contain. Generated. |

@@ -121,16 +121,43 @@ Thirteen pages carry `depth: annotated`. The next tranche, in rough order of how
 
 ## Sources worth going and getting
 
+**Read [[sources-of-law]] first.** It maps all eight layers of Hawaiʻi law, names the verified
+primary source for each, and ranks them by operative value per unit of work. The short version:
+HRS is one layer of eight, the citation graph cannot see the other seven, and the highest-value
+next move is **not** more HRS.
+
+Newly verified 2026-07-24, and newly missing:
+
+- **The Hawaiʻi Constitution, Article II (suffrage and elections)** sits above every page in this
+  vault and is **absent from the HRS master index** — a crawl of `hrscurrent/` looks complete while
+  omitting it. Lives at `lrb.hawaii.gov/constitution/`.
+- **Session laws** at `capitol.hawaii.gov/slh/`. Two distinct gaps: the codified HRS lags the
+  session, and uncodified provisions (effective dates, sunsets, applicability, findings) never enter
+  HRS at all. Without this layer the corpus goes stale silently rather than loudly.
+- **County charters and ordinances**, four of them, none on capitol.hawaii.gov. Election
+  administration is substantially county-run and the county candidates on the roster are governed
+  by these directly.
+- **112 case citations and an Attorney General Opinions heading are already sitting in `raw/`**,
+  in the annotation zone of 58 harvested sections. Extracting a fourth citation kind gives inbound
+  case law with no new crawl. Highest value per unit of work of anything on this page.
+- **AG opinions index** — not located. `ag.hawaii.gov/opinions/` and `/publications/opinions/` both
+  404 as of 2026-07-24.
+
 - **HAR title 3, chapter 160** — the Campaign Spending Commission's administrative rules, including
   in-kind valuation. Note these are **not** linked from the Office of Elections election-laws page;
-  the CSC publishes separately.
+  the CSC publishes separately. The HAR index is at
+  `ltgov.hawaii.gov/the-office/administrative-rules/` and is organised by **department**, not
+  subject: title 3 is DAGS, which is where the Commission sits.
 - **HAR chapters 3-170 and 3-177** — Elections Commission and Office of Elections rules, both
   linked as PDFs from the election-laws page and not yet ingested.
 - **HRS chapter 91 (Administrative Procedure)** — 31 operative citations from inside the corpus,
   the most-cited outside body of law, and the procedural spine under CSC enforcement. Top of
   [[citation-queue]].
-- **CSC advisory opinions index** (csc.hawaii.gov) — likely the densest single source for how the
-  Commission actually reads Part XIII.
+- **CSC advisory opinions index** — likely the densest single source for how the Commission
+  actually reads Part XIII. **The site moved:** `csc.hawaii.gov` is now a 135-byte meta-refresh
+  stub, which returns HTTP 200 and parses as an empty page rather than failing. The real site is
+  `ags.hawaii.gov/campaign/`. The advisory-opinions path under it is not yet located
+  (`/campaign/advisory-opinions/` 404s).
 - **Session laws** for the amendment questions above.
 - **139 H. 386, 390 P.3d 1273 (2017)** — cited in the Case Notes to [[hrs-11-25]] and
   [[hrs-11-26]], on when a government-closure day counts as a holiday for computing deadlines under

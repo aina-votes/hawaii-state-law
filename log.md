@@ -216,3 +216,53 @@ exactly the inheritance flagged as most important in the corpus ingest.
 text. The current election corpus is **1.7%** of HRS. No bulk download exists;
 `/hrscurrent/hrs.zip` and `/legislation/` both 404 and `/docs/` is a rendered page,
 so a full harvest is ~24,000 individual requests.
+
+## [2026-07-24] schema | corpus split into its own repo
+
+The vault now lives at `C:\Law\hawaii-state-law` as an independent git repo, junctioned into
+`Firefly's Path` at `LLM Wikis/Hawaii State Law` so every path, skill, and doc reference keeps
+resolving. Moved with `git subtree split`, full history preserved (4 commits), all 858 tracked
+blob hashes verified identical before anything was removed from the parent.
+
+Reason: this is a corpus vault. Its bulk comes from ingestion, not from writing. HRS Title 2 alone
+is 393 sections; all of HRS is 22,973 across 1,108 chapters, roughly 240MB. Inside the workspace
+repo that would slow every clone permanently and grow with every session.
+
+Flagged:
+- `graph/hrs.db` was never actually tracked, despite `.gitignore` carrying a comment saying it was
+  deliberately kept. The parent repo had a blanket `*.db` rule that silently won. Now tracked here.
+- `mklink /J` refuses an existing path, and the emptied directory could not be removed: Obsidian
+  held the vault open and it was also the session's own working directory. Set the reparse point
+  on the empty directory directly via `FSCTL_SET_REPARSE_POINT`, which is what mklink does
+  internally. Recorded in the `repo-split` skill.
+
+## [2026-07-24] fetch | mapped the layers of Hawaiʻi law beyond HRS
+
+Question: what comprises state law other than HRS and administrative rules, and does case law
+belong here. Probed each candidate primary source rather than asserting from memory.
+
+Created: `sources-of-law.md` — eight layers, verified primary source per layer, what this wiki
+holds of each, and a sequencing table ranked by operative value per unit of work.
+
+Verified live 2026-07-24: Hawaiʻi Constitution at `lrb.hawaii.gov/constitution/` (200, 236KB);
+session laws at `capitol.hawaii.gov/slh/`; HAR index at `ltgov.hawaii.gov/the-office/administrative-rules/`,
+organised by department title; Judiciary opinions at `courts.state.hi.us/opinions_and_orders/opinions`.
+
+Findings:
+- **The Hawaiʻi Constitution is not in the HRS master index.** A crawl of `hrscurrent/` looks
+  complete while omitting the supreme state authority. Article II is the elections article.
+- **`csc.hawaii.gov` is a dead 135-byte meta-refresh stub** pointing at `ags.hawaii.gov/campaign/`.
+  A meta-refresh is not an HTTP redirect, so `curl -L` does not follow it and a fetcher receives
+  HTTP 200 with an empty document. Same silent-corruption class as the 403 and the apex-redirect
+  stub. Added to schema rule 0; rule 1's source list replaced with a per-layer table.
+- **112 case citations across 58 sections are already in `raw/`**, in the annotation zone, along
+  with Attorney General Opinions and Law Journals and Reviews headings. Case law joins the graph as
+  inbound edges and needs no new crawl to start.
+- AG opinions index not located; two candidate paths 404.
+
+Updated: `CLAUDE.md` (rule 0 gotcha, rule 1 rewritten as a source table), `open-questions.md`
+(sources section), `INDEX.md` (start-here row).
+
+Position taken: finishing HRS is the largest available crawl and **not** the highest-value next
+move. The unanswered election-law questions sit in the constitution, the rules, the counties, and
+the cases, not in HRS chapters 431 or 490.
