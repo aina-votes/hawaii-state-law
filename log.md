@@ -161,3 +161,14 @@ automatically from whether a page's curated block holds prose. Curated-block con
 hand-written analysis; a page with no markers is refused, not overwritten. Rule 10 added on the
 three citation zones. §5.4 added for bulk corpus ingest. Decimal section filenames keep the dot
 (`hrs-11-15.2.md`).
+
+## [2026-07-24] query | escheat provisions located via the citation graph
+
+Running `hrs_refs.py 11-357 --both --depth 2` surfaced [[hrs-11-364|§11-364]] *Excess
+contribution; return; escheat* as an inbound citer. A catchline search then found the rest:
+[[hrs-11-384|§11-384]] (disposition of campaign funds; termination of registration) and
+[[hrs-11-326|§11-326]] (termination of registration).
+
+Escheat had been carried as an open item since the vault's founding note, described as "not yet
+located in Part XIII." It was in the corpus within minutes of the corpus existing. Updated
+[[open-questions]]. All three sections are still `depth: harvested` — located is not read.

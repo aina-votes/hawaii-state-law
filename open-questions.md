@@ -104,8 +104,18 @@ Thirteen pages carry `depth: annotated`. The next tranche, in rough order of how
   still owed.
 - **Nonprofit electoral activity.** Where the federal 501(c) line and the state noncandidate-
   committee registration trigger intersect.
-- **Escheat of unused campaign funds.** Work exists at `projects/escheat-investigation/`. Ingest
-  its legal findings, trace to statute, give escheat its own page. Not yet located in Part XIII.
+- **Escheat of unused campaign funds — the statutes are now located.** Carried since the founding
+  note as "not yet located in Part XIII." The corpus found them:
+  - [[hrs-11-364|§11-364]] **Excess contribution; return; escheat** (subpart E, Contributions)
+  - [[hrs-11-384|§11-384]] **Disposition of campaign funds; termination of registration**
+    (subpart G, Expenditures)
+  - [[hrs-11-326|§11-326]] **Termination of a committee's registration** (subpart C), which is also
+    what ends candidate status under [[hrs-11-302|§11-302]]
+
+  All three are `depth: harvested` — text is in, nobody has read it. Next step: annotate them,
+  cross-check against `projects/escheat-investigation/` (`legal-landscape-onepager.md`,
+  `methodology.md`), and give escheat its own concept page. The investigation's conclusions should
+  now be traceable to statute rather than asserted.
 
 ---
 
