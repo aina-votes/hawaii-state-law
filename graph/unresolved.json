@@ -1,0 +1,666 @@
+{
+ "built": "2026-07-24",
+ "unresolved": [
+  {
+   "target": "ch:91",
+   "kind": "hrs_chapter",
+   "count": 31,
+   "cited_by": [
+    "10-18",
+    "10-21",
+    "11-2",
+    "11-4",
+    "11-7.5",
+    "11-8.5",
+    "11-25",
+    "11-42",
+    "11-43",
+    "11-62",
+    "11-76",
+    "11-97",
+    "11-113",
+    "11-132",
+    "11-158",
+    "11-314",
+    "11-384",
+    "11-393",
+    "11-404",
+    "11-405",
+    "11-407",
+    "11-410",
+    "11-434",
+    "15-2.5",
+    "16-3",
+    "16-22",
+    "16-29",
+    "16-42",
+    "50-5"
+   ],
+   "example": "chapter 91"
+  },
+  {
+   "target": "ch:76",
+   "kind": "hrs_chapter",
+   "count": 10,
+   "cited_by": [
+    "10-10",
+    "10-12",
+    "10-27",
+    "11-1.6",
+    "11-5",
+    "11-7.5",
+    "11-314",
+    "25-5",
+    "25-7"
+   ],
+   "example": "chapter 76"
+  },
+  {
+   "target": "usconst",
+   "kind": "us_const",
+   "count": 5,
+   "cited_by": [
+    "11-113",
+    "13D-1",
+    "13D-3",
+    "17-2",
+    "25-2"
+   ],
+   "example": "United States Constitution"
+  },
+  {
+   "target": "ch:92F",
+   "kind": "hrs_chapter",
+   "count": 4,
+   "cited_by": [
+    "11-14",
+    "11-97",
+    "11-122",
+    "15D-14"
+   ],
+   "example": "chapter 92F"
+  },
+  {
+   "target": "26-34",
+   "kind": "hrs_section",
+   "count": 3,
+   "cited_by": [
+    "11-7",
+    "11-311"
+   ],
+   "example": "section 26-34"
+  },
+  {
+   "target": "831-2",
+   "kind": "hrs_section",
+   "count": 3,
+   "cited_by": [
+    "11-23",
+    "12-3"
+   ],
+   "example": "section 831-2"
+  },
+  {
+   "target": "usc:42:1983",
+   "kind": "usc",
+   "count": 2,
+   "cited_by": [
+    "10-3",
+    "10-12"
+   ],
+   "example": "42 U.S.C. \u00a71983"
+  },
+  {
+   "target": "ch:103D",
+   "kind": "hrs_chapter",
+   "count": 2,
+   "cited_by": [
+    "10-17",
+    "11-5"
+   ],
+   "example": "chapters 103D and 103F"
+  },
+  {
+   "target": "ch:89",
+   "kind": "hrs_chapter",
+   "count": 2,
+   "cited_by": [
+    "11-5"
+   ],
+   "example": "chapter 89"
+  },
+  {
+   "target": "286-303",
+   "kind": "hrs_section",
+   "count": 2,
+   "cited_by": [
+    "11-15.7"
+   ],
+   "example": "section 286-303"
+  },
+  {
+   "target": "286-111",
+   "kind": "hrs_section",
+   "count": 2,
+   "cited_by": [
+    "11-15.7"
+   ],
+   "example": "section 286-111"
+  },
+  {
+   "target": "1-29",
+   "kind": "hrs_section",
+   "count": 2,
+   "cited_by": [
+    "11-25",
+    "11-26"
+   ],
+   "example": "\u00a71-29"
+  },
+  {
+   "target": "ch:92",
+   "kind": "hrs_chapter",
+   "count": 2,
+   "cited_by": [
+    "11-403",
+    "11-410"
+   ],
+   "example": "chapter 92"
+  },
+  {
+   "target": "usc:15:7001",
+   "kind": "usc",
+   "count": 2,
+   "cited_by": [
+    "15D-18"
+   ],
+   "example": "15 U.S.C. section 7001"
+  },
+  {
+   "target": "1-28.5",
+   "kind": "hrs_section",
+   "count": 2,
+   "cited_by": [
+    "25-2"
+   ],
+   "example": "section 1-28.5"
+  },
+  {
+   "target": "673-2",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "10-9.5"
+   ],
+   "example": "section 673-2"
+  },
+  {
+   "target": "40-81",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "10-13"
+   ],
+   "example": "section 40-81"
+  },
+  {
+   "target": "201H-1",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "10-13.6"
+   ],
+   "example": "section 201H-1"
+  },
+  {
+   "target": "ch:37",
+   "kind": "hrs_chapter",
+   "count": 1,
+   "cited_by": [
+    "10-14.5"
+   ],
+   "example": "chapter 37"
+  },
+  {
+   "target": "ch:662",
+   "kind": "hrs_chapter",
+   "count": 1,
+   "cited_by": [
+    "10-16"
+   ],
+   "example": "chapter 662"
+  },
+  {
+   "target": "657-1.5",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "10-16"
+   ],
+   "example": "\u00a7657-1.5"
+  },
+  {
+   "target": "673-10",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "10-16"
+   ],
+   "example": "\u00a7673-10"
+  },
+  {
+   "target": "ch:103F",
+   "kind": "hrs_chapter",
+   "count": 1,
+   "cited_by": [
+    "10-17"
+   ],
+   "example": "chapters 103D and 103F"
+  },
+  {
+   "target": "321-4.7",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "10-20"
+   ],
+   "example": "\u00a7321-4.7"
+  },
+  {
+   "target": "39-55",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "10-25"
+   ],
+   "example": "section 39-55"
+  },
+  {
+   "target": "28-8.3",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "11-5"
+   ],
+   "example": "section 28-8.3"
+  },
+  {
+   "target": "ch:103",
+   "kind": "hrs_chapter",
+   "count": 1,
+   "cited_by": [
+    "11-5"
+   ],
+   "example": "chapters 103 and 103D"
+  },
+  {
+   "target": "286-111.5",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "11-15.7"
+   ],
+   "example": "\u00a7\u00a7286-111.5 and 286-303.5"
+  },
+  {
+   "target": "286-303.5",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "11-15.7"
+   ],
+   "example": "\u00a7\u00a7286-111.5 and 286-303.5"
+  },
+  {
+   "target": "ch:560",
+   "kind": "hrs_chapter",
+   "count": 1,
+   "cited_by": [
+    "11-23"
+   ],
+   "example": "chapter 560"
+  },
+  {
+   "target": "621-7",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "11-43"
+   ],
+   "example": "section 621-7"
+  },
+  {
+   "target": "ch:602",
+   "kind": "hrs_chapter",
+   "count": 1,
+   "cited_by": [
+    "11-51"
+   ],
+   "example": "chapter 602"
+  },
+  {
+   "target": "ch:831",
+   "kind": "hrs_chapter",
+   "count": 1,
+   "cited_by": [
+    "11-117"
+   ],
+   "example": "chapter 831"
+  },
+  {
+   "target": "usc:29:794d",
+   "kind": "usc",
+   "count": 1,
+   "cited_by": [
+    "11-122"
+   ],
+   "example": "29 U.S.C. 794d)"
+  },
+  {
+   "target": "572C-3",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "11-302"
+   ],
+   "example": "section 572C-3"
+  },
+  {
+   "target": "ch:78",
+   "kind": "hrs_chapter",
+   "count": 1,
+   "cited_by": [
+    "11-314"
+   ],
+   "example": "chapters 76, 78"
+  },
+  {
+   "target": "ch:84",
+   "kind": "hrs_chapter",
+   "count": 1,
+   "cited_by": [
+    "11-316"
+   ],
+   "example": "chapter 84"
+  },
+  {
+   "target": "26-35",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "11-317"
+   ],
+   "example": "section 26-35"
+  },
+  {
+   "target": "8-1",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "11-343"
+   ],
+   "example": "section 8-1"
+  },
+  {
+   "target": "127A-2",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "11-366"
+   ],
+   "example": "section 127A-2"
+  },
+  {
+   "target": "ch:853",
+   "kind": "hrs_chapter",
+   "count": 1,
+   "cited_by": [
+    "11-412"
+   ],
+   "example": "chapter 853"
+  },
+  {
+   "target": "235-102.5",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "11-421"
+   ],
+   "example": "section 235-102.5"
+  },
+  {
+   "target": "23G-15",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "12-6"
+   ],
+   "example": "\u00a723G-15"
+  },
+  {
+   "target": "91-1",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "12-8"
+   ],
+   "example": "section 91-1"
+  },
+  {
+   "target": "hiconst:II:7",
+   "kind": "hi_const",
+   "count": 1,
+   "cited_by": [
+    "13D-2"
+   ],
+   "example": "Article II, section 7 of the Constitution of the State"
+  },
+  {
+   "target": "usc:15:7003",
+   "kind": "usc",
+   "count": 1,
+   "cited_by": [
+    "15D-18"
+   ],
+   "example": "15 U.S.C. section 7003(b)."
+  },
+  {
+   "target": "302A-121",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "17-6"
+   ],
+   "example": "\u00a7\u00a7302A-121"
+  },
+  {
+   "target": "707-700",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "19-3"
+   ],
+   "example": "section 707-700"
+  },
+  {
+   "target": "701-107",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "19-4"
+   ],
+   "example": "\u00a7\u00a7701-107, 706-610"
+  },
+  {
+   "target": "706-610",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "19-4"
+   ],
+   "example": "\u00a7\u00a7701-107, 706-610"
+  },
+  {
+   "target": "143A-1",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "50-1"
+   ],
+   "example": "\u00a7143A-1"
+  },
+  {
+   "target": "143A-2",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "50-2"
+   ],
+   "example": "\u00a7143A-2"
+  },
+  {
+   "target": "143A-3",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "50-3"
+   ],
+   "example": "\u00a7143A-3"
+  },
+  {
+   "target": "143A-4",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "50-4"
+   ],
+   "example": "\u00a7143A-4"
+  },
+  {
+   "target": "78-4",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "50-4"
+   ],
+   "example": "\u00a778-4"
+  },
+  {
+   "target": "143A-5",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "50-5"
+   ],
+   "example": "\u00a7143A-5"
+  },
+  {
+   "target": "143A-6",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "50-6"
+   ],
+   "example": "\u00a7143A-6"
+  },
+  {
+   "target": "143A-7",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "50-7"
+   ],
+   "example": "\u00a7143A-7"
+  },
+  {
+   "target": "143A-8",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "50-8"
+   ],
+   "example": "\u00a7143A-8"
+  },
+  {
+   "target": "143A-9",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "50-9"
+   ],
+   "example": "\u00a7143A-9"
+  },
+  {
+   "target": "143A-10",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "50-10"
+   ],
+   "example": "\u00a7143A-10"
+  },
+  {
+   "target": "78-5",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "50-10"
+   ],
+   "example": "\u00a778-5"
+  },
+  {
+   "target": "143A-12",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "50-11"
+   ],
+   "example": "\u00a7143A-12"
+  },
+  {
+   "target": "143A-13",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "50-12"
+   ],
+   "example": "\u00a7143A-13"
+  },
+  {
+   "target": "143A-14",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "50-13"
+   ],
+   "example": "\u00a7143A-14"
+  },
+  {
+   "target": "143A-15",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "50-14"
+   ],
+   "example": "\u00a7143A-15"
+  },
+  {
+   "target": "143A-16",
+   "kind": "hrs_section",
+   "count": 1,
+   "cited_by": [
+    "50-15"
+   ],
+   "example": "\u00a7143A-16"
+  },
+  {
+   "target": "ch:329",
+   "kind": "hrs_chapter",
+   "count": 1,
+   "cited_by": [
+    "50-15"
+   ],
+   "example": "chapter 329"
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+# Obsidian per-machine UI state. The vault's content is tracked; the window
+# layout and last-opened file are not.
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Scratch
+.tmp/
+*.tmp
+.tmp-*
+
+# Python
+__pycache__/
+*.pyc
+
+# graph/hrs.db is a build artifact, but it IS tracked deliberately: it is small,
+# it makes the graph queryable straight from a fresh clone without re-running the
+# pipeline, and a diff on it is a signal that the statutes changed.
