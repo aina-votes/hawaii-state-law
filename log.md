@@ -172,3 +172,47 @@ contribution; return; escheat* as an inbound citer. A catchline search then foun
 Escheat had been carried as an open item since the vault's founding note, described as "not yet
 located in Part XIII." It was in the corpus within minutes of the corpus existing. Updated
 [[open-questions]]. All three sections are still `depth: harvested` — located is not read.
+
+## [2026-07-24] schema | definitions layer — scope-resolved term lookup
+
+Built in response to the architectural problem that the same term is defined
+differently across HRS and a definition without its scope is worse than none.
+
+**The statute declares scope explicitly, every time**, in about five phrasings:
+"whenever used in this title" ([[hrs-11-1]]), "when used in this part"
+([[hrs-11-302]]), "as used in this chapter" ([[hrs-15-1]]), "in this chapter, if not
+inconsistent with the context" ([[hrs-10-2]]), "for the purposes of this section"
+([[hrs-19-3]], [[hrs-11-341]]). All machine-extractable.
+
+New `graph/definitions.json` + `definition` table: term, defining section, declared
+scope type and key, verbatim text, and any import ("as defined in section 11-1").
+New `tools/hrs_define.py` resolves a term **at a section**, walking outward
+section → subpart → part → chapter → title. First hit controls; everything it
+shadows is printed, because the shadowed ones are what you would otherwise quote.
+
+**151 terms, 139 distinct, 11 defined in more than one scope** — in only 1.7% of HRS.
+"Office" already has three competing definitions: [[hrs-10-2]] (ch. 10, the Office of
+Hawaiian Affairs), [[hrs-11-1]] (Title 2, "an elective public office"), and
+[[hrs-11-302]] (Part XIII, excludes federal and neighborhood board). All three are
+correct; which one applies depends entirely on where you are standing.
+
+Two extraction bugs found and fixed, both silent:
+- Scope was bound from a fixed look-back window, so only the **first** term in a
+  definitions list got the declared scope and the rest fell back to chapter default.
+  Now every scope declaration in a section is tracked in order and each term binds to
+  the last one before it, which also handles mid-section shifts like §19-3(b).
+- [[hrs-11-1]] uses older drafting with **no verb at all** (`"Office", an elective
+  public office.`). Its terms were being swallowed into the preceding definition.
+  Comma-form extraction added, trusted only inside sections catchlined "Definitions".
+
+Added `title_group` to the section table. Title-scoped definitions reach every chapter
+in the title, so without it [[hrs-11-1]] failed to resolve for chapters 12 through 19 —
+exactly the inheritance flagged as most important in the corpus ingest.
+
+## [2026-07-24] fetch | enumerated the whole HRS
+
+`tools/enumerate_hrs.py` → `graph/hrs-universe.json`. **14 volumes, 1,108 chapters,
+22,973 sections**, 293 chapters empty or repealed. Directory listings only, no section
+text. The current election corpus is **1.7%** of HRS. No bulk download exists;
+`/hrscurrent/hrs.zip` and `/legislation/` both 404 and `/docs/` is a rendered page,
+so a full harvest is ~24,000 individual requests.

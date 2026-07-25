@@ -40,6 +40,14 @@ def main():
     os.makedirs(GRAPH, exist_ok=True)
     manifest = json.load(open(os.path.join(RAW, "_manifest.json"), encoding="utf-8"))
     sections, edges, problems = {}, [], []
+    # HRS title grouping (e.g. "Title 2. Elections") from the State's master
+    # index.  Needed because definitions scoped to "this title" reach every
+    # chapter in that title - 11-1 governs chapters 11 through 19.
+    try:
+        from build_queue import chapter_titles
+        _titles = chapter_titles()
+    except Exception:                                    # noqa: BLE001
+        _titles = {}
 
     for rec in manifest["sections"]:
         path = os.path.join(RAW, rec["file"])
@@ -66,6 +74,7 @@ def main():
             "id": sid,
             "chapter": chap,
             "chapter_title": CHAPTER_TITLE.get(chap, ""),
+            "title_group": _titles.get(chap, ("", ""))[1],
             "catchline": parts["catchline"],
             "part_heading": parts["part_heading"],
             "subpart_heading": parts["subpart_heading"],
@@ -172,17 +181,18 @@ def main():
     con = sqlite3.connect(db)
     con.executescript("""
     CREATE TABLE section(id TEXT PRIMARY KEY, chapter TEXT, chapter_title TEXT,
-        catchline TEXT, part TEXT, subpart TEXT, history TEXT, repealed INT,
-        operative_chars INT, annotation_chars INT, url TEXT, retrieved TEXT);
+        catchline TEXT, part TEXT, subpart TEXT, title_group TEXT, history TEXT,
+        repealed INT, operative_chars INT, annotation_chars INT, url TEXT, retrieved TEXT);
     CREATE TABLE edge(src TEXT, src_chapter TEXT, zone TEXT, kind TEXT,
         target TEXT, raw TEXT, context TEXT);
     CREATE INDEX edge_src ON edge(src);
     CREATE INDEX edge_tgt ON edge(target);
     CREATE INDEX edge_zone ON edge(zone);
     """)
-    con.executemany("INSERT INTO section VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
+    con.executemany("INSERT INTO section VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
                     [(s["id"], s["chapter"], s["chapter_title"], s["catchline"],
-                      s.get("part", ""), s.get("subpart", ""), s["history"], int(s["repealed"]),
+                      s.get("part", ""), s.get("subpart", ""), s.get("title_group", ""),
+                      s["history"], int(s["repealed"]),
                       s["operative_chars"], s["annotation_chars"], s["url"],
                       s["retrieved"]) for s in ordered.values()])
     con.executemany("INSERT INTO edge VALUES (?,?,?,?,?,?,?)",
