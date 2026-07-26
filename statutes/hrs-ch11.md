@@ -4,7 +4,7 @@ title: "HRS Chapter 11 — Elections, Generally"
 aliases: ["HRS ch. 11", "chapter 11", "HRS Chapter 11"]
 status: verified
 depth: harvested
-last_verified: 2026-07-24
+last_verified: 2026-07-25
 authority: "HRS ch. 11"
 chapter: "11"
 tags: [hrs, ch-11, chapter-index]
@@ -13,7 +13,7 @@ sources: ["[[src-2026-07-24-hrs-election-law-corpus]]"]
 
 # HRS Chapter 11 — Elections, Generally
 
-Index of every section harvested from chapter 11. 212 sections, retrieved 2026-07-24.
+Index of every section harvested from chapter 11. 212 sections, retrieved 2026-07-25.
 
 | Section | Catchline | Refs out | Refs in |
 |---|---|---:|---:|
@@ -56,11 +56,11 @@ Index of every section harvested from chapter 11. 212 sections, retrieved 2026-0
 | [[hrs-11-19\|§11-19]] | Registration from one county to another | 1 |  |
 | [[hrs-11-20\|§11-20]] | Transfers; name changes; initiated by clerk | 1 | 1 |
 | [[hrs-11-21\|§11-21]] | Change of name, transfer on election day | 1 | 5 |
-| [[hrs-11-22\|§11-22]] | Changing register; correction of errors | 1 | 1 |
+| [[hrs-11-22\|§11-22]] | Changing register; correction of errors | 1 | 2 |
 | [[hrs-11-23\|§11-23]] | Changing register; striking names of disqualified voters | 4 |  |
-| [[hrs-11-24\|§11-24]] | Closing register | 3 | 2 |
-| [[hrs-11-25\|§11-25]] | Challenge by voters; grounds; procedure | 2 | 4 |
-| [[hrs-11-26\|§11-26]] | Appeal from ruling on challenge; or failure of clerk to act | 2 | 2 |
+| [[hrs-11-24\|§11-24]] | Closing register | 6 | 2 |
+| [[hrs-11-25\|§11-25]] | Challenge by voters; grounds; procedure | 2 | 5 |
+| [[hrs-11-26\|§11-26]] | Appeal from ruling on challenge; or failure of clerk to act | 2 | 3 |
 | **PART III. BOARDS OF REGISTRATION** | | | |
 | [[hrs-11-41\|§11-41]] | Boards of registration, appointment, tenure |  |  |
 | [[hrs-11-42\|§11-42]] | Compensation | 1 |  |
@@ -165,7 +165,7 @@ Index of every section harvested from chapter 11. 212 sections, retrieved 2026-0
 | [[hrs-11-311\|§11-311]] | Campaign spending commission established; composition | 1 |  |
 | [[hrs-11-312\|§11-312]] | Terms of office |  |  |
 | [[hrs-11-313\|§11-313]] | No compensation |  |  |
-| [[hrs-11-314\|§11-314]] | Duties of the commission | 7 |  |
+| [[hrs-11-314\|§11-314]] | Duties of the commission | 8 |  |
 | [[hrs-11-315\|§11-315]] | Advisory opinions |  |  |
 | [[hrs-11-316\|§11-316]] | Political activities prohibited | 2 |  |
 | [[hrs-11-317\|§11-317]] | Exemptions | 1 |  |
@@ -203,11 +203,11 @@ Index of every section harvested from chapter 11. 212 sections, retrieved 2026-0
 | [[hrs-11-357\|§11-357]] | Contributions to candidate committees; limits |  | 3 |
 | [[hrs-11-358\|§11-358]] | Contributions to noncandidate committees; limits |  | 1 |
 | [[hrs-11-359\|§11-359]] | Family contributions | 1 | 1 |
-| [[hrs-11-360\|§11-360]] | Contributions to a party |  |  |
+| [[hrs-11-360\|§11-360]] | Contributions to a party |  | 1 |
 | [[hrs-11-361\|§11-361]] | Aggregation of contributions and expenditures |  |  |
 | [[hrs-11-362\|§11-362]] | Contributions limited from nonresident persons |  | 1 |
 | [[hrs-11-363\|§11-363]] | Other contributions and expenditures | 1 |  |
-| [[hrs-11-364\|§11-364]] | Excess contribution; return; escheat | 5 |  |
+| [[hrs-11-364\|§11-364]] | Excess contribution; return; escheat | 6 |  |
 | [[hrs-11-365\|§11-365]] | Contributions and expenditures by lobbyists prohibited during legislative session | 2 |  |
 | [[hrs-11-366\|§11-366]] | Solicitations relating to disasters | 1 |  |
 | **PART XIII. CAMPAIGN FINANCE › F. Loans** | | | |
@@ -259,5 +259,5 @@ Index of every section harvested from chapter 11. 212 sections, retrieved 2026-0
 
 ## Provenance
 
-- Generated from `graph/sections.json`, built 2026-07-24.
+- Generated from `graph/sections.json`, built 2026-07-25.
 - Corpus source page: [[src-2026-07-24-hrs-election-law-corpus]]

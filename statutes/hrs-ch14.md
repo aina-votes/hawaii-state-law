@@ -4,7 +4,7 @@ title: "HRS Chapter 14 — Presidential Elections"
 aliases: ["HRS ch. 14", "chapter 14", "HRS Chapter 14"]
 status: verified
 depth: harvested
-last_verified: 2026-07-24
+last_verified: 2026-07-25
 authority: "HRS ch. 14"
 chapter: "14"
 tags: [hrs, ch-14, chapter-index]
@@ -13,7 +13,7 @@ sources: ["[[src-2026-07-24-hrs-election-law-corpus]]"]
 
 # HRS Chapter 14 — Presidential Elections
 
-Index of every section harvested from chapter 14. 13 sections, retrieved 2026-07-24.
+Index of every section harvested from chapter 14. 13 sections, retrieved 2026-07-25.
 
 | Section | Catchline | Refs out | Refs in |
 |---|---|---:|---:|
@@ -39,5 +39,5 @@ Index of every section harvested from chapter 14. 13 sections, retrieved 2026-07
 
 ## Provenance
 
-- Generated from `graph/sections.json`, built 2026-07-24.
+- Generated from `graph/sections.json`, built 2026-07-25.
 - Corpus source page: [[src-2026-07-24-hrs-election-law-corpus]]

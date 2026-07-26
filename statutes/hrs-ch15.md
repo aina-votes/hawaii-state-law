@@ -4,7 +4,7 @@ title: "HRS Chapter 15 — Absentee Voting"
 aliases: ["HRS ch. 15", "chapter 15", "HRS Chapter 15"]
 status: verified
 depth: harvested
-last_verified: 2026-07-24
+last_verified: 2026-07-25
 authority: "HRS ch. 15"
 chapter: "15"
 tags: [hrs, ch-15, chapter-index]
@@ -13,7 +13,7 @@ sources: ["[[src-2026-07-24-hrs-election-law-corpus]]"]
 
 # HRS Chapter 15 — Absentee Voting
 
-Index of every section harvested from chapter 15. 17 sections, retrieved 2026-07-24.
+Index of every section harvested from chapter 15. 17 sections, retrieved 2026-07-25.
 
 | Section | Catchline | Refs out | Refs in |
 |---|---|---:|---:|
@@ -24,7 +24,7 @@ Index of every section harvested from chapter 15. 17 sections, retrieved 2026-07
 | [[hrs-15-3.5\|§15-3.5]] | ~~REPEALED~~ |  |  |
 | [[hrs-15-4\|§15-4]] | Request for absentee ballot |  | 4 |
 | [[hrs-15-5\|§15-5]] | Delivery of ballots | 7 |  |
-| [[hrs-15-6\|§15-6]] | Return envelope, ballot envelope; instructions | 4 | 1 |
+| [[hrs-15-6\|§15-6]] | Return envelope, ballot envelope; instructions | 5 | 1 |
 | [[hrs-15-6.5\|§15-6.5]] | Absentee postage | 2 |  |
 | [[hrs-15-7\|§15-7]] | ~~REPEALED~~ | 1 |  |
 | [[hrs-15-9\|§15-9]] | Return, receipt, processing, and treatment of absentee ballots | 1 | 6 |
@@ -41,5 +41,5 @@ Index of every section harvested from chapter 15. 17 sections, retrieved 2026-07
 
 ## Provenance
 
-- Generated from `graph/sections.json`, built 2026-07-24.
+- Generated from `graph/sections.json`, built 2026-07-25.
 - Corpus source page: [[src-2026-07-24-hrs-election-law-corpus]]

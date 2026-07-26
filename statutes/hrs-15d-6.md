@@ -47,7 +47,7 @@ Citations that appear inside §15D-6 itself. This is the law pointing at other l
 | Target | Kind | As written |
 |---|---|---|
 | [[hrs-11-16|§11-16]] | HRS section | section 11-16 |
-| [[hrs-15d-4|§15D-4]] | HRS section | section 15D-4 |
+| [[hrs-15d-4|§15D-4]] | HRS section | section 15D-4(b) |
 
 ## Referenced by
 

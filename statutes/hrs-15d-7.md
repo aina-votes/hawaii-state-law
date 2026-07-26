@@ -57,7 +57,7 @@ Citations that appear inside §15D-7 itself. This is the law pointing at other l
 |---|---|---|
 | [[hrs-15-4|§15-4]] | HRS section | section 15-4 |
 | [[hrs-15d-6|§15D-6]] | HRS section | section 15D-6 |
-| [[hrs-15d-4|§15D-4]] | HRS section | section 15D-4 |
+| [[hrs-15d-4|§15D-4]] | HRS section | section 15D-4(b) |
 
 ## Amendment history
 

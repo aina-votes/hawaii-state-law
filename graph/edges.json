@@ -1,5 +1,5 @@
 {
- "built": "2026-07-24",
+ "built": "2026-07-25",
  "edges": [
   {
    "src": "10-3",
@@ -25,8 +25,8 @@
    "zone": "annotation",
    "kind": "hrs_section",
    "target": "10-16",
-   "raw": "\u00a710-16",
-   "context": "e suit. 96 H. 388, 31 P.3d 901. Plaintiffs' complaint failed to state a breach of fiduciary duty claim under \u00a710-16(c) where the complaint: (1) did not allege that the office of Hawaiian affairs trustees' spending decisions w"
+   "raw": "\u00a710-16(c)",
+   "context": "e suit. 96 H. 388, 31 P.3d 901. Plaintiffs' complaint failed to state a breach of fiduciary duty claim under \u00a710-16(c) where the complaint: (1) did not allege that the office of Hawaiian affairs trustees' spending decisions were"
   },
   {
    "src": "10-3",
@@ -151,8 +151,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "673-2",
-   "raw": "section 673-2",
-   "context": "salary commission shall be selected from nominations submitted by native Hawaiian organizations as defined in section 673-2(c). The members shall serve without compensation, but shall be entitled to reimbursement for necessary expens"
+   "raw": "section 673-2(c)",
+   "context": "salary commission shall be selected from nominations submitted by native Hawaiian organizations as defined in section 673-2(c). The members shall serve without compensation, but shall be entitled to reimbursement for necessary expenses"
   },
   {
    "src": "10-10",
@@ -349,8 +349,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "10-4",
-   "raw": "section 10-4",
-   "context": "tion of any property, real, personal, or mixed, tangible or intangible, or any interests therein, pursuant to section 10-4(2); (2) Any capital improvement projects on lands held by the office pursuant to section 10-4(2) or in the p"
+   "raw": "section 10-4(2)",
+   "context": "tion of any property, real, personal, or mixed, tangible or intangible, or any interests therein, pursuant to section 10-4(2); (2) Any capital improvement projects on lands held by the office pursuant to section 10-4(2) or in the publ"
   },
   {
    "src": "10-21",
@@ -358,8 +358,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "10-4",
-   "raw": "section 10-4",
-   "context": "n, pursuant to section 10-4(2); (2) Any capital improvement projects on lands held by the office pursuant to section 10-4(2) or in the public land trust, including but not limited to the construction of buildings and other improvem"
+   "raw": "section 10-4(2)",
+   "context": "n, pursuant to section 10-4(2); (2) Any capital improvement projects on lands held by the office pursuant to section 10-4(2) or in the public land trust, including but not limited to the construction of buildings and other improvement"
   },
   {
    "src": "10-21",
@@ -367,8 +367,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "10-5",
-   "raw": "section 10-5",
-   "context": "tions, or both, where those projects or demonstrations fulfill criteria established by the board, pursuant to section 10-5(7); and (4) Any other projects determined by rules adopted by the board pursuant to chapter 91 or otherwise"
+   "raw": "section 10-5(7)",
+   "context": "tions, or both, where those projects or demonstrations fulfill criteria established by the board, pursuant to section 10-5(7); and (4) Any other projects determined by rules adopted by the board pursuant to chapter 91 or otherwise aut"
   },
   {
    "src": "10-21",
@@ -439,8 +439,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "10-41",
-   "raw": "section 10-41",
-   "context": "sources and access rights, and the public trust. (a) All council, board, and commission members identified in section 10-41(a) shall complete the training course administered by the office of Hawaiian affairs pursuant to this section"
+   "raw": "section 10-41(a)",
+   "context": "sources and access rights, and the public trust. (a) All council, board, and commission members identified in section 10-41(a) shall complete the training course administered by the office of Hawaiian affairs pursuant to this section wi"
   },
   {
    "src": "10-42",
@@ -448,8 +448,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "10-41",
-   "raw": "section 10-41",
-   "context": "training course, administer the training course, and notify each council, board, and commission identified in section 10-41(a) that attendance in a training course is mandatory. (d) The office of Hawaiian affairs shall offer the tra"
+   "raw": "section 10-41(a)",
+   "context": "training course, administer the training course, and notify each council, board, and commission identified in section 10-41(a) that attendance in a training course is mandatory. (d) The office of Hawaiian affairs shall offer the traini"
   },
   {
    "src": "11-1",
@@ -808,8 +808,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-15",
-   "raw": "section 11-15",
-   "context": "evidence, the allegation of the person in the application regarding the person's residence in accordance with section 11-15(b), unless the allegation is contested by a qualified voter. The registration clerk may demand that the perso"
+   "raw": "section 11-15(b)",
+   "context": "evidence, the allegation of the person in the application regarding the person's residence in accordance with section 11-15(b), unless the allegation is contested by a qualified voter. The registration clerk may demand that the person f"
   },
   {
    "src": "11-15.2",
@@ -817,8 +817,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-15",
-   "raw": "section 11-15",
-   "context": "erson furnish substantiating evidence to the other allegations of the person's application in accordance with section 11-15(b). If additional time or information is required to validate an application, the applicant shall be provided"
+   "raw": "section 11-15(b)",
+   "context": "erson furnish substantiating evidence to the other allegations of the person's application in accordance with section 11-15(b). If additional time or information is required to validate an application, the applicant shall be provided a"
   },
   {
    "src": "11-15.2",
@@ -898,8 +898,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-15",
-   "raw": "section 11-15",
-   "context": "the examiner of drivers pursuant to this section shall be treated as having a valid signature for purposes of section 11-15(c), whether transmitted electronically or by facsimile transmission. Upon the clerk's approval of the voter r"
+   "raw": "section 11-15(c)",
+   "context": "the examiner of drivers pursuant to this section shall be treated as having a valid signature for purposes of section 11-15(c), whether transmitted electronically or by facsimile transmission. Upon the clerk's approval of the voter regi"
   },
   {
    "src": "11-15.7",
@@ -943,8 +943,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-12",
-   "raw": "section 11-12",
-   "context": "ld during the two previous federal election cycles with the exception of anyone who preregistered pursuant to section 11-12(b). For this purpose, \"vote\" means the depositing of the ballot in the ballot box regardless of whether the b"
+   "raw": "section 11-12(b)",
+   "context": "ld during the two previous federal election cycles with the exception of anyone who preregistered pursuant to section 11-12(b). For this purpose, \"vote\" means the depositing of the ballot in the ballot box regardless of whether the ball"
   },
   {
    "src": "11-17",
@@ -961,7 +961,7 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-21",
-   "raw": "section 11-21",
+   "raw": "section 11-21(c)",
    "context": "allowed if the change of residence occurs after the close of registration for an election except pursuant to section 11-21(c). The change of registration due to a change of residence may be challenged as provided in section 11-25."
   },
   {
@@ -979,8 +979,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-21",
-   "raw": "section 11-21",
-   "context": "no change of registration shall be allowed after the close of registration for an election except pursuant to section 11-21(c). Thereupon, if the person applying is legally qualified to register, the clerk shall accept the registrati"
+   "raw": "section 11-21(c)",
+   "context": "no change of registration shall be allowed after the close of registration for an election except pursuant to section 11-21(c). Thereupon, if the person applying is legally qualified to register, the clerk shall accept the registration"
   },
   {
    "src": "11-20",
@@ -1006,8 +1006,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-17",
-   "raw": "section 11-17",
-   "context": "een accidentally registered under the wrong precinct, or that the person was accidentally removed pursuant to section 11-17(a), or that the name of the person should be corrected or restored pursuant to section 11-17(b). (b) In any"
+   "raw": "section 11-17(a)",
+   "context": "een accidentally registered under the wrong precinct, or that the person was accidentally removed pursuant to section 11-17(a), or that the name of the person should be corrected or restored pursuant to section 11-17(b). (b) In any cas"
   },
   {
    "src": "11-22",
@@ -1015,8 +1015,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-17",
-   "raw": "section 11-17",
-   "context": "oved pursuant to section 11-17(a), or that the name of the person should be corrected or restored pursuant to section 11-17(b). (b) In any case where the clerk refuses to correct the register, the person may appeal to the board of r"
+   "raw": "section 11-17(b)",
+   "context": "oved pursuant to section 11-17(a), or that the name of the person should be corrected or restored pursuant to section 11-17(b). (b) In any case where the clerk refuses to correct the register, the person may appeal to the board of regi"
   },
   {
    "src": "11-23",
@@ -1060,8 +1060,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-15.2",
-   "raw": "sections 11-15.2, 11-21",
-   "context": "ing to vote and remain closed to registration until after the election, subject to change only as provided in sections 11-15.2, 11-21(c), 11-22, 11-25, 11-26, and this section. (b) Notwithstanding the time of closing the general county regist"
+   "raw": "sections 11-15.2, 11-21(c), 11-22, 11-25, 11-26",
+   "context": "ing to vote and remain closed to registration until after the election, subject to change only as provided in sections 11-15.2, 11-21(c), 11-22, 11-25, 11-26, and this section. (b) Notwithstanding the time of closing the general county registrar under subsection (a)"
   },
   {
    "src": "11-24",
@@ -1069,8 +1069,35 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-21",
-   "raw": "sections 11-15.2, 11-21",
-   "context": "ing to vote and remain closed to registration until after the election, subject to change only as provided in sections 11-15.2, 11-21(c), 11-22, 11-25, 11-26, and this section. (b) Notwithstanding the time of closing the general county regist"
+   "raw": "sections 11-15.2, 11-21(c), 11-22, 11-25, 11-26",
+   "context": "ing to vote and remain closed to registration until after the election, subject to change only as provided in sections 11-15.2, 11-21(c), 11-22, 11-25, 11-26, and this section. (b) Notwithstanding the time of closing the general county registrar under subsection (a)"
+  },
+  {
+   "src": "11-24",
+   "src_chapter": "11",
+   "zone": "operative",
+   "kind": "hrs_section",
+   "target": "11-22",
+   "raw": "sections 11-15.2, 11-21(c), 11-22, 11-25, 11-26",
+   "context": "ing to vote and remain closed to registration until after the election, subject to change only as provided in sections 11-15.2, 11-21(c), 11-22, 11-25, 11-26, and this section. (b) Notwithstanding the time of closing the general county registrar under subsection (a)"
+  },
+  {
+   "src": "11-24",
+   "src_chapter": "11",
+   "zone": "operative",
+   "kind": "hrs_section",
+   "target": "11-25",
+   "raw": "sections 11-15.2, 11-21(c), 11-22, 11-25, 11-26",
+   "context": "ing to vote and remain closed to registration until after the election, subject to change only as provided in sections 11-15.2, 11-21(c), 11-22, 11-25, 11-26, and this section. (b) Notwithstanding the time of closing the general county registrar under subsection (a)"
+  },
+  {
+   "src": "11-24",
+   "src_chapter": "11",
+   "zone": "operative",
+   "kind": "hrs_section",
+   "target": "11-26",
+   "raw": "sections 11-15.2, 11-21(c), 11-22, 11-25, 11-26",
+   "context": "ing to vote and remain closed to registration until after the election, subject to change only as provided in sections 11-15.2, 11-21(c), 11-22, 11-25, 11-26, and this section. (b) Notwithstanding the time of closing the general county registrar under subsection (a)"
   },
   {
    "src": "11-24",
@@ -1204,7 +1231,7 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-25",
-   "raw": "section 11-25",
+   "raw": "section 11-25(c)",
    "context": "ion before the appeal is decided and acted upon, the ballot of such voter shall be handled in accordance with section 11-25(c)."
   },
   {
@@ -1258,8 +1285,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-61",
-   "raw": "section 11-61",
-   "context": "having been qualified as a political party for three consecutive general elections by petition or pursuant to section 11-61(b), shall be deemed a political party for the following ten-year period. The ten-year period shall begin with"
+   "raw": "section 11-61(b)",
+   "context": "having been qualified as a political party for three consecutive general elections by petition or pursuant to section 11-61(b), shall be deemed a political party for the following ten-year period. The ten-year period shall begin with th"
   },
   {
    "src": "11-62",
@@ -1420,7 +1447,7 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-104",
-   "raw": "section 11-104",
+   "raw": "section 11-104(c)",
    "context": "the return identification envelope containing the marked replacement ballot in the same manner as provided in section 11-104(c)."
   },
   {
@@ -1483,8 +1510,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-104",
-   "raw": "section 11-104",
-   "context": "k or the clerk's designee no later than the closing hour of voting; or (2) In the same manner as provided in section 11-104(c). (c) A voter with special needs may request that a ballot be forwarded by electronic transmission at any"
+   "raw": "section 11-104(c)",
+   "context": "k or the clerk's designee no later than the closing hour of voting; or (2) In the same manner as provided in section 11-104(c). (c) A voter with special needs may request that a ballot be forwarded by electronic transmission at any tim"
   },
   {
    "src": "11-108",
@@ -1519,7 +1546,7 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-104",
-   "raw": "section 11-104",
+   "raw": "section 11-104(c)",
    "context": "ng the optional secrecy envelope or secrecy sleeve with the marked ballot in any manner permitted pursuant to section 11-104(c); or (2) Completed voting in person at a voter service center."
   },
   {
@@ -1654,8 +1681,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "12-41",
-   "raw": "section 12-41",
-   "context": "partisan races, if, but for candidate's vacancy, the vacating candidate would have been nominated pursuant to section 12-41(a), a vacancy shall exist in the party's nomination, to be filled in accordance with subsection (b); and (B)"
+   "raw": "section 12-41(a)",
+   "context": "partisan races, if, but for candidate's vacancy, the vacating candidate would have been nominated pursuant to section 12-41(a), a vacancy shall exist in the party's nomination, to be filled in accordance with subsection (b); and (B) In"
   },
   {
    "src": "11-118",
@@ -1663,8 +1690,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "12-41",
-   "raw": "section 12-41",
-   "context": "candidate would have qualified as a candidate for the general or special general election ballot pursuant to section 12-41(b), the nonpartisan candidate who received the next highest number of votes shall be placed on the ballot; pr"
+   "raw": "section 12-41(b)",
+   "context": "candidate would have qualified as a candidate for the general or special general election ballot pursuant to section 12-41(b), the nonpartisan candidate who received the next highest number of votes shall be placed on the ballot; provi"
   },
   {
    "src": "11-118",
@@ -1672,8 +1699,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "12-41",
-   "raw": "section 12-41",
-   "context": "est number of votes shall be placed on the ballot; provided that the candidate also meets the requirements of section 12-41(b); (2) In a special, general, or special general election, if, but for the candidate's vacancy, the vacatin"
+   "raw": "section 12-41(b)",
+   "context": "est number of votes shall be placed on the ballot; provided that the candidate also meets the requirements of section 12-41(b); (2) In a special, general, or special general election, if, but for the candidate's vacancy, the vacating c"
   },
   {
    "src": "11-118",
@@ -1681,7 +1708,7 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "12-41",
-   "raw": "section 12-41",
+   "raw": "section 12-41(a)",
    "context": "on, \"party candidate\" means the person or persons who would be the candidate or candidates of the party under section 12-41(a)."
   },
   {
@@ -1699,8 +1726,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-122",
-   "raw": "section 11-122",
-   "context": "and (3) Distribute each statement, including the translations, to the state office of elections pursuant to section 11-122(b) and all county clerks for further distribution. The office of elections and county clerks shall make the"
+   "raw": "section 11-122(b)",
+   "context": "and (3) Distribute each statement, including the translations, to the state office of elections pursuant to section 11-122(b) and all county clerks for further distribution. The office of elections and county clerks shall make the sta"
   },
   {
    "src": "11-118.5",
@@ -1735,8 +1762,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-118.5",
-   "raw": "section 11-118.5",
-   "context": "each state constitutional amendment that will be proposed to voters in the next general election pursuant to section 11-118.5(b); provided that the department of the attorney general shall transmit the materials required by this paragr"
+   "raw": "section 11-118.5(b)",
+   "context": "each state constitutional amendment that will be proposed to voters in the next general election pursuant to section 11-118.5(b); provided that the department of the attorney general shall transmit the materials required by this paragraph"
   },
   {
    "src": "11-122",
@@ -2014,7 +2041,7 @@
    "zone": "annotation",
    "kind": "hrs_section",
    "target": "11-174.5",
-   "raw": "\u00a711-174.5",
+   "raw": "\u00a711-174.5(b)",
    "context": "n the election results and the remedy of ordering a new election with televised debates was not authorized by \u00a711-174.5(b). 119 H. 337, 198 P.3d 124."
   },
   {
@@ -2077,8 +2104,8 @@
    "zone": "annotation",
    "kind": "hrs_section",
    "target": "11-391",
-   "raw": "\u00a711-391",
-   "context": "tiff noncandidate committee and government contractor's as-applied challenge to the disclaimer requirement in \u00a711-391(a)(2)(B) and the corresponding definition of \"advertisement\" in this section, which included the \"electioneer"
+   "raw": "\u00a711-391(a)",
+   "context": "tiff noncandidate committee and government contractor's as-applied challenge to the disclaimer requirement in \u00a711-391(a)(2)(B) and the corresponding definition of \"advertisement\" in this section, which included the \"electioneering"
   },
   {
    "src": "11-302",
@@ -2086,8 +2113,8 @@
    "zone": "annotation",
    "kind": "hrs_section",
    "target": "11-341",
-   "raw": "\u00a711-341",
-   "context": "inition of \"advertisement\" in this section, which included the \"electioneering communications\" definitions in \u00a711-341(c), rejected; the court concluded that the plaintiff's advertisements fit within the regulatory \"safe harbor\""
+   "raw": "\u00a711-341(c)",
+   "context": "inition of \"advertisement\" in this section, which included the \"electioneering communications\" definitions in \u00a711-341(c), rejected; the court concluded that the plaintiff's advertisements fit within the regulatory \"safe harbor\"--t"
   },
   {
    "src": "11-302",
@@ -2095,8 +2122,8 @@
    "zone": "annotation",
    "kind": "hrs_section",
    "target": "11-341",
-   "raw": "\u00a711-341",
-   "context": "ement\" that was an \"electioneering communication\" and was the functional equivalent of express advocacy under \u00a711-341(c). 872 F. Supp. 2d 1023 (2012). Plaintiff noncandidate committee and government contractor's challenge to t"
+   "raw": "\u00a711-341(c)",
+   "context": "ement\" that was an \"electioneering communication\" and was the functional equivalent of express advocacy under \u00a711-341(c). 872 F. Supp. 2d 1023 (2012). Plaintiff noncandidate committee and government contractor's challenge to the"
   },
   {
    "src": "11-304",
@@ -2212,8 +2239,8 @@
    "zone": "operative",
    "kind": "hrs_chapter",
    "target": "ch:76",
-   "raw": "chapters 76, 78",
-   "context": "n connection with reports and records required by this part; (12) Employ or contract with, without regard to chapters 76, 78, and 89, persons it finds necessary for the performance of its functions, including a full-time executive dir"
+   "raw": "chapters 76, 78, and 89",
+   "context": "n connection with reports and records required by this part; (12) Employ or contract with, without regard to chapters 76, 78, and 89, persons it finds necessary for the performance of its functions, including a full-time executive director, a"
   },
   {
    "src": "11-314",
@@ -2221,8 +2248,17 @@
    "zone": "operative",
    "kind": "hrs_chapter",
    "target": "ch:78",
-   "raw": "chapters 76, 78",
-   "context": "n connection with reports and records required by this part; (12) Employ or contract with, without regard to chapters 76, 78, and 89, persons it finds necessary for the performance of its functions, including a full-time executive dir"
+   "raw": "chapters 76, 78, and 89",
+   "context": "n connection with reports and records required by this part; (12) Employ or contract with, without regard to chapters 76, 78, and 89, persons it finds necessary for the performance of its functions, including a full-time executive director, a"
+  },
+  {
+   "src": "11-314",
+   "src_chapter": "11",
+   "zone": "operative",
+   "kind": "hrs_chapter",
+   "target": "ch:89",
+   "raw": "chapters 76, 78, and 89",
+   "context": "n connection with reports and records required by this part; (12) Employ or contract with, without regard to chapters 76, 78, and 89, persons it finds necessary for the performance of its functions, including a full-time executive director, a"
   },
   {
    "src": "11-316",
@@ -2248,8 +2284,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "26-35",
-   "raw": "section 26-35",
-   "context": "[\u00a711-317] Exemptions. (a) The commission shall be exempt from section 26-35(a)(1), (4), and (5) and shall: (1) Make direct communications with the governor and legislature; (2) Make a"
+   "raw": "section 26-35(a)",
+   "context": "[\u00a711-317] Exemptions. (a) The commission shall be exempt from section 26-35(a)(1), (4), and (5) and shall: (1) Make direct communications with the governor and legislature; (2) Make all"
   },
   {
    "src": "11-321",
@@ -2419,8 +2455,8 @@
    "zone": "annotation",
    "kind": "hrs_section",
    "target": "11-391",
-   "raw": "\u00a711-391",
-   "context": "tiff noncandidate committee and government contractor's as-applied challenge to the disclaimer requirement in \u00a711-391(a)(2)(B) and the corresponding definition of \"advertisement\" in \u00a711-302, which included the \"electioneering c"
+   "raw": "\u00a711-391(a)",
+   "context": "tiff noncandidate committee and government contractor's as-applied challenge to the disclaimer requirement in \u00a711-391(a)(2)(B) and the corresponding definition of \"advertisement\" in \u00a711-302, which included the \"electioneering comm"
   },
   {
    "src": "11-341",
@@ -2482,8 +2518,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-357",
-   "raw": "section 11-357, 11-358, 11-359",
-   "context": "ttee, or noncandidate committee that receives in the aggregate more than the applicable contribution limit in section 11-357, 11-358, 11-359, or 11-360 shall return any excess contribution to the contributor within thirty days of receipt of the exces"
+   "raw": "section 11-357, 11-358, 11-359, or 11-360",
+   "context": "ttee, or noncandidate committee that receives in the aggregate more than the applicable contribution limit in section 11-357, 11-358, 11-359, or 11-360 shall return any excess contribution to the contributor within thirty days of receipt of the excess contribut"
   },
   {
    "src": "11-364",
@@ -2491,8 +2527,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-358",
-   "raw": "section 11-357, 11-358, 11-359",
-   "context": "ttee, or noncandidate committee that receives in the aggregate more than the applicable contribution limit in section 11-357, 11-358, 11-359, or 11-360 shall return any excess contribution to the contributor within thirty days of receipt of the exces"
+   "raw": "section 11-357, 11-358, 11-359, or 11-360",
+   "context": "ttee, or noncandidate committee that receives in the aggregate more than the applicable contribution limit in section 11-357, 11-358, 11-359, or 11-360 shall return any excess contribution to the contributor within thirty days of receipt of the excess contribut"
   },
   {
    "src": "11-364",
@@ -2500,8 +2536,17 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-359",
-   "raw": "section 11-357, 11-358, 11-359",
-   "context": "ttee, or noncandidate committee that receives in the aggregate more than the applicable contribution limit in section 11-357, 11-358, 11-359, or 11-360 shall return any excess contribution to the contributor within thirty days of receipt of the exces"
+   "raw": "section 11-357, 11-358, 11-359, or 11-360",
+   "context": "ttee, or noncandidate committee that receives in the aggregate more than the applicable contribution limit in section 11-357, 11-358, 11-359, or 11-360 shall return any excess contribution to the contributor within thirty days of receipt of the excess contribut"
+  },
+  {
+   "src": "11-364",
+   "src_chapter": "11",
+   "zone": "operative",
+   "kind": "hrs_section",
+   "target": "11-360",
+   "raw": "section 11-357, 11-358, 11-359, or 11-360",
+   "context": "ttee, or noncandidate committee that receives in the aggregate more than the applicable contribution limit in section 11-357, 11-358, 11-359, or 11-360 shall return any excess contribution to the contributor within thirty days of receipt of the excess contribut"
   },
   {
    "src": "11-364",
@@ -2761,8 +2806,8 @@
    "zone": "annotation",
    "kind": "hrs_section",
    "target": "11-341",
-   "raw": "\u00a711-341",
-   "context": "g definition of \"advertisement\" in \u00a711-302, which included the \"electioneering communications\" definitions in \u00a711-341(c), rejected; the court concluded that the plaintiff's advertisements fit within the regulatory \"safe harbor\""
+   "raw": "\u00a711-341(c)",
+   "context": "g definition of \"advertisement\" in \u00a711-302, which included the \"electioneering communications\" definitions in \u00a711-341(c), rejected; the court concluded that the plaintiff's advertisements fit within the regulatory \"safe harbor\"--t"
   },
   {
    "src": "11-391",
@@ -2770,8 +2815,8 @@
    "zone": "annotation",
    "kind": "hrs_section",
    "target": "11-341",
-   "raw": "\u00a711-341",
-   "context": "ement\" that was an \"electioneering communication\" and was the functional equivalent of express advocacy under \u00a711-341(c). 872 F. Supp. 2d 1023 (2012). Plaintiff noncandidate committee and government contractor's facial challen"
+   "raw": "\u00a711-341(c)",
+   "context": "ement\" that was an \"electioneering communication\" and was the functional equivalent of express advocacy under \u00a711-341(c). 872 F. Supp. 2d 1023 (2012). Plaintiff noncandidate committee and government contractor's facial challenge"
   },
   {
    "src": "11-393",
@@ -2851,8 +2896,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-405",
-   "raw": "section 11-405",
-   "context": "quest a contested case hearing within thirty days of receipt of the preliminary determination, as provided in section 11-405(b). (c) If an administrative fine is imposed upon a candidate or noncandidate committee, the commission may"
+   "raw": "section 11-405(b)",
+   "context": "quest a contested case hearing within thirty days of receipt of the preliminary determination, as provided in section 11-405(b). (c) If an administrative fine is imposed upon a candidate or noncandidate committee, the commission may ord"
   },
   {
    "src": "11-410",
@@ -2869,7 +2914,7 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-340",
-   "raw": "sections 11-340 and 11-391",
+   "raw": "sections 11-340 and 11-391(b)",
    "context": "before the commencement of proceedings under this section, has paid or agreed to pay the fines prescribed by sections 11-340 and 11-391(b)."
   },
   {
@@ -2878,7 +2923,7 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-391",
-   "raw": "sections 11-340 and 11-391",
+   "raw": "sections 11-340 and 11-391(b)",
    "context": "before the commencement of proceedings under this section, has paid or agreed to pay the fines prescribed by sections 11-340 and 11-391(b)."
   },
   {
@@ -2941,8 +2986,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "235-102.5",
-   "raw": "section 235-102.5",
-   "context": "collected from persons who have designated a portion of their income tax liability to the fund as provided in section 235-102.5(a); (2) Any general fund appropriations; and (3) Other moneys collected pursuant to this part. (c) Moneys"
+   "raw": "section 235-102.5(a)",
+   "context": "collected from persons who have designated a portion of their income tax liability to the fund as provided in section 235-102.5(a); (2) Any general fund appropriations; and (3) Other moneys collected pursuant to this part. (c) Moneys in"
   },
   {
    "src": "11-421",
@@ -2968,8 +3013,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-423",
-   "raw": "section 11-423",
-   "context": "governor, lieutenant governor, or mayor shall not exceed ten per cent of the expenditure limit established in section 11-423(d) for each election. (b) The maximum amount of public funds available in each election to a candidate for t"
+   "raw": "section 11-423(d)",
+   "context": "governor, lieutenant governor, or mayor shall not exceed ten per cent of the expenditure limit established in section 11-423(d) for each election. (b) The maximum amount of public funds available in each election to a candidate for the"
   },
   {
    "src": "11-425",
@@ -2977,8 +3022,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "11-423",
-   "raw": "section 11-423",
-   "context": "il member, and prosecuting attorney shall not exceed fifteen per cent of the expenditure limit established in section 11-423(d) for each election. (c) For the office of Hawaiian affairs, the maximum amount of public funds available t"
+   "raw": "section 11-423(d)",
+   "context": "il member, and prosecuting attorney shall not exceed fifteen per cent of the expenditure limit established in section 11-423(d) for each election. (c) For the office of Hawaiian affairs, the maximum amount of public funds available to a"
   },
   {
    "src": "11-425",
@@ -3166,8 +3211,8 @@
    "zone": "annotation",
    "kind": "hrs_section",
    "target": "12-3",
-   "raw": "\u00a712-3",
-   "context": "Case Notes Where individual did not sign the \"certification by the partisan candidate\", as mandated by \u00a712-3(a), and either the \"oath of loyalty\" or the \"affirmation\", as mandated by this section, the individual's inco"
+   "raw": "\u00a712-3(a)",
+   "context": "Case Notes Where individual did not sign the \"certification by the partisan candidate\", as mandated by \u00a712-3(a), and either the \"oath of loyalty\" or the \"affirmation\", as mandated by this section, the individual's incompl"
   },
   {
    "src": "12-8",
@@ -3184,8 +3229,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "91-1",
-   "raw": "section 91-1",
-   "context": "all be construed to extend to the candidate a right to an administrative contested case hearing as defined in section 91-1(5). The chief election officer or the clerk in the case of county offices shall render a preliminary decision"
+   "raw": "section 91-1(5)",
+   "context": "all be construed to extend to the candidate a right to an administrative contested case hearing as defined in section 91-1(5). The chief election officer or the clerk in the case of county offices shall render a preliminary decision no"
   },
   {
    "src": "12-8",
@@ -3382,8 +3427,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "14-21",
-   "raw": "section 14-21",
-   "context": "fy as a substitute elector under subsection (b), an individual who has not executed the pledge required under section 14-21(b) shall execute the following pledge: \"I agree to serve and to mark my ballots for president and vice presid"
+   "raw": "section 14-21(b)",
+   "context": "fy as a substitute elector under subsection (b), an individual who has not executed the pledge required under section 14-21(b) shall execute the following pledge: \"I agree to serve and to mark my ballots for president and vice president"
   },
   {
    "src": "14-28",
@@ -3400,8 +3445,17 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "14-21",
-   "raw": "section 14-21",
-   "context": "llots and accept as cast all ballots of electors whose votes are consistent with their pledges executed under section 14-21(b) or 14-27(c). Except as otherwise provided by law, the chief election officer shall not accept and shall no"
+   "raw": "section 14-21(b) or 14-27(c)",
+   "context": "llots and accept as cast all ballots of electors whose votes are consistent with their pledges executed under section 14-21(b) or 14-27(c). Except as otherwise provided by law, the chief election officer shall not accept and shall not count either"
+  },
+  {
+   "src": "14-28",
+   "src_chapter": "14",
+   "zone": "operative",
+   "kind": "hrs_section",
+   "target": "14-27",
+   "raw": "section 14-21(b) or 14-27(c)",
+   "context": "llots and accept as cast all ballots of electors whose votes are consistent with their pledges executed under section 14-21(b) or 14-27(c). Except as otherwise provided by law, the chief election officer shall not accept and shall not count either"
   },
   {
    "src": "14-28",
@@ -3409,8 +3463,17 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "14-21",
-   "raw": "section 14-21",
-   "context": "presents an unmarked ballot, or presents a ballot marked in violation of the elector's pledge executed under section 14-21(b) or 14-27(c) shall vacate the office of elector, creating a vacant position to be filled pursuant to sectio"
+   "raw": "section 14-21(b) or 14-27(c)",
+   "context": "presents an unmarked ballot, or presents a ballot marked in violation of the elector's pledge executed under section 14-21(b) or 14-27(c) shall vacate the office of elector, creating a vacant position to be filled pursuant to section 14-27. (d) T"
+  },
+  {
+   "src": "14-28",
+   "src_chapter": "14",
+   "zone": "operative",
+   "kind": "hrs_section",
+   "target": "14-27",
+   "raw": "section 14-21(b) or 14-27(c)",
+   "context": "presents an unmarked ballot, or presents a ballot marked in violation of the elector's pledge executed under section 14-21(b) or 14-27(c) shall vacate the office of elector, creating a vacant position to be filled pursuant to section 14-27. (d) T"
   },
   {
    "src": "14-28",
@@ -3571,7 +3634,7 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "19-3",
-   "raw": "sections 19-3, 19-3.5, 19-4",
+   "raw": "sections 19-3, 19-3.5, 19-4, and 19-6",
    "context": "r's ballot will be valid only if the affirmation statement is signed, materials summarizing the provisions in sections 19-3, 19-3.5, 19-4, and 19-6, and any other information prescribed by the rules promulgated by the chief election officer."
   },
   {
@@ -3580,7 +3643,7 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "19-3.5",
-   "raw": "sections 19-3, 19-3.5, 19-4",
+   "raw": "sections 19-3, 19-3.5, 19-4, and 19-6",
    "context": "r's ballot will be valid only if the affirmation statement is signed, materials summarizing the provisions in sections 19-3, 19-3.5, 19-4, and 19-6, and any other information prescribed by the rules promulgated by the chief election officer."
   },
   {
@@ -3589,7 +3652,16 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "19-4",
-   "raw": "sections 19-3, 19-3.5, 19-4",
+   "raw": "sections 19-3, 19-3.5, 19-4, and 19-6",
+   "context": "r's ballot will be valid only if the affirmation statement is signed, materials summarizing the provisions in sections 19-3, 19-3.5, 19-4, and 19-6, and any other information prescribed by the rules promulgated by the chief election officer."
+  },
+  {
+   "src": "15-6",
+   "src_chapter": "15",
+   "zone": "operative",
+   "kind": "hrs_section",
+   "target": "19-6",
+   "raw": "sections 19-3, 19-3.5, 19-4, and 19-6",
    "context": "r's ballot will be valid only if the affirmation statement is signed, materials summarizing the provisions in sections 19-3, 19-3.5, 19-4, and 19-6, and any other information prescribed by the rules promulgated by the chief election officer."
   },
   {
@@ -3724,8 +3796,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "15D-4",
-   "raw": "section 15D-4",
-   "context": "tion 11-16. (c) The chief election officer shall ensure that the electronic transmission system described in section 15D-4(b) is capable of accepting both a federal postcard application and any other approved electronic registration"
+   "raw": "section 15D-4(b)",
+   "context": "tion 11-16. (c) The chief election officer shall ensure that the electronic transmission system described in section 15D-4(b) is capable of accepting both a federal postcard application and any other approved electronic registration ap"
   },
   {
    "src": "15D-7",
@@ -3751,8 +3823,8 @@
    "zone": "operative",
    "kind": "hrs_section",
    "target": "15D-4",
-   "raw": "section 15D-4",
-   "context": "eas ballot. (c) The chief election officer shall ensure that the electronic transmission system described in section 15D-4(b) is capable of accepting the submission of both a federal postcard application and any other approved elect"
+   "raw": "section 15D-4(b)",
+   "context": "eas ballot. (c) The chief election officer shall ensure that the electronic transmission system described in section 15D-4(b) is capable of accepting the submission of both a federal postcard application and any other approved electron"
   },
   {
    "src": "15D-7",
@@ -4030,7 +4102,7 @@
    "zone": "annotation",
    "kind": "hrs_section",
    "target": "701-107",
-   "raw": "\u00a7\u00a7701-107, 706-610",
+   "raw": "\u00a7\u00a7701-107, 706-610(2)",
    "context": "Cross References Classification of offense and authorized punishment, see \u00a7\u00a7701-107, 706-610(2), 640, 660."
   },
   {
@@ -4039,7 +4111,7 @@
    "zone": "annotation",
    "kind": "hrs_section",
    "target": "706-610",
-   "raw": "\u00a7\u00a7701-107, 706-610",
+   "raw": "\u00a7\u00a7701-107, 706-610(2)",
    "context": "Cross References Classification of offense and authorized punishment, see \u00a7\u00a7701-107, 706-610(2), 640, 660."
   },
   {

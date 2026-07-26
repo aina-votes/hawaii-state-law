@@ -4,7 +4,7 @@ title: "HRS Chapter 12 — Primary Elections"
 aliases: ["HRS ch. 12", "chapter 12", "HRS Chapter 12"]
 status: verified
 depth: harvested
-last_verified: 2026-07-24
+last_verified: 2026-07-25
 authority: "HRS ch. 12"
 chapter: "12"
 tags: [hrs, ch-12, chapter-index]
@@ -13,7 +13,7 @@ sources: ["[[src-2026-07-24-hrs-election-law-corpus]]"]
 
 # HRS Chapter 12 — Primary Elections
 
-Index of every section harvested from chapter 12. 17 sections, retrieved 2026-07-24.
+Index of every section harvested from chapter 12. 17 sections, retrieved 2026-07-25.
 
 | Section | Catchline | Refs out | Refs in |
 |---|---|---:|---:|
@@ -45,5 +45,5 @@ Index of every section harvested from chapter 12. 17 sections, retrieved 2026-07
 
 ## Provenance
 
-- Generated from `graph/sections.json`, built 2026-07-24.
+- Generated from `graph/sections.json`, built 2026-07-25.
 - Corpus source page: [[src-2026-07-24-hrs-election-law-corpus]]

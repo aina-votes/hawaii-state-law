@@ -135,15 +135,19 @@ Anyone reading the 2001 table, or an aggregator that mirrored it, gets a dead ch
 
 ## What this graph does not claim
 
-1. **It is not the rule text.** No `operative` zone exists yet. Every claim here is about
-   *structure and cross-reference*, not content.
+1. **It is mostly not the rule text.** *(Narrowed 2026-07-25: [[har-3-160]] and [[har-3-161]]
+   are now harvested in full — 121 sections with all five zones, in `graph/har-rules.json` and
+   as `har/` pages; see [[src-2026-07-25-csc-har-rules]].)* For every other chapter, every claim
+   here is about *structure and cross-reference*, not content.
 2. **`implements` is the agency's assertion**, compiled by the LRB — not the revisor's
    determination and not a court's. See [[src-2026-07-25-lrb-har-table-and-directory]].
 3. **Absence of an edge proves nothing.** Rules never converted to HAR format, and rules exempt from
    HRS chapter 91, are absent from the source entirely.
-4. **`auth` is missing.** The authority relation cannot be read off the LRB table at all; it only
-   exists in the rule text. Any question of the form "did the agency have power to adopt this?"
-   is unanswerable from this graph today.
+4. **`auth` is missing outside the CSC chapters.** *(Narrowed 2026-07-25.)* The authority
+   relation cannot be read off the LRB table; it only exists in rule text. The 3-160/3-161
+   harvest put the graph's first `authorized_by` edges in — the CSC's power to adopt each rule
+   now traces (nearly all to §11-314(8); 3-161's procedure adds §91-2). For every other title
+   the question stays unanswerable until its text is harvested.
 5. **The enumeration is current to 2026-01-01**, the LRB's filing cutoff. Rules filed in the first
    half of 2026 are not here.
 6. **The source contradicts itself in six places** and those are preserved, not resolved. Most

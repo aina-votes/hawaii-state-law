@@ -62,7 +62,8 @@ Hawaii State Law/
 **Filenames** are kebab-case, no spaces, no ʻokina in the filename (ʻokina goes in the `title:`
 and in `aliases:`, because it breaks exact-match search).
 
-- Statutes: `hrs-11-102.md`, `hrs-11-357.md`, `har-3-160-01.md`
+- Statutes: `hrs-11-102.md`, `hrs-11-357.md`; rules: `har-3-160-2.md` (never zero-padded —
+  match the citation, `§3-160-2` not `§3-160-02`; `tools/har_lib.py slug()` is canonical)
 - **Decimal sections keep the dot**: §11-15.2 is `hrs-11-15.2.md`, linked `[[hrs-11-15.2]]`.
   Obsidian strips only the final `.md`, so this resolves. Match the citation, do not re-spell it.
 - Chapter hubs: `hrs-ch11.md`, `hrs-ch15d.md`
@@ -79,7 +80,7 @@ worth writing, and the lint pass harvests them.
 
 ```yaml
 ---
-type: statute | concept | agency | procedure | opinion | source | question | synthesis
+type: statute | rule | concept | agency | procedure | opinion | source | question | synthesis
 title: HRS §11-102 — Procedures for conducting elections by mail
 aliases: []                    # alternate names, ʻokina spellings, common shorthand
 status: verified | derived | unverified | contested | superseded
@@ -348,6 +349,24 @@ python tools/har_sources.py    #         -> graph/har-sources.json   (where each
 ```
 
 `--fetch` on `har_directory.py` re-pulls the PDF (needed after a new LRB edition).
+
+HAR **rule text** (added 2026-07-25, first ingest: the CSC chapters 3-160/3-161):
+
+```
+# curl the chapter PDF to raw/har/_pdf/ first, then register it in har_text.py CHAPTERS
+python tools/har_text.py        # PDF -> raw/har/har-<ch>.txt (verbatim) + _manifest.json
+python tools/har_rules.py       # parse -> graph/har-rules.json + har_text_problems.json
+python tools/har_build_pages.py # write -> har/ (curated blocks preserved)
+```
+
+Chapter PDFs are scans with a received-stamp that bleeds into the text layer, and the
+defects are per-instance ugly: broken source-note brackets, hyphens dropped inside
+citations, stamp digits glued onto section numbers. `har_rules.py` repairs ONLY with
+corroboration (the LRB Table's edge for that same rule, or existence in the harvested HRS
+corpus) and logs every repair to `graph/har_text_problems.json`; uncorroborated residue is
+flagged, never guessed. Validation stack: TOC-vs-body assertion + exhaustive Auth/Imp token
+sweep + LRB two-attestation cross-check. Full defect catalog:
+[[src-2026-07-25-csc-har-rules]].
 
 Non-negotiables learned building this, each from something that actually went wrong:
 

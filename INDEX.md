@@ -148,14 +148,15 @@ Financing.
 | [[src-2026-07-24-hrs-11-102]] | capitol.hawaii.gov (HRS Current) | 2026-07-24 | Primary |
 | [[src-2026-07-24-oe-election-dates-2026]] | State Office of Elections | 2026-07-24 | Primary (dates) / secondary (legal description) |
 | [[src-2026-07-25-lrb-har-table-and-directory]] | Legislative Reference Bureau | 2026-07-25 | Primary (the only authoritative HAR enumeration and the only published statute→rule crosswalk) |
+| [[src-2026-07-25-csc-har-rules]] | Campaign Spending Commission (ags.hawaii.gov/campaign) | 2026-07-25 | Primary (the rule text itself, chapters 3-160 + 3-161, eff. 2016-12-09) |
 
 ---
 
 ## The HAR layer
 
-Enumerated and cross-referenced 2026-07-25; **rule text not yet harvested**. Every chapter below is
-`depth: harvested`-equivalent at best — the corpus knows a chapter exists, what it is called, and
-which statute it claims to implement, and does not yet know what it says.
+Enumerated and cross-referenced 2026-07-25. **Rule text harvested the same day for the two CSC
+chapters** — the rest of HAR is enumeration only: the corpus knows a chapter exists, what it is
+called, and which statute it claims to implement, and does not yet know what it says.
 
 | | |
 |---|---|
@@ -163,8 +164,9 @@ which statute it claims to implement, and does not yet know what it says.
 | Chapters | **1,595** total, **991** live, the rest repealed or reserved |
 | Cross-layer edges | **42,002** HRS→HAR `implements`, over 4,431 HRS sections and 19,633 HAR sections |
 | Session-law edges | **455** |
-| Text harvested | **0 bytes.** Download cost projected ~365 MB across ~20 department sites |
-| Nearest to this wiki | [[har-3-160]] (CSC, 141 edges into HRS ch. 11) · [[har-3-161]] · `3-170`, `3-177` (Elections) |
+| Text harvested | **[[har-3-160]] + [[har-3-161]] in full** — 121 sections as `har/` pages, 1,047 typed edges incl. the graph's first `authorized_by`. Source: [[src-2026-07-25-csc-har-rules]] |
+| Text not harvested | everything else — projected ~365 MB across ~20 department sites |
+| Nearest to this wiki | [[har-3-160]] (CSC, campaign finance) · [[har-3-161]] (CSC procedure) · `3-170`, `3-177` (Elections) |
 
 **Title 2 subtitle 4 "Elections" is entirely repealed** — chs 34–38, 40, 50–54, plus 2-14.1/2-14.2.
 The CSC rules that the 2001 crosswalk points at (`2-51`, `2-14.1`) are dead; they are now

@@ -3,7 +3,7 @@ type: synthesis
 title: "Citation queue — cited but not yet ingested"
 aliases: ["citation queue", "ingest queue", "unresolved citations"]
 status: derived
-last_verified: 2026-07-24
+last_verified: 2026-07-25
 tags: [meta, citation-graph, queue]
 sources: ["[[src-2026-07-24-hrs-election-law-corpus]]"]
 ---
@@ -12,7 +12,7 @@ sources: ["[[src-2026-07-24-hrs-election-law-corpus]]"]
 
 Every statute, rule, and constitutional provision that the harvested corpus points at but does **not** contain. Generated from `graph/unresolved.json`; regenerate with `python tools/build_queue.py`. Do not hand-edit above the curated block.
 
-Built 2026-07-24 from the 14 HRS chapters listed on the Office of Elections [election-laws page](https://elections.hawaii.gov/resources/election-laws/). See [[INDEX]] and [[hrs-citation-graph]].
+Built 2026-07-25 from the 14 HRS chapters listed on the Office of Elections [election-laws page](https://elections.hawaii.gov/resources/election-laws/). See [[INDEX]] and [[hrs-citation-graph]].
 
 **How to read the zone column.** `statute` means the citation sits in operative statutory text — the law itself points there, so the gap is real. `notes` means it appears only in the revisor's Case Notes or Cross References, which is a weaker signal. `history` means it is prior-numbering provenance in a source note, not a reference at all.
 
@@ -25,8 +25,8 @@ Ranked by how often the corpus reaches for them. These are the highest-value add
 | **HRS ch. 91** | Administrative Procedure | 31 | statute | [[hrs-10-18\|§10-18]], [[hrs-10-21\|§10-21]], [[hrs-11-2\|§11-2]], [[hrs-11-4\|§11-4]], [[hrs-11-7.5\|§11-7.5]], [[hrs-11-8.5\|§11-8.5]], [[hrs-11-25\|§11-25]], [[hrs-11-42\|§11-42]], +21 more |
 | **HRS ch. 76** | Civil Service Law | 10 | statute | [[hrs-10-10\|§10-10]], [[hrs-10-12\|§10-12]], [[hrs-10-27\|§10-27]], [[hrs-11-1.6\|§11-1.6]], [[hrs-11-5\|§11-5]], [[hrs-11-7.5\|§11-7.5]], [[hrs-11-314\|§11-314]], [[hrs-25-5\|§25-5]], +1 more |
 | **HRS ch. 92F** | Uniform Information Practices Act (Modified) | 4 | statute/notes | [[hrs-11-14\|§11-14]], [[hrs-11-97\|§11-97]], [[hrs-11-122\|§11-122]], [[hrs-15d-14\|§15D-14]] |
+| **HRS ch. 89** | Collective Bargaining in Public Employment | 3 | statute | [[hrs-11-5\|§11-5]], [[hrs-11-314\|§11-314]] |
 | **HRS ch. 103D** | Hawaii Public Procurement Code | 2 | statute | [[hrs-10-17\|§10-17]], [[hrs-11-5\|§11-5]] |
-| **HRS ch. 89** | Collective Bargaining in Public Employment | 2 | statute | [[hrs-11-5\|§11-5]] |
 | **HRS ch. 92** | Public Agency Meetings and Records | 2 | statute | [[hrs-11-403\|§11-403]], [[hrs-11-410\|§11-410]] |
 | **HRS ch. 37** | Budget | 1 | statute | [[hrs-10-14.5\|§10-14.5]] |
 | **HRS ch. 662** | State Tort Liability Act | 1 | statute | [[hrs-10-16\|§10-16]] |
@@ -299,5 +299,5 @@ The HAR chapters matter most: they are the operative rules under these statutes.
 
 ## Provenance
 
-- Generated 2026-07-24 from `graph/unresolved.json` by `tools/build_queue.py`.
+- Generated 2026-07-25 from `graph/unresolved.json` by `tools/build_queue.py`.
 - Chapter titles from the State's master index: <https://www.capitol.hawaii.gov/docs/HRS.htm>, raw copy at `raw/hrs-master-chapter-index.md`.

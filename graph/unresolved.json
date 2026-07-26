@@ -1,5 +1,5 @@
 {
- "built": "2026-07-24",
+ "built": "2026-07-25",
  "unresolved": [
   {
    "target": "ch:91",
@@ -81,6 +81,16 @@
    "example": "chapter 92F"
   },
   {
+   "target": "ch:89",
+   "kind": "hrs_chapter",
+   "count": 3,
+   "cited_by": [
+    "11-5",
+    "11-314"
+   ],
+   "example": "chapter 89"
+  },
+  {
    "target": "26-34",
    "kind": "hrs_section",
    "count": 3,
@@ -119,15 +129,6 @@
     "11-5"
    ],
    "example": "chapters 103D and 103F"
-  },
-  {
-   "target": "ch:89",
-   "kind": "hrs_chapter",
-   "count": 2,
-   "cited_by": [
-    "11-5"
-   ],
-   "example": "chapter 89"
   },
   {
    "target": "286-303",
@@ -192,7 +193,7 @@
    "cited_by": [
     "10-9.5"
    ],
-   "example": "section 673-2"
+   "example": "section 673-2(c)"
   },
   {
    "target": "40-81",
@@ -372,7 +373,7 @@
    "cited_by": [
     "11-314"
    ],
-   "example": "chapters 76, 78"
+   "example": "chapters 76, 78, and 89"
   },
   {
    "target": "ch:84",
@@ -390,7 +391,7 @@
    "cited_by": [
     "11-317"
    ],
-   "example": "section 26-35"
+   "example": "section 26-35(a)"
   },
   {
    "target": "8-1",
@@ -426,7 +427,7 @@
    "cited_by": [
     "11-421"
    ],
-   "example": "section 235-102.5"
+   "example": "section 235-102.5(a)"
   },
   {
    "target": "23G-15",
@@ -444,7 +445,7 @@
    "cited_by": [
     "12-8"
    ],
-   "example": "section 91-1"
+   "example": "section 91-1(5)"
   },
   {
    "target": "hiconst:II:7",
@@ -489,7 +490,7 @@
    "cited_by": [
     "19-4"
    ],
-   "example": "\u00a7\u00a7701-107, 706-610"
+   "example": "\u00a7\u00a7701-107, 706-610(2)"
   },
   {
    "target": "706-610",
@@ -498,7 +499,7 @@
    "cited_by": [
     "19-4"
    ],
-   "example": "\u00a7\u00a7701-107, 706-610"
+   "example": "\u00a7\u00a7701-107, 706-610(2)"
   },
   {
    "target": "143A-1",

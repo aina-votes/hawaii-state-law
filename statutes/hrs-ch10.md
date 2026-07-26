@@ -4,7 +4,7 @@ title: "HRS Chapter 10 — Office of Hawaiian Affairs"
 aliases: ["HRS ch. 10", "chapter 10", "HRS Chapter 10"]
 status: verified
 depth: harvested
-last_verified: 2026-07-24
+last_verified: 2026-07-25
 authority: "HRS ch. 10"
 chapter: "10"
 tags: [hrs, ch-10, chapter-index]
@@ -13,7 +13,7 @@ sources: ["[[src-2026-07-24-hrs-election-law-corpus]]"]
 
 # HRS Chapter 10 — Office of Hawaiian Affairs
 
-Index of every section harvested from chapter 10. 49 sections, retrieved 2026-07-24.
+Index of every section harvested from chapter 10. 49 sections, retrieved 2026-07-25.
 
 | Section | Catchline | Refs out | Refs in |
 |---|---|---:|---:|
@@ -76,5 +76,5 @@ Index of every section harvested from chapter 10. 49 sections, retrieved 2026-07
 
 ## Provenance
 
-- Generated from `graph/sections.json`, built 2026-07-24.
+- Generated from `graph/sections.json`, built 2026-07-25.
 - Corpus source page: [[src-2026-07-24-hrs-election-law-corpus]]

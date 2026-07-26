@@ -385,3 +385,44 @@ The rule **text**. `graph/har-sources.json` is the target map for it; the remain
 harvester with per-department adapters, the `Auth:`/`Imp:`/source-note parser, the time axis from
 `Eff`/`am`/`comp`/`R`, and `har/` pages on the curated-block contract. Title 22 needs a human look.
 Storage policy holds unchanged: at this scale, text plus hashes is the only sane thing to track.
+
+## [2026-07-25] ingest | CSC rule text — HAR 3-160 + 3-161 in full, first rule pages, first Auth edges
+
+The first rule **text** in the corpus: both Campaign Spending Commission chapters, from the
+chapter PDFs on `ags.hawaii.gov/campaign/legal-resources/hawaii-administrative-rules/`
+(eff. 2016-12-09, retrieved 2026-07-25). 121 sections (48 + 73, six repealed) parsed into the
+five zones of schema rule 11 and written as `har/` pages on the curated-block contract;
+**1,047 typed edges** including the graph's first `authorized_by`. Pipeline:
+`har_text.py` (PDF → verbatim `raw/har/*.txt` + SHA-256 manifest) → `har_rules.py`
+(zones + edges + validation) → `har_build_pages.py`.
+
+Created: [[src-2026-07-25-csc-har-rules]], [[har-3-160]], [[har-3-161]], 121 rule pages,
+`graph/har-rules.json`, `graph/har_text_problems.json`, the three tools.
+Updated: CLAUDE.md (type `rule`, slug example fix, HAR text pipeline), [[INDEX]],
+[[har-citation-graph]] (claims 1 and 4 narrowed), [[open-questions]].
+
+What the ingest established:
+
+- **Validity questions now answerable for CSC rules.** Nearly every rule's `Auth:` is
+  §11-314(8) (general rulemaking); 3-161's procedural rules add §91-2. `Imp:` maps each rule
+  to the campaign-finance sections it interprets.
+- **The print fights extraction**: a rubber received-stamp bleeds into the text layer on
+  nearly every page. ~40 of 121 source notes lose a bracket to OCR; three section numbers
+  misprint (`§3-160-4 0`, `§3 161-41`, `§3-161 51`); citations inside notes drop hyphens
+  (`11 336`), grow stamp digits (`11-4071`), or take an OCR'd `I` (`11- I 407`). 17 cites
+  healed, every one corroborated first — by the LRB Table's edge for that same rule (Imp) or
+  by existence in the harvested HRS corpus (Auth) — and logged in
+  `graph/har_text_problems.json`. Uncorroborated residue stays flagged, never guessed.
+- **Validation stack**: TOC-vs-body assertion (each chapter's own TOC as ground truth, zero
+  mismatch after repairs); exhaustive Auth/Imp token sweep (963 tokens, zero missed);
+  two-attestation cross-check of rule-text `Imp:` vs the LRB Table — **115/116 rules agree**.
+- **The one disagreement is an LRB defect**: the 2025 Table lists repealed §3-161-84 as
+  implementing §11-314. Stale edge; filed in [[open-questions]].
+- **The shared HRS citation extractor had two silent-loss defects**, found here, fixed for
+  both layers: a pin cite broke list parsing (`11-359(b), and 11-360` dropped 11-360) and an
+  Oxford comma broke the separator. Regenerating the HRS graph recovered **8 silently missing
+  edges** (484 → 492); all 393 statute pages rebuilt, all 13 curated blocks preserved.
+- **Cross-title cite caught**: §3-160-10 charges record-search fees under HAR §2-71-31 — the
+  OIP records rules, a title-2 chapter hosted under title 3. Queued in [[open-questions]].
+- The CSC also posts its own **HRS compilation updated July 2026** (`HRS-JUL2026.pdf`) — the
+  natural check for post-2016 amendment currency, queued.

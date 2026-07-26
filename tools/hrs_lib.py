@@ -234,11 +234,15 @@ CITE_PATTERNS = [
     # "sections 11-15 to 11-19" / "sections 11-15 through 11-19"
     ("hrs_range", re.compile(rf"\bsections?\s+({_SEC})\s+(?:to|through|-)\s+({_SEC})", re.I)),
     # "section 11-102", "sections 11-102, 11-103 and 11-104"
-    ("hrs_section", re.compile(rf"\bsections?\s+((?:{_SEC})(?:\s*(?:,|;|\band\b|\bor\b)\s*(?:{_SEC}))*)", re.I)),
+    # a pin cite "(b)" after a section number must not break a list:
+    # "sections 11-357, 11-358, 11-359(b), and 11-360" cites all four.
+    # Found 2026-07-25 harvesting HAR 3-160-2, where 11-360 was silently
+    # dropped; the same construction occurs in statute text.
+    ("hrs_section", re.compile(rf"\bsections?\s+((?:{_SEC})(?:\s*\([a-z0-9]{{1,4}}\))?(?:\s*(?:,|;|\band\b|\bor\b)(?:\s*(?:\band\b|\bor\b))?\s*(?:{_SEC})(?:\s*\([a-z0-9]{{1,4}}\))?)*)", re.I)),
     # "§11-102" / "§§11-102, 11-103"
-    ("hrs_sign", re.compile(rf"§§?\s*((?:{_SEC})(?:\s*(?:,|;|\band\b|\bor\b)\s*(?:{_SEC}))*)")),
+    ("hrs_sign", re.compile(rf"§§?\s*((?:{_SEC})(?:\s*\([a-z0-9]{{1,4}}\))?(?:\s*(?:,|;|\band\b|\bor\b)(?:\s*(?:\band\b|\bor\b))?\s*(?:{_SEC})(?:\s*\([a-z0-9]{{1,4}}\))?)*)")),
     # "chapter 91" / "chapters 11 and 12"
-    ("hrs_chapter", re.compile(r"\bchapters?\s+(\d+[A-Z]?(?:\s*(?:,|;|\band\b|\bor\b)\s*\d+[A-Z]?)*)\b", re.I)),
+    ("hrs_chapter", re.compile(r"\bchapters?\s+(\d+[A-Z]?(?:\s*(?:,|;|\band\b|\bor\b)(?:\s*(?:\band\b|\bor\b))?\s*\d+[A-Z]?)*)\b", re.I)),
     # "part XIII of chapter 11", "this part"
     ("hrs_part", re.compile(r"\bpart\s+([IVXL]+)\b")),
     # Federal
@@ -259,7 +263,8 @@ _SPLIT = re.compile(r"\s*(?:,|;|\band\b|\bor\b)\s*", re.I)
 
 
 def normalize_sec(s):
-    s = s.strip().upper()
+    s = re.sub(r"\s*\([^)]{1,6}\)\s*$", "", s.strip())  # strip a pin cite "(b)"
+    s = s.upper()
     m = re.match(rf"^({_SEC})$", s, re.I)
     return m.group(1).upper() if m else None
 

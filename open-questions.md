@@ -185,9 +185,24 @@ chapters. See [[har-citation-graph]].
   should be 431:12-112", "Probably should be 127-9, which has since been repealed". Each is an
   inbound lead on a rule with a broken authority chain. In `graph/har-edges.json` under `footnotes`.
   Unreviewed.
-- **The `Auth:` relation does not exist in the graph at all.** The LRB table carries only `Imp:`
-  (what a rule implements). Which statute *authorised* a rule can only be read off the rule text, so
-  no "did the agency have power to adopt this?" question is answerable until HAR text is harvested.
+- **The `Auth:` relation exists only where rule text has been harvested** *(narrowed 2026-07-25;
+  was "does not exist in the graph at all")*. The LRB table carries only `Imp:`; `Auth:` lives in
+  the rule text. Harvesting [[har-3-160]] and [[har-3-161]] put the graph's first `authorized_by`
+  edges in, so "did the agency have power to adopt this?" is now answerable **for the CSC's rules
+  only** — nearly all rest on §11-314(8), plus §91-2 for 3-161's procedure. Every other title
+  stays unanswerable until its text is in.
+- **The LRB 2025 Table carries at least one stale edge**: it lists 3-161-84 as implementing
+  §11-314, but [[har-3-161-84|§3-161-84]] was **repealed 2016-12-09**. Found by the two-attestation
+  cross-check of rule-text `Imp:` notes vs the Table (115 of 116 rules agree exactly). Same defect
+  class as title 19's ch. 150 double listing — the compilation trails the rules it compiles.
+- **Post-2016 amendments to the CSC chapters.** Both chapter PDFs print effective 2016-12-09. Has
+  anything been amended, adopted, or repealed since? The CSC's own `HRS-JUL2026.pdf` posting shows
+  the office keeps its legal-resources page current, so silence *suggests* no newer rules — but
+  that is an inference, not a check. Verify against the LRB's next Table edition. Until then,
+  2016-12-09 is the currency of every `har/` page.
+- **HAR §2-71-31 (OIP records rules)** is now cited from inside the corpus
+  ([[har-3-160-10|§3-160-10]] assesses record-search fees under it) but not ingested — a title-2
+  chapter hosted under title 3, `foreign_title` in the universe.
 - **Ten crosswalk keys are malformed in the LRB source** (`92F-__`, `189-)3.5`, `321-.15.6`,
   `431:7-`, `431:10C-B`, `157.31`, `348.3`), leaving three HAR citations unreachable. Deliberately
   not guessed at.
