@@ -4,9 +4,14 @@ This file governs all work inside `Brain/LLM Wikis/Knowledge Base/Hawaii State L
 `Firefly's Path/CLAUDE.md` (security bedrock, communication style) and adds the rules below.
 When the two conflict, the parent's security rules win; everything else here is controlling.
 
-**What this is:** a persistent, compounding knowledge base on Hawaiʻi election and campaign
-finance law. Sam curates sources and asks questions. Claude writes and maintains every page in
-the wiki. Sam never writes wiki pages by hand.
+**What this is:** a persistent, compounding, **graph-mapped knowledge base of Hawaiʻi law —
+all of it, every surface**: constitution, statutes, session laws, administrative rules, case
+law, agency opinions, county charters and ordinances, and the federal overlay. (Scope widened
+by Sam 2026-07-26; the original charter was election and campaign law only.) The election and
+campaign slice remains the **sequencing beachhead** — it serves live filing work, so its layers
+get read first — but no layer is out of scope. The layer map and coverage state live at
+[[sources-of-law]]. Sam curates sources and asks questions. Claude writes and maintains every
+page in the wiki. Sam never writes wiki pages by hand.
 
 **What this is not:** legal advice, and not a substitute for the statute. Every page is a map
 pointing at primary sources. When a question turns on genuine legal judgment (interpreting an

@@ -3,16 +3,19 @@ type: synthesis
 title: What actually comprises Hawaiʻi state law
 aliases: ["sources of law", "layers of law", "what are we missing"]
 status: derived
-last_verified: 2026-07-24
+last_verified: 2026-07-26
 tags: [meta, roadmap, sources, coverage]
 sources: ["[[src-2026-07-24-hrs-election-law-corpus]]"]
 ---
 
 # What actually comprises Hawaiʻi state law
 
-The harvested corpus is **HRS only**, and HRS is one layer of about eight. This page
-names every layer, says where its primary source lives, and states plainly what this
-wiki does and does not hold of it.
+This page names every layer of Hawaiʻi law, says where its primary source lives, and states
+plainly what this wiki does and does not hold of it. **As of 2026-07-26 this is the coverage
+ledger for the whole ambition** — Sam set the scope to *all* of Hawaiʻi law, every surface,
+as a graph-mapped database; the election/campaign slice is the sequencing beachhead, not the
+boundary. Two verbs matter and are tracked separately below: **mapped** (the layer's objects
+and edges are enumerated in `graph/`) and **read** (the actual text is in the corpus).
 
 **Why this page exists:** a citation graph over HRS alone will answer confidently and
 be wrong, because the answer to a real question often lives in a rule, an advisory
@@ -28,16 +31,16 @@ about the *content* of any layer.
 
 ## The layers, in order of authority
 
-| # | Layer | Binds | Primary source | In this wiki |
-|---|---|---|---|---|
-| 1 | **U.S. Constitution + federal law** | everything | uscode.house.gov, federalregister.gov | no |
-| 2 | **Hawaiʻi Constitution** | all state and county law | `lrb.hawaii.gov/constitution/` (200, 236KB) | **no** |
-| 3 | **HRS** (codified statutes) | statewide | `capitol.hawaii.gov/hrscurrent/` | Title 2 only: 393 of 22,973 sections |
-| 4 | **Session Laws of Hawaiʻi** (SLH) | statewide, incl. uncodified text | `capitol.hawaii.gov/slh/` (200) | **no** |
-| 5 | **HAR** (administrative rules) | within the agency's grant | `ltgov.hawaii.gov/the-office/administrative-rules/` (200), indexed by department title | **no** |
-| 6 | **Case law** | interprets 2-5, binding | `courts.state.hi.us/opinions_and_orders/opinions` (200) | no, but 112 cites already sit in the corpus (below) |
-| 7 | **Agency opinions and guidance** | persuasive to binding-in-practice | CSC: `ags.hawaii.gov/campaign/`. AG: not yet located. | no |
-| 8 | **County charters and ordinances** | one county each | four separate county sites | **no** |
+| # | Layer | Binds | Primary source | Mapped | Read |
+|---|---|---|---|---|---|
+| 1 | **U.S. Constitution + federal law** | everything | uscode.house.gov, federalregister.gov | no | no |
+| 2 | **Hawaiʻi Constitution** | all state and county law | `lrb.hawaii.gov/constitution/` (200, 236KB) | no | **no** |
+| 3 | **HRS** (codified statutes) | statewide | `capitol.hawaii.gov/hrscurrent/` | **yes** — all 1,036 chapters enumerated (`enumerate_hrs.py`) | 421 of ~22,973 sections (~1.8%): Title 2 election chapters + ch. 91 |
+| 4 | **Session Laws of Hawaiʻi** (SLH) | statewide, incl. uncodified text | `capitol.hawaii.gov/slh/` (200) | partial — 455 SLH→HAR edges from the LRB Table; sibling `hi-leg-db` holds 116k measures | **no** |
+| 5 | **HAR** (administrative rules) | within the agency's grant | LRB 2025 Table & Directory (authoritative); ltgov index omits 4 titles | **yes, completely** — 24 titles / 1,595 chapters / 42,002 typed HRS→HAR edges + per-title source URLs and size estimates (2026-07-25) | 2 of 991 live chapters: [[har-3-160]] + [[har-3-161]] (121 sections, the CSC) |
+| 6 | **Case law** | interprets 2-5, binding | `courts.state.hi.us/opinions_and_orders/opinions` (200) | no — but 112+ case cites sit unextracted in the harvested annotation zones | no |
+| 7 | **Agency opinions and guidance** | persuasive to binding-in-practice | CSC AOs: `ags.hawaii.gov/campaign/legal-resources/advisory-opinions/` (14 PDFs, AO10-01–AO26-02). AG opinions: `lrb.hawaii.gov/wp-content/uploads/AGOpinions.pdf` — **LRB-published, which is why every ag.hawaii.gov path 404s** | indexes located 2026-07-25 | no |
+| 8 | **County charters and ordinances** | one county each | four separate county sites | no | **no** |
 
 ---
 
@@ -154,8 +157,10 @@ Beyond the eight layers, these are the blind spots that do not announce themselv
   Conduct is judged under the law in force at the time.
 - **Forms, instructions, and portal behavior.** What the CSC's filing system will and
   will not accept is operative in practice and written down nowhere in law.
-- **Attorney General opinions index.** Not located; `ag.hawaii.gov/opinions/` and
-  `/publications/opinions/` both 404 as of 2026-07-24.
+- **Attorney General opinions index.** ~~Not located~~ **Located 2026-07-25**:
+  `lrb.hawaii.gov/wp-content/uploads/AGOpinions.pdf` — LRB-published, not AG-published,
+  which is why every `ag.hawaii.gov` path 404s. General pattern: when a Hawaiʻi index is
+  missing from the agency that owns the subject, look at the LRB.
 - **Federal overlay by name:** NVRA, HAVA, UOCAVA, the Voting Rights Act, TCPA and the
   FCC's rules on texting, FEC rules where a federal candidate is involved, and IRS
   treatment of 527 and 501(c) organizations. Schema rule 9 governs: never let a
@@ -180,6 +185,12 @@ The last row is the point worth arguing with. Finishing HRS is the biggest singl
 crawl available and it is **not** the highest-value next move. Election law's real
 unanswered questions currently sit in layers 5 through 8, not in HRS chapters 431 or
 490.
+
+*(Re-read 2026-07-26 under the all-of-law scope: the ranking above is about SEQUENCE, and it
+still holds — but every row is now a destination, not an option. Full HRS, full HAR text, the
+session-law feed, the case-law corpus, and the four counties are all owed; the election slice
+just gets read first because it serves live filings. Watch corpus size as text layers land:
+the extracted-text-plus-hashes policy is what keeps an all-of-law repo viable.)*
 
 ---
 

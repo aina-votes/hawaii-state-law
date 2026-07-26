@@ -452,3 +452,14 @@ Two mechanics found the hard way:
 - **`harvest_hrs.py --only` rebuilt `_manifest.json` with only the processed chapter**,
   silently dropping the other 393 entries. Caught same-session; a full cached run (cheap, no
   fetches) restores it, and the docstring now warns.
+
+## [2026-07-26] schema | scope widened to ALL of Hawaii law, every surface
+
+Sam's call, correcting the recorded charter: the ambition is a graph-mapped database of the
+whole body of Hawaii law — constitution, HRS, session laws, HAR, case law, agency opinions,
+county charters/ordinances, federal overlay — not the election/campaign slice alone. The
+election slice stays the sequencing beachhead (it serves live filing work) but is not the
+boundary. CLAUDE.md "What this is" rewritten; [[sources-of-law]] is now the coverage ledger,
+its table split into **mapped** vs **read** per layer and brought current (HAR fully mapped,
+CSC chapters + ch. 91 read, both opinion indexes located, AG-index stale line fixed).
+Decision recorded in the parent OS decision log 2026-07-26.
