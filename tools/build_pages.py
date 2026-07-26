@@ -22,6 +22,12 @@ from build_graph import read_raw
 
 BEGIN, END = "<!-- BEGIN CURATED -->", "<!-- END CURATED -->"
 CORPUS_SRC = "src-2026-07-24-hrs-election-law-corpus"
+# frontier-ingested chapters carry their own source page
+SRC_BY_CHAPTER = {"91": "src-2026-07-26-hrs-ch91"}
+
+
+def src_for(chapter):
+    return SRC_BY_CHAPTER.get(chapter, CORPUS_SRC)
 
 KIND_LABEL = {
     "hrs_section": "HRS section", "hrs_chapter": "HRS chapter",
@@ -149,7 +155,7 @@ def main():
             fm.append(f'subpart: "{s["subpart"]}"')
         fm += [f"repealed: {str(s['repealed']).lower()}",
                "tags: [" + ", ".join(tags_for(s)) + "]",
-               f'sources: ["[[{CORPUS_SRC}]]"]', "---", ""]
+               f'sources: ["[[{src_for(s["chapter"])}]]"]', "---", ""]
 
         L = fm
         L.append(f"# HRS §{sid} — {catch}")
@@ -261,7 +267,7 @@ def main():
         L.append("")
         L.append(f"- Source: <{s['url']}>")
         L.append(f"- Retrieved: {s['retrieved']} · Raw copy: `raw/hrs/{s['raw_file']}`")
-        L.append(f"- Corpus source page: [[{CORPUS_SRC}]]")
+        L.append(f"- Corpus source page: [[{src_for(s['chapter'])}]]")
         L.append("")
 
         if not args.dry_run:
@@ -287,7 +293,7 @@ def main():
              "status: verified", "depth: harvested", f"last_verified: {built}",
              f'authority: "HRS ch. {chap}"', f'chapter: "{chap}"',
              f"tags: [hrs, ch-{chap.lower()}, chapter-index]",
-             f'sources: ["[[{CORPUS_SRC}]]"]', "---", "",
+             f'sources: ["[[{src_for(chap)}]]"]', "---", "",
              f"# HRS Chapter {chap} — {ctitle}", "",
              f"Index of every section harvested from chapter {chap}. "
              f"{len(sids)} sections, retrieved {built}.", ""]
@@ -317,7 +323,7 @@ def main():
 
         L += [BEGIN, curated if curated else "", END, "", "## Provenance", "",
               f"- Generated from `graph/sections.json`, built {built}.",
-              f"- Corpus source page: [[{CORPUS_SRC}]]", ""]
+              f"- Corpus source page: [[{src_for(chap)}]]", ""]
         if not args.dry_run:
             with open(path, "w", encoding="utf-8") as fh:
                 fh.write("\n".join(L))

@@ -209,9 +209,18 @@ chapters. See [[har-citation-graph]].
 - **Whether Title 22 (Judiciary) rule text is published anywhere.** The LRB lists 21 live chapters
   — Judiciary personnel rules and grants/purchase-of-service rules — distinct from the Rules of
   Court that `courts.state.hi.us` does publish.
-- **HRS chapter 91 (Administrative Procedure)** — 31 operative citations from inside the corpus,
-  the most-cited outside body of law, and the procedural spine under CSC enforcement. Top of
-  [[citation-queue]].
+- ✅ **HRS chapter 91 (Administrative Procedure)** — *ingested in full 2026-07-26*
+  ([[src-2026-07-26-hrs-ch91]]): 28 sections, the first citation-frontier chapter, zero parse
+  problems. All 148+ wikilinks from the CSC procedure rules now resolve. Still `harvested`
+  depth throughout — the annotation questions (what a CSC contested case looks like
+  procedurally; when §91-14 judicial review attaches) remain open.
+- **New frontier after ch. 91: the Sunshine Law cluster.** [[citation-queue]] now leads with
+  **§92-16** (23 links) and §92-21 (4), plus ch. 92F (UIPA, 5). The CSC's procedure rules and
+  ch. 91 both lean on ch. 92/92F for open-meetings and records duties.
+- **Statute pages do not yet show "implemented by rules."** The `delegates_to`/`implements`
+  inverse view — an HRS section page listing the HAR rules that implement it (e.g. §11-314
+  showing its 141 inbound rule edges) — needs `build_pages.py` to read
+  `graph/har-rules.json`. Cheap, high-value once more rule text lands.
 - **CSC advisory opinions index** — ~~not yet located~~ **LOCATED**:
   `ags.hawaii.gov/campaign/legal-resources/advisory-opinions/`, 14 PDFs, AO10-01 through AO26-02,
   direct URLs. Still the densest single source for how the Commission actually reads Part XIII, and

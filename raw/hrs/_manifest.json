@@ -1,5 +1,5 @@
 {
- "retrieved": "2026-07-24",
+ "retrieved": "2026-07-26",
  "source_page": "https://elections.hawaii.gov/resources/election-laws/",
  "sections": [
   {
@@ -2359,6 +2359,174 @@
    "chapter": "50",
    "file": "hrs-50-15.md",
    "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0050/HRS_0050-0015.htm"
+  },
+  {
+   "section": "91-1",
+   "chapter": "91",
+   "file": "hrs-91-1.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0001.htm"
+  },
+  {
+   "section": "91-2",
+   "chapter": "91",
+   "file": "hrs-91-2.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0002.htm"
+  },
+  {
+   "section": "91-2.5",
+   "chapter": "91",
+   "file": "hrs-91-2.5.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0002_0005.htm"
+  },
+  {
+   "section": "91-2.6",
+   "chapter": "91",
+   "file": "hrs-91-2.6.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0002_0006.htm"
+  },
+  {
+   "section": "91-3",
+   "chapter": "91",
+   "file": "hrs-91-3.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0003.htm"
+  },
+  {
+   "section": "91-4",
+   "chapter": "91",
+   "file": "hrs-91-4.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0004.htm"
+  },
+  {
+   "section": "91-4.1",
+   "chapter": "91",
+   "file": "hrs-91-4.1.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0004_0001.htm"
+  },
+  {
+   "section": "91-4.2",
+   "chapter": "91",
+   "file": "hrs-91-4.2.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0004_0002.htm"
+  },
+  {
+   "section": "91-4.3",
+   "chapter": "91",
+   "file": "hrs-91-4.3.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0004_0003.htm"
+  },
+  {
+   "section": "91-4.4",
+   "chapter": "91",
+   "file": "hrs-91-4.4.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0004_0004.htm"
+  },
+  {
+   "section": "91-5",
+   "chapter": "91",
+   "file": "hrs-91-5.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0005.htm"
+  },
+  {
+   "section": "91-6",
+   "chapter": "91",
+   "file": "hrs-91-6.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0006.htm"
+  },
+  {
+   "section": "91-7",
+   "chapter": "91",
+   "file": "hrs-91-7.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0007.htm"
+  },
+  {
+   "section": "91-8",
+   "chapter": "91",
+   "file": "hrs-91-8.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0008.htm"
+  },
+  {
+   "section": "91-8.5",
+   "chapter": "91",
+   "file": "hrs-91-8.5.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0008_0005.htm"
+  },
+  {
+   "section": "91-9",
+   "chapter": "91",
+   "file": "hrs-91-9.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0009.htm"
+  },
+  {
+   "section": "91-9.5",
+   "chapter": "91",
+   "file": "hrs-91-9.5.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0009_0005.htm"
+  },
+  {
+   "section": "91-10",
+   "chapter": "91",
+   "file": "hrs-91-10.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0010.htm"
+  },
+  {
+   "section": "91-11",
+   "chapter": "91",
+   "file": "hrs-91-11.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0011.htm"
+  },
+  {
+   "section": "91-12",
+   "chapter": "91",
+   "file": "hrs-91-12.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0012.htm"
+  },
+  {
+   "section": "91-13",
+   "chapter": "91",
+   "file": "hrs-91-13.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0013.htm"
+  },
+  {
+   "section": "91-13.1",
+   "chapter": "91",
+   "file": "hrs-91-13.1.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0013_0001.htm"
+  },
+  {
+   "section": "91-13.5",
+   "chapter": "91",
+   "file": "hrs-91-13.5.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0013_0005.htm"
+  },
+  {
+   "section": "91-14",
+   "chapter": "91",
+   "file": "hrs-91-14.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0014.htm"
+  },
+  {
+   "section": "91-15",
+   "chapter": "91",
+   "file": "hrs-91-15.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0015.htm"
+  },
+  {
+   "section": "91-16",
+   "chapter": "91",
+   "file": "hrs-91-16.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0016.htm"
+  },
+  {
+   "section": "91-17",
+   "chapter": "91",
+   "file": "hrs-91-17.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0017.htm"
+  },
+  {
+   "section": "91-18",
+   "chapter": "91",
+   "file": "hrs-91-18.md",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/HRS_0091-0018.htm"
   }
  ]
 }

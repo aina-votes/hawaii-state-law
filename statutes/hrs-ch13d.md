@@ -4,7 +4,7 @@ title: "HRS Chapter 13D — Board of Trustees, Office of Hawaiian Affairs"
 aliases: ["HRS ch. 13D", "chapter 13D", "HRS Chapter 13D"]
 status: verified
 depth: harvested
-last_verified: 2026-07-25
+last_verified: 2026-07-26
 authority: "HRS ch. 13D"
 chapter: "13D"
 tags: [hrs, ch-13d, chapter-index]
@@ -13,7 +13,7 @@ sources: ["[[src-2026-07-24-hrs-election-law-corpus]]"]
 
 # HRS Chapter 13D — Board of Trustees, Office of Hawaiian Affairs
 
-Index of every section harvested from chapter 13D. 5 sections, retrieved 2026-07-25.
+Index of every section harvested from chapter 13D. 5 sections, retrieved 2026-07-26.
 
 | Section | Catchline | Refs out | Refs in |
 |---|---|---:|---:|
@@ -29,5 +29,5 @@ Index of every section harvested from chapter 13D. 5 sections, retrieved 2026-07
 
 ## Provenance
 
-- Generated from `graph/sections.json`, built 2026-07-25.
+- Generated from `graph/sections.json`, built 2026-07-26.
 - Corpus source page: [[src-2026-07-24-hrs-election-law-corpus]]

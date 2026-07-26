@@ -18,7 +18,9 @@ UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
 
 # The 14 chapters listed under "Hawaii Revised Statutes" at
-# https://elections.hawaii.gov/resources/election-laws/ (retrieved 2026-07-24).
+# https://elections.hawaii.gov/resources/election-laws/ (retrieved 2026-07-24),
+# plus citation-frontier ingests (marked inline): chapters pulled in because
+# the corpus itself cites them heavily, not because the OoE lists them.
 CHAPTERS = [
     ("10",   "Vol01_Ch0001-0042F", "0010",  "Office of Hawaiian Affairs"),
     ("11",   "Vol01_Ch0001-0042F", "0011",  "Elections, Generally"),
@@ -34,6 +36,10 @@ CHAPTERS = [
     ("19",   "Vol01_Ch0001-0042F", "0019",  "Election Offenses"),
     ("25",   "Vol01_Ch0001-0042F", "0025",  "Reapportionment"),
     ("50",   "Vol02_Ch0046-0115",  "0050",  "Charter Commissions"),
+    # frontier ingest 2026-07-25: the most-cited chapter outside the OoE set
+    # (31 operative cites before the CSC rule-text ingest; 148 wikilinks to
+    # §91-2 alone after it) and the procedural spine under CSC enforcement.
+    ("91",   "Vol02_Ch0046-0115",  "0091",  "Administrative Procedure"),
 ]
 IN_SCOPE = {c[0] for c in CHAPTERS}
 CHAPTER_TITLE = {c[0]: c[3] for c in CHAPTERS}
@@ -41,19 +47,40 @@ CHAPTER_TITLE = {c[0]: c[3] for c in CHAPTERS}
 BASE = "https://www.capitol.hawaii.gov/hrscurrent"
 
 
+def _curl_fetch(url):
+    """capitol.hawaii.gov's WAF began 403ing Python's TLS fingerprint on
+    2026-07-25 — the SAME urllib code that fetched 850 files on 07-24 now
+    fails with any header set, while curl passes. The block is on the TLS
+    handshake (JA3), not the headers, so the fallback is a real curl."""
+    import subprocess
+    r = subprocess.run(
+        ["curl", "-sS", "--fail", "-L", "-A", UA, "--max-time", "60", url],
+        capture_output=True)
+    if r.returncode != 0:
+        raise RuntimeError(f"curl failed ({r.returncode}): "
+                           f"{r.stderr.decode('utf-8', 'replace')[:200]}")
+    return r.stdout
+
+
 def fetch(url, tries=3, pause=0.35):
     """GET with a browser UA. capitol.hawaii.gov 403s bare clients and 301s
-    the apex host to www, so both a UA and redirect-following are required."""
+    the apex host to www, so both a UA and redirect-following are required.
+    A 403 from urllib falls back to curl (TLS-fingerprint WAF, see above)."""
     last = None
     for attempt in range(tries):
         try:
-            req = urllib.request.Request(url, headers={
-                "User-Agent": UA,
-                "Accept": "text/html,application/xhtml+xml",
-                "Accept-Language": "en-US,en;q=0.9",
-            })
-            with urllib.request.urlopen(req, timeout=45) as r:
-                data = r.read()
+            try:
+                req = urllib.request.Request(url, headers={
+                    "User-Agent": UA,
+                    "Accept": "text/html,application/xhtml+xml",
+                    "Accept-Language": "en-US,en;q=0.9",
+                })
+                with urllib.request.urlopen(req, timeout=45) as r:
+                    data = r.read()
+            except urllib.error.HTTPError as he:
+                if he.code != 403:
+                    raise
+                data = _curl_fetch(url)
             time.sleep(pause)
             # Not everything on capitol.hawaii.gov is UTF-8; /docs/HRS.htm is
             # windows-1252 and mangles the okina if decoded wrongly.

@@ -4,7 +4,7 @@ title: "HRS Chapter 25 — Reapportionment"
 aliases: ["HRS ch. 25", "chapter 25", "HRS Chapter 25"]
 status: verified
 depth: harvested
-last_verified: 2026-07-25
+last_verified: 2026-07-26
 authority: "HRS ch. 25"
 chapter: "25"
 tags: [hrs, ch-25, chapter-index]
@@ -13,7 +13,7 @@ sources: ["[[src-2026-07-24-hrs-election-law-corpus]]"]
 
 # HRS Chapter 25 — Reapportionment
 
-Index of every section harvested from chapter 25. 9 sections, retrieved 2026-07-25.
+Index of every section harvested from chapter 25. 9 sections, retrieved 2026-07-26.
 
 | Section | Catchline | Refs out | Refs in |
 |---|---|---:|---:|
@@ -33,5 +33,5 @@ Index of every section harvested from chapter 25. 9 sections, retrieved 2026-07-
 
 ## Provenance
 
-- Generated from `graph/sections.json`, built 2026-07-25.
+- Generated from `graph/sections.json`, built 2026-07-26.
 - Corpus source page: [[src-2026-07-24-hrs-election-law-corpus]]

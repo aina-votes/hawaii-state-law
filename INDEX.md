@@ -12,9 +12,10 @@ tags: [meta]
 Catalog of the wiki. Read this first when answering a question, then drill in. Schema and
 workflows: `CLAUDE.md`. Front door: [[overview]].
 
-**Last ingest: 2026-07-24** — the HRS election-law corpus, 14 chapters.
-**Counts:** 3 sources · 393 statute pages · 14 chapter hubs · 2 concepts · 1 agency · 484 citation
-edges.
+**Last ingest: 2026-07-26** — HRS ch. 91 (Administrative Procedure), the first citation-frontier
+chapter.
+**Counts:** 6 sources · 421 statute pages (15 chapter hubs) · 121 rule pages (2 chapter hubs) ·
+2 concepts · 1 agency · 638 HRS citation edges + 1,047 HAR rule-text edges.
 
 Status legend: `verified` traced to primary source · `derived` synthesized from verified pages ·
 `unverified` secondary source, needs a primary check · `contested` sources disagree · `superseded`.
@@ -85,7 +86,8 @@ The statutes this operation actually runs on.
 
 ## Statutes — by chapter
 
-393 sections across 14 chapters. Each hub lists its sections with catchlines and reference counts.
+421 sections across 15 chapters — the 14 OoE-listed election-law chapters plus citation-frontier
+ingests (marked ᶠ). Each hub lists its sections with catchlines and reference counts.
 Do not browse the folder; start at a hub or query the graph.
 
 | Chapter | Title | Sections | Hub |
@@ -104,6 +106,7 @@ Do not browse the folder; start at a hub or query the graph.
 | 19 | Election Offenses | 8 | [[hrs-ch19]] |
 | 25 | Reapportionment | 9 | [[hrs-ch25]] |
 | 50 | Charter Commissions | 15 | [[hrs-ch50]] |
+| 91ᶠ | Administrative Procedure (HAPA — the spine under CSC enforcement) | 28 | [[hrs-ch91]] |
 
 **Chapter 11 Part XIII is the campaign finance statute**, §11-301 to §11-435, in ten subparts:
 A General Provisions · B Campaign Spending Commission · C Registration · D Reporting and Filing ·
@@ -149,6 +152,7 @@ Financing.
 | [[src-2026-07-24-oe-election-dates-2026]] | State Office of Elections | 2026-07-24 | Primary (dates) / secondary (legal description) |
 | [[src-2026-07-25-lrb-har-table-and-directory]] | Legislative Reference Bureau | 2026-07-25 | Primary (the only authoritative HAR enumeration and the only published statute→rule crosswalk) |
 | [[src-2026-07-25-csc-har-rules]] | Campaign Spending Commission (ags.hawaii.gov/campaign) | 2026-07-25 | Primary (the rule text itself, chapters 3-160 + 3-161, eff. 2016-12-09) |
+| [[src-2026-07-26-hrs-ch91]] | capitol.hawaii.gov (HRS Current) | 2026-07-26 | Primary (full ch. 91, first citation-frontier ingest) |
 
 ---
 

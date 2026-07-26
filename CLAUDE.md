@@ -144,6 +144,10 @@ This is how a 393-page corpus stays regenerable without becoming write-only.
    - `capitol.hawaii.gov` returns **HTTP 403 to WebFetch**. Use a browser User-Agent:
      `curl -sSL -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
      Gecko) Chrome/126.0 Safari/537.36"`.
+   - **The same WAF began 403ing Python's TLS fingerprint on 2026-07-25** — urllib code that
+     fetched 850 files on 07-24 now fails with *any* header set, while curl passes. The block
+     is on the TLS handshake (JA3), not the headers. `hrs_lib.fetch` falls back to a `curl`
+     subprocess on 403; write new fetch code through it, not raw urllib.
    - **The apex host 301-redirects to `www.`** Without `-L` every fetch returns a 167-byte stub
      that parses as an empty page. Prefer `https://www.capitol.hawaii.gov/…` directly.
    - `/docs/HRS.htm` (the master chapter index) is **windows-1252**, not UTF-8. Sniff the charset.

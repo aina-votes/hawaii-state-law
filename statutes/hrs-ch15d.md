@@ -4,7 +4,7 @@ title: "HRS Chapter 15D — Uniform Military and Overseas Voters Act"
 aliases: ["HRS ch. 15D", "chapter 15D", "HRS Chapter 15D"]
 status: verified
 depth: harvested
-last_verified: 2026-07-25
+last_verified: 2026-07-26
 authority: "HRS ch. 15D"
 chapter: "15D"
 tags: [hrs, ch-15d, chapter-index]
@@ -13,7 +13,7 @@ sources: ["[[src-2026-07-24-hrs-election-law-corpus]]"]
 
 # HRS Chapter 15D — Uniform Military and Overseas Voters Act
 
-Index of every section harvested from chapter 15D. 19 sections, retrieved 2026-07-25.
+Index of every section harvested from chapter 15D. 19 sections, retrieved 2026-07-26.
 
 | Section | Catchline | Refs out | Refs in |
 |---|---|---:|---:|
@@ -43,5 +43,5 @@ Index of every section harvested from chapter 15D. 19 sections, retrieved 2026-0
 
 ## Provenance
 
-- Generated from `graph/sections.json`, built 2026-07-25.
+- Generated from `graph/sections.json`, built 2026-07-26.
 - Corpus source page: [[src-2026-07-24-hrs-election-law-corpus]]

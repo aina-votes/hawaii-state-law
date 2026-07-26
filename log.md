@@ -426,3 +426,29 @@ What the ingest established:
   OIP records rules, a title-2 chapter hosted under title 3. Queued in [[open-questions]].
 - The CSC also posts its own **HRS compilation updated July 2026** (`HRS-JUL2026.pdf`) — the
   natural check for post-2016 amendment currency, queued.
+
+## [2026-07-26] ingest | HRS ch. 91 (Administrative Procedure) — first citation-frontier chapter
+
+The most-cited body of law outside the corpus, pulled in because the corpus itself demanded it:
+31 operative cites before the CSC rule-text ingest, 148 wikilinks to §91-2 alone after it. This
+is HAPA — how agencies (including the CSC) adopt rules, run contested cases, and get reviewed.
+
+28 sections harvested from `capitol.hawaii.gov/hrscurrent/Vol02_Ch0046-0115/HRS0091/`, zero
+parse problems. Corpus now **421 sections / 15 chapters / 638 edges**. All ch. 91 wikilinks
+from [[har-3-161]] resolve; the citation queue's new leaders are §92-16 (Sunshine Law) and
+ch. 92F (UIPA).
+
+Created: [[src-2026-07-26-hrs-ch91]], [[hrs-ch91]] + 28 statute pages.
+Updated: `hrs_lib.py` CHAPTERS (frontier-ingest convention, marked inline), `build_pages.py`
+(per-chapter source attribution via SRC_BY_CHAPTER), [[INDEX]], [[open-questions]],
+CLAUDE.md rule 0.
+
+Two mechanics found the hard way:
+
+- **capitol.hawaii.gov's WAF now 403s Python's TLS fingerprint** — the same urllib code that
+  fetched 850 files on 07-24 fails with any header set, while curl passes. Block is on the
+  TLS handshake (JA3), not headers. `hrs_lib.fetch` falls back to a `curl` subprocess on 403;
+  recorded as a rule-0 gotcha.
+- **`harvest_hrs.py --only` rebuilt `_manifest.json` with only the processed chapter**,
+  silently dropping the other 393 entries. Caught same-session; a full cached run (cheap, no
+  fetches) restores it, and the docstring now warns.

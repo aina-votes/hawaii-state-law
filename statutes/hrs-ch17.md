@@ -4,7 +4,7 @@ title: "HRS Chapter 17 — Vacancies"
 aliases: ["HRS ch. 17", "chapter 17", "HRS Chapter 17"]
 status: verified
 depth: harvested
-last_verified: 2026-07-25
+last_verified: 2026-07-26
 authority: "HRS ch. 17"
 chapter: "17"
 tags: [hrs, ch-17, chapter-index]
@@ -13,7 +13,7 @@ sources: ["[[src-2026-07-24-hrs-election-law-corpus]]"]
 
 # HRS Chapter 17 — Vacancies
 
-Index of every section harvested from chapter 17. 7 sections, retrieved 2026-07-25.
+Index of every section harvested from chapter 17. 7 sections, retrieved 2026-07-26.
 
 | Section | Catchline | Refs out | Refs in |
 |---|---|---:|---:|
@@ -31,5 +31,5 @@ Index of every section harvested from chapter 17. 7 sections, retrieved 2026-07-
 
 ## Provenance
 
-- Generated from `graph/sections.json`, built 2026-07-25.
+- Generated from `graph/sections.json`, built 2026-07-26.
 - Corpus source page: [[src-2026-07-24-hrs-election-law-corpus]]

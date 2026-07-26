@@ -4,7 +4,7 @@ title: "HRS Chapter 19 — Election Offenses"
 aliases: ["HRS ch. 19", "chapter 19", "HRS Chapter 19"]
 status: verified
 depth: harvested
-last_verified: 2026-07-25
+last_verified: 2026-07-26
 authority: "HRS ch. 19"
 chapter: "19"
 tags: [hrs, ch-19, chapter-index]
@@ -13,7 +13,7 @@ sources: ["[[src-2026-07-24-hrs-election-law-corpus]]"]
 
 # HRS Chapter 19 — Election Offenses
 
-Index of every section harvested from chapter 19. 8 sections, retrieved 2026-07-25.
+Index of every section harvested from chapter 19. 8 sections, retrieved 2026-07-26.
 
 | Section | Catchline | Refs out | Refs in |
 |---|---|---:|---:|
@@ -32,5 +32,5 @@ Index of every section harvested from chapter 19. 8 sections, retrieved 2026-07-
 
 ## Provenance
 
-- Generated from `graph/sections.json`, built 2026-07-25.
+- Generated from `graph/sections.json`, built 2026-07-26.
 - Corpus source page: [[src-2026-07-24-hrs-election-law-corpus]]

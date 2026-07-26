@@ -4,7 +4,7 @@ title: "HRS Chapter 11 — Elections, Generally"
 aliases: ["HRS ch. 11", "chapter 11", "HRS Chapter 11"]
 status: verified
 depth: harvested
-last_verified: 2026-07-25
+last_verified: 2026-07-26
 authority: "HRS ch. 11"
 chapter: "11"
 tags: [hrs, ch-11, chapter-index]
@@ -13,7 +13,7 @@ sources: ["[[src-2026-07-24-hrs-election-law-corpus]]"]
 
 # HRS Chapter 11 — Elections, Generally
 
-Index of every section harvested from chapter 11. 212 sections, retrieved 2026-07-25.
+Index of every section harvested from chapter 11. 212 sections, retrieved 2026-07-26.
 
 | Section | Catchline | Refs out | Refs in |
 |---|---|---:|---:|
@@ -67,7 +67,7 @@ Index of every section harvested from chapter 11. 212 sections, retrieved 2026-0
 | [[hrs-11-43\|§11-43]] | Powers; procedures | 4 | 1 |
 | [[hrs-11-44\|§11-44]] | Records of proceedings |  |  |
 | **PART IV. APPEAL FROM BOARD OF REGISTRATION** | | | |
-| [[hrs-11-51\|§11-51]] | Appeal from board | 1 | 1 |
+| [[hrs-11-51\|§11-51]] | Appeal from board | 1 | 2 |
 | [[hrs-11-52\|§11-52]] | Hearing; decision final |  |  |
 | [[hrs-11-53\|§11-53]] | Decision, notice; action on |  |  |
 | [[hrs-11-54\|§11-54]] | Status pending appeal | 1 |  |
@@ -259,5 +259,5 @@ Index of every section harvested from chapter 11. 212 sections, retrieved 2026-0
 
 ## Provenance
 
-- Generated from `graph/sections.json`, built 2026-07-25.
+- Generated from `graph/sections.json`, built 2026-07-26.
 - Corpus source page: [[src-2026-07-24-hrs-election-law-corpus]]

@@ -1,6 +1,11 @@
-"""Harvest every section of the 14 HRS chapters listed on the Office of
-Elections "Election Laws" page into raw/hrs/, one file per section, each with a
-provenance header.
+"""Harvest every section of the chapters in hrs_lib.CHAPTERS into raw/hrs/,
+one file per section, each with a provenance header. The list is the 14 HRS
+chapters from the Office of Elections "Election Laws" page plus citation-
+frontier ingests (marked in hrs_lib).
+
+NOTE: --only rebuilds _manifest.json from just the processed chapter; follow
+any --only run with a full (cached, cheap) run to restore the complete
+manifest.
 
 raw/ is immutable under the vault schema.  This script only creates files that
 do not already exist unless --refresh is passed; it never edits one in place.
