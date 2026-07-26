@@ -4,9 +4,10 @@ A machine-queryable corpus of Hawaiʻi law: verbatim statute text, a citation gr
 across it, and a scope-resolved definitions layer. Built and maintained by Claude
 Code; curated by Sam Peck.
 
-**This repo is the source of truth for the corpus.** It is junctioned into the
-`Firefly's Path` workspace at `LLM Wikis/Hawaii State Law` so paths there keep
-resolving, but commits land here.
+**This repo is the source of truth for the corpus.** It lives nested in place inside the
+`Firefly's Path` workspace at `Brain/LLM Wikis/Knowledge Base/Hawaii State Law` (moved into
+the OS 2026-07-25; the old `C:\Law` junction is retired), ignored by the parent repo's git.
+Commits land here.
 
 ## Start here
 

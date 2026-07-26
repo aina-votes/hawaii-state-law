@@ -1,6 +1,6 @@
 # Hawaiʻi Election & Campaign Law Wiki — Schema
 
-This file governs all work inside `LLM Wikis/Hawaii State Law/`. It inherits the parent
+This file governs all work inside `Brain/LLM Wikis/Knowledge Base/Hawaii State Law/`. It inherits the parent
 `Firefly's Path/CLAUDE.md` (security bedrock, communication style) and adds the rules below.
 When the two conflict, the parent's security rules win; everything else here is controlling.
 
@@ -40,14 +40,18 @@ Hawaii State Law/
 ├── deadlines.md         # maintained synthesis: every date-driven obligation
 ├── open-questions.md    # known gaps, unresolved contradictions, things to source
 ├── citation-queue.md    # GENERATED: everything the corpus cites but does not contain
-├── hrs-citation-graph.md# how to query the citation graph; what it does and does not claim
+├── hrs-citation-graph.md# how to query the statute graph; what it does and does not claim
+├── har-citation-graph.md# the rule layer and the cross-layer edges; five zones, typed relations
 ├── tools/               # the harvest → parse → build pipeline. Code, not knowledge.
-├── graph/               # GENERATED derived data: sections.json, edges.json, hrs.db
+├── graph/               # GENERATED derived data: sections.json, edges.json, har-*.json
 ├── raw/                 # immutable sources
 │   ├── hrs/             # the harvested HRS corpus, one file per section, + _manifest.json
+│   ├── har/             # HAR: extracted text + SHA-256 manifest per source PDF
+│   │   └── _pdf/        # UNTRACKED PDF cache. Provenance is the hash, not the blob.
 │   └── assets/          # images/PDFs pulled alongside clipped articles
 ├── sources/             # one page per ingested source (summary + provenance)
-├── statutes/            # one page per operative HRS section or HAR rule, plus chapter hubs
+├── statutes/            # one page per operative HRS section, plus chapter hubs
+├── har/                 # one page per HAR chapter/section, plus title and chapter hubs
 ├── agencies/            # CSC, Office of Elections, county clerks, IRS, FCC, courts
 ├── concepts/            # doctrine and defined terms (in-kind, express advocacy, coordination)
 ├── procedures/          # operational how-to grounded in law (file Report X, register a committee)
@@ -148,6 +152,22 @@ This is how a 393-page corpus stays regenerable without becoming write-only.
      time or you will silently drop real cross-references. Never normalise inside `raw/`.
    - `elections.hawaii.gov/election-information/` **404s**; the dates widget lives in the sidebar
      of ordinary pages like `/voting/`.
+   - **A PDF's two-column table is a silent-corruption trap.** `pdftotext -layout` interleaves the
+     columns, so a wrapped cell in one column lands on a *different entry's* row in the other. It
+     never errors; it mis-attributes. Read word coordinates (`pdfplumber`) and rebuild the columns.
+     Split columns on the word **centre**, not its left edge — number fields are right-aligned, so a
+     wide value crosses the gutter leftward. Found 2026-07-25 on the LRB HAR Directory.
+   - **A superscript footnote mark glues itself to the number before it.** `70064` is chapter 700
+     carrying footnote 64, not chapter 70064. Detect it by font size (6.96pt against 11.04pt body).
+     Passing `extra_attrs=["size"]` to `pdfplumber.extract_words` also makes it split words on size
+     change, which turns the mark into the *catchline* if you do not strip it.
+   - **A PDF may split a word across two tokens.** The LRB Directory emits `S ubtitle 6`; a
+     `^Subtitle` regex misses it, the heading is swallowed into the previous entry, and every entry
+     below it inherits the wrong parent. Match keywords tolerantly.
+   - **PowerShell writes UTF-8 *with a BOM* by default**, and `json.load` rejects a BOM outright
+     (`Unexpected UTF-8 BOM`). Anything a subagent writes on Windows via redirection, `Out-File` or
+     `Set-Content` must be read with `encoding="utf-8-sig"`, or written via Python instead. Cost
+     five subagent runs on 2026-07-25.
    - **`csc.hawaii.gov` is a dead stub.** It answers HTTP 200 with 135 bytes whose whole body is
      `<META HTTP-EQUIV="Refresh" ... URL=http://ags.hawaii.gov/campaign/">`. A meta-refresh is
      **not** an HTTP redirect, so `curl -L` does not follow it and a fetcher gets a success code
@@ -209,6 +229,45 @@ This is how a 393-page corpus stays regenerable without becoming write-only.
 
     Never merge them, and say which zone an answer rests on. Queries traverse `operative` only
     unless asked otherwise. See [[hrs-citation-graph]].
+
+11. **HAR has five zones, and two of them are different relations to statute.** *(added
+    2026-07-25, HAR ingest.)* A HAR **section** ends with three informational notes, and the revisor
+    puts two structurally different statutory citations in two of them:
+    - **operative** — the rule's own text.
+    - **source** — the bracketed note, `[Eff 7/1/81; am 3/4/94; comp 9/12/16; R 5/1/20]`. Effective
+      dates and amendment history: provenance, **not** a reference. Also the raw material for the
+      time axis.
+    - **auth** — `(Auth: HRS §§11-193, 11-194)`. The statutes the agency asserts **authorised** it
+      to adopt the rule.
+    - **imp** — `(Imp: HRS §11-191)`. The statutes the agency asserts the rule **implements**.
+    - **annotation** — revisor or court apparatus after the notes.
+
+    **`auth` and `imp` must never be collapsed into one edge type.** A rule can be authorised by a
+    general rulemaking grant while implementing an entirely different substantive section, and a
+    court asking whether a rule exceeds the agency's authority looks only at `auth`. Merged, the
+    graph can answer "is this rule connected to that statute" but not "is this rule *valid*" —
+    the question that actually matters.
+
+    **Both are the adopting agency's own assertion**, not the revisor's and not a court's; the LRB
+    says so expressly. Any answer resting on an `implements` edge must say so.
+
+12. **Cross-layer edges are typed and directional.** *(added 2026-07-25.)* The HRS graph has one
+    untyped `cites`. From HAR forward every edge carries a relation: `cites`, `authorized_by`,
+    `implements`, `delegates_to`, `renumbered_from`. A rule *implements* a statute and a statute
+    *delegates to* a rule; those are near-inverses but **independently attested** — one from the
+    rule text, one from the statute text — so they are stored separately. **Where they disagree that
+    is a finding, not a bug to normalise away.** See [[har-citation-graph]].
+
+13. **Never renumber a citation to make it tidy.** *(added 2026-07-25.)* A HAR chapter that moved
+    departments keeps its original number, so the LRB lists chapter `2-71` under title 3, `6-60`
+    under title 16, `17-2015` under title 15. Rewriting those to match the host title invents a
+    citation the law does not use. Flag it (`foreign_title`), never rewrite. Same rule as decimal
+    HRS sections (`§11-15.2`) and colon-form ones (`§412:2-105`).
+
+14. **Absence of an edge is never evidence of absence in law.** *(added 2026-07-25.)* The HAR
+    crosswalk covers only rules converted to HAR format and filed with the Lieutenant Governor;
+    rules never converted, or exempt from HRS chapter 91, are invisible. "No rule implements this
+    section" is a statement about the source, not about Hawaiʻi. Same discipline as rule 8.
 
 ---
 
@@ -279,6 +338,17 @@ python tools/build_queue.py    # write  -> citation-queue.md
 python tools/annotations.py    # inject bulk-written curated blocks, then rerun build_pages
 ```
 
+The HAR pipeline, added 2026-07-25. HAR has no central full-text source, so enumeration comes from
+the LRB's published Directory rather than from a crawl:
+
+```
+python tools/har_directory.py  # LRB PDF -> graph/har-universe.json  (24 titles, 1,595 chapters)
+python tools/har_crosswalk.py  #         -> graph/har-edges.json     (42,002 HRS->HAR edges)
+python tools/har_sources.py    #         -> graph/har-sources.json   (where each title's text lives)
+```
+
+`--fetch` on `har_directory.py` re-pulls the PDF (needed after a new LRB edition).
+
 Non-negotiables learned building this, each from something that actually went wrong:
 
 1. **Validate extraction against ground truth before trusting a count.** After parsing, sweep the
@@ -337,10 +407,12 @@ This wiki is the **knowledge** layer. The skills are the **execution** layer. Ke
 - `hawaii-campaign-finance` skill — the legal primitive used during filings.
 - `csc-filer` / `csc-reconciliation` skills — driving the CSC portal, reconciling to the bank.
 - `moho-vote-page` skill — the live voter-facing guide that encodes the cutoff rules.
-- `projects/hi-leg-db/` — bill and roll-call vote data.
+- `Brain/LLM Wikis/Knowledge Base/hi-leg-db/` — bill and roll-call vote data.
 
 When a wiki page covers something a skill also knows, the wiki holds the **law and the why**; the
 skill holds the **runbook and the gotchas**. Cross-link, do not duplicate. If a skill's MEMORY.md
 contains a legal fact, that fact belongs here too — ingest it and have the skill point at the page.
 
-Wiki content is versioned by the parent `Firefly's Path` git repo. Commit after meaningful ingests.
+This wiki is **its own git repo** (`aina-votes/hawaii-state-law`), nested in place inside the
+Firefly's Path workspace and ignored by the parent's git. Commits land here, not in the parent.
+Commit and push after meaningful ingests.

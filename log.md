@@ -266,3 +266,122 @@ Updated: `CLAUDE.md` (rule 0 gotcha, rule 1 rewritten as a source table), `open-
 Position taken: finishing HRS is the largest available crawl and **not** the highest-value next
 move. The unanswered election-law questions sit in the constitution, the rules, the counties, and
 the cases, not in HRS chapters 431 or 490.
+
+## [2026-07-25] ingest | the whole HAR corpus, enumerated and cross-referenced
+
+Goal was all of HAR, not the election slice. Delivered: the **enumeration** and the **cross-layer
+edge layer**. Not delivered: rule text. That split is deliberate and is the honest state — see
+"What is not done" below.
+
+**The whole job turned on one document.** There is no central full-text source for HAR and no
+verified title count: `ltgov.hawaii.gov` omits titles 1, 9, 21 and 22, `ags.hawaii.gov` is DAGS's
+own rules only, Justia 403s to any client, Lexis is paywalled. The authoritative enumeration turned
+out to be a single LRB PDF whose filename actively misleads — `2025AdminRules_Supplement.pdf` is
+not a supplement, it is the *2025 Table of Statutory Sections Implemented **and Directory***,
+published July 2026, covering rules filed before 2026-01-01, and it "replaces all of the Tables
+published before this date." Reading its foreword before crawling anything saved the whole approach.
+
+Created:
+- `tools/har_lib.py`, `tools/har_directory.py`, `tools/har_crosswalk.py`, `tools/har_sources.py`
+- `graph/har-universe.json` — **24 titles, 1,595 chapters, 991 live**, each with catchline,
+  subtitle/part, repealed/reserved, and the department's canonical rules URL as the LRB publishes it
+- `graph/har-edges.json` — **42,002** HRS to HAR `implements` edges across **4,431** HRS sections and
+  **19,633** HAR sections; **455** session-law edges; 63 LRB footnotes
+- `graph/har-sources.json` — per-title publication shape, doc counts, bytes, size estimate
+- `sources/src-2026-07-25-lrb-har-table-and-directory.md`
+- `har-citation-graph.md`
+
+Updated: `CLAUDE.md` (rules 11-14, four new rule-0 gotchas, HAR pipeline, directory map),
+`INDEX.md` (HAR layer section, tooling, sources), `open-questions.md`, `.gitignore`.
+
+**Corpus size, for the criterion-B threshold:** 750 documents / **249 MB measured** across 19 of 24
+titles and 792 of 991 live chapters. Median 0.34 MB per live chapter projects **~317 MB** for the
+whole download, but bytes-per-chapter ranges 0.01 MB (DLNR) to 6.88 MB (Taxation, scanned), so that
+is an order-of-magnitude figure, not a budget. **Only extracted text plus a SHA-256 per PDF
+gets committed — roughly 3-8% of that.** The download figure is not the repository figure.
+
+### Findings that change what this wiki says
+
+- **HAR title 2 subtitle 4 "Elections" is entirely repealed** — chapters 34-38, 40, 50-54, plus
+  2-14.1 and 2-14.2. The Campaign Spending Commission rules the 2001 crosswalk points at (2-51,
+  2-14.1) are dead; CSC rules are now 3-160 and 3-161 under DAGS. This is why an earlier session
+  could not find 2-51 on ltgov. **The 2001 crosswalk is superseded and was used for no edge.**
+- **HAR 3-160 carries 141 `implements` edges** into HRS chapter 11's campaign-finance part —
+  sections 11-302, 11-311, 11-314, 11-321 to 11-326, 11-331, 11-333, 11-334. That is the
+  statute-to-rule map for what Sam actually files under. 2-51 has zero.
+- **`Auth:` and `Imp:` are two different relations** and the handoff was right to flag it, but there
+  are *two* delegation-ish relations, not one. A rule's bracketed source note gives dates; `(Auth:)`
+  gives what authorised it; `(Imp:)` gives what it implements. A court asking whether a rule exceeds
+  authority looks only at `Auth:`. Merged, the graph cannot answer whether a rule is *valid*. HAR
+  therefore has **five zones** to HRS's three, and edges are now **typed** (`cites`,
+  `authorized_by`, `implements`, `delegates_to`, `renumbered_from`). Schema rules 11-13.
+  **`Auth:` is not in the graph at all** — the LRB table carries only `Imp:`. It needs rule text.
+- **AG opinions index located**, and it is LRB-published, not AG-published, which is why every
+  `ag.hawaii.gov` path 404s: `lrb.hawaii.gov/wp-content/uploads/AGOpinions.pdf`. General pattern
+  worth keeping: when a Hawaii index is missing from the agency that owns the subject, look at the
+  LRB.
+- **CSC advisory opinions index located**:
+  `ags.hawaii.gov/campaign/legal-resources/advisory-opinions/`, 14 PDFs, AO10-01 through AO26-02.
+- **`tools/hrs_lib.py` will silently drop colon-form HRS citations.** Chapters 412, 431 and 490
+  number sections `412:2-105`, `431:10A-301`. `_SEC` does not match a colon. 289 crosswalk keys use
+  the form. Harmless today (corpus is chapters 10-50), silently lossy the moment a harvest reaches
+  412 or 431. Filed in `open-questions.md`.
+
+### Validation, because a count is not a check
+
+`graph/har_directory_problems.json` holds 6 entries and `graph/har_crosswalk_problems.json` holds
+14; **every one is a defect in the LRB source, not a parse failure**, and each is named on the
+source page:
+- Title 15 lists chapters 210, 211, 301, 310, 321 **twice** under different subtitles, and the two
+  listings give **different catchlines** for 301 and 310. Title 19 lists chapter **150 both live
+  ("Autonomous Vehicle Regulations") and repealed**. Chapter numbers are unique within a title, so
+  the compilation contradicts itself. Both listings kept and flagged; deduping would pick a winner
+  arbitrarily and hide a real conflict. 19-150 is now an open question.
+- Ten crosswalk keys are malformed in the source (`92F-__`, `189-)3.5`, `431:7-`, `157.31`), leaving
+  three HAR citations unreachable. Not guessed at — a fabricated pin cite is worse than a gap.
+- HAR 23-700 has no catchline, only footnote 64: "Title probably should be 'Hawaii Paroling
+  Authority'."
+
+The strict independent sweep went **458 missed citations to 3**, and all 3 trace to those source
+typos. Six things were caught only because the sweep existed, each of which fails silently rather
+than loudly:
+1. `pdftotext -layout` interleaves a two-column table, landing a wrapped cell on another entry's row.
+2. Chapter numbers are **right-aligned**, so wide cross-title numbers (`17-2015`) cross the gutter
+   leftward. Columns must split on word **centre**, not left edge.
+3. `X-Y` in the chapter column is two different things: X in 1..24 is a chapter that moved
+   departments and kept its number (`2-71` OIP under title 3, `6-60` PUC under title 16, `15-185`
+   HPHA under title 17); otherwise it is a section range inside chapter X (`1454-1 to 1454-56`).
+   Conflating them invents chapters 1454-1 and 72-13, which do not exist. **Never renumbered** —
+   schema rule 13.
+4. A 6.96pt superscript glues to the number: `70064` is chapter 700 + footnote 64.
+5. The PDF splits keywords (`S ubtitle 6`), silently reassigning every chapter below it.
+6. **A run of continuation rows crosses page boundaries** — a rule list started in the right column
+   of one page continues in the left column of the next. Resetting state per page silently dropped
+   ~5,000 edges and the output still looked plausible.
+
+Also: the rules cell is compressed with an **implicit prefix** — `13-275-1, 2, 5 to 14` means
+sections 13-275-1, -2, -5 through -14 — and HAR section numbers run to four parts
+(`18-231-9.9-07`) and occasionally five (`11-54-9.1.01`). A too-tight pattern drops citations
+without erroring.
+
+### On delegation
+
+24 Haiku recon agents mapped the department sites in parallel; that was right for breadth and it
+produced the byte counts. It also produced three confident falsehoods, all caught by checking
+against the LRB rather than by asking another agent: title 21 "has no rules" (they are the **State
+Ethics Commission's**, 10 chapters, 2 PDFs, 12.5 MB — the agent had been pointed at LRB/Auditor/
+Ombudsman); title 19 "serves University of Hawaii rules, no DOT rules" (**false** — 32 DOT
+chapters, verified on retry); title 22 "none" (LRB lists 21 live chapters, still unresolved).
+Recorded in `graph/har-sources.json` under `url_disagreements`; the LRB wins every time.
+
+New gotcha, cost five agent runs: **PowerShell writes UTF-8 with a BOM by default and `json.load`
+rejects it outright** (`Unexpected UTF-8 BOM`). Anything a subagent writes on Windows via
+redirection, `Out-File` or `Set-Content` needs `encoding="utf-8-sig"` on the way back in, or should
+be written through Python instead. Added to rule 0.
+
+### What is not done
+
+The rule **text**. `graph/har-sources.json` is the target map for it; the remaining work is the
+harvester with per-department adapters, the `Auth:`/`Imp:`/source-note parser, the time axis from
+`Eff`/`am`/`comp`/`R`, and `har/` pages on the curated-block contract. Title 22 needs a human look.
+Storage policy holds unchanged: at this scale, text plus hashes is the only sane thing to track.

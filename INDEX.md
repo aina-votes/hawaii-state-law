@@ -52,6 +52,7 @@ lawyer.
 | [[overview]] | Front door. Six territories of the domain with coverage status. |
 | [[sources-of-law]] | **What this vault does not hold.** All eight layers of Hawaiʻi law, the verified primary source for each, and why the citation graph cannot see seven of them. Read before trusting any answer to be complete. |
 | [[hrs-citation-graph]] | **How to ask what a statute references.** The query tool, the three citation zones, what the graph does and does not claim. |
+| [[har-citation-graph]] | **How to ask which rule executes a statute.** The rule layer: 24 titles, 1,595 chapters, 42,002 cross-layer edges. Five zones, typed relations, and why `Auth:` ≠ `Imp:`. |
 | [[deadlines]] | Every date-driven obligation for the 2026 cycle, reconciled against statute. `verified` |
 | [[citation-queue]] | Everything the corpus cites but does not contain. Generated. |
 | [[open-questions]] | Known gaps, corrected assumptions, what to annotate next. |
@@ -146,12 +147,34 @@ Financing.
 | [[src-2026-07-24-hrs-election-law-corpus]] | capitol.hawaii.gov, discovered via elections.hawaii.gov | 2026-07-24 | Primary |
 | [[src-2026-07-24-hrs-11-102]] | capitol.hawaii.gov (HRS Current) | 2026-07-24 | Primary |
 | [[src-2026-07-24-oe-election-dates-2026]] | State Office of Elections | 2026-07-24 | Primary (dates) / secondary (legal description) |
+| [[src-2026-07-25-lrb-har-table-and-directory]] | Legislative Reference Bureau | 2026-07-25 | Primary (the only authoritative HAR enumeration and the only published statute→rule crosswalk) |
+
+---
+
+## The HAR layer
+
+Enumerated and cross-referenced 2026-07-25; **rule text not yet harvested**. Every chapter below is
+`depth: harvested`-equivalent at best — the corpus knows a chapter exists, what it is called, and
+which statute it claims to implement, and does not yet know what it says.
+
+| | |
+|---|---|
+| Titles | **24**, numbered by department (title 3 DAGS, title 11 Health, title 19 DOT) |
+| Chapters | **1,595** total, **991** live, the rest repealed or reserved |
+| Cross-layer edges | **42,002** HRS→HAR `implements`, over 4,431 HRS sections and 19,633 HAR sections |
+| Session-law edges | **455** |
+| Text harvested | **0 bytes.** Download cost projected ~365 MB across ~20 department sites |
+| Nearest to this wiki | [[har-3-160]] (CSC, 141 edges into HRS ch. 11) · [[har-3-161]] · `3-170`, `3-177` (Elections) |
+
+**Title 2 subtitle 4 "Elections" is entirely repealed** — chs 34–38, 40, 50–54, plus 2-14.1/2-14.2.
+The CSC rules that the 2001 crosswalk points at (`2-51`, `2-14.1`) are dead; they are now
+[[har-3-160]] and [[har-3-161]] under DAGS. Do not cite the 2001 table.
 
 ---
 
 ## Tooling
 
-The corpus is regenerable. Scripts in `tools/`, data in `graph/`, immutable sources in `raw/hrs/`.
+The corpus is regenerable. Scripts in `tools/`, data in `graph/`, immutable sources in `raw/`.
 
 ```
 python tools/harvest_hrs.py    # fetch from capitol.hawaii.gov  (--refresh to re-pull)
@@ -159,8 +182,16 @@ python tools/build_graph.py    # parse   -> graph/ (sections, edges, hrs.db, que
 python tools/build_pages.py    # write   -> statutes/
 python tools/build_queue.py    # write   -> citation-queue.md
 python tools/annotations.py    # inject bulk-written curated blocks
-python tools/hrs_refs.py 11-302 --both --depth 2      # query the graph
+python tools/hrs_refs.py 11-302 --both --depth 2      # query the statute graph
+
+python tools/har_directory.py  # LRB PDF -> graph/har-universe.json  (24 titles, 1,595 chapters)
+python tools/har_crosswalk.py  #         -> graph/har-edges.json     (42,002 cross-layer edges)
+python tools/har_sources.py    #         -> graph/har-sources.json   (where each title's text lives)
 ```
+
+`graph/*.db` is **not** tracked — it is derived from tracked JSON by one command, and a
+page-structured binary costs its full size in every commit forever. Neither are PDFs; `raw/har/`
+holds extracted text plus a SHA-256 per source PDF, which is what ties text to retrieval.
 
 **Hand-written analysis lives between `<!-- BEGIN CURATED -->` and `<!-- END CURATED -->` and
 survives regeneration.** Everything outside those markers is rebuilt from the graph. A page with no
