@@ -463,3 +463,17 @@ boundary. CLAUDE.md "What this is" rewritten; [[sources-of-law]] is now the cove
 its table split into **mapped** vs **read** per layer and brought current (HAR fully mapped,
 CSC chapters + ch. 91 read, both opinion indexes located, AG-index stale line fixed).
 Decision recorded in the parent OS decision log 2026-07-26.
+
+## [2026-07-26] schema | the corpus is a database; git holds docs, code, and judgment
+
+Sam's architecture call, correcting a stale storage assumption: at all-of-law scale the corpus
+is a **SQLite database on disk** (cloud replication TBD; DO Spaces is the standing candidate),
+and this repo narrows to what git is for — README, CLAUDE.md, `tools/`, and the hand-written
+judgment layer (this log, [[open-questions]], [[sources-of-law]], [[deadlines]], annotations).
+Law text, the typed edge graph, enumerations, and provenance move to DB tables (FTS5 for
+search), mirroring the settled hi-leg-db pattern: code vendored, data never enters git, query
+don't re-crawl. The page-per-section markdown model was an artifact of the 400-section wiki
+era; the parsers, corroborated-repair discipline, validation stack, and PDFs-out/hash-in
+provenance policy all carry over unchanged. Migration owed: re-point pipeline outputs from
+markdown/JSON to tables; decide whether annotated pages keep an Obsidian render as a generated
+view. Recorded in the parent decision log same day.
