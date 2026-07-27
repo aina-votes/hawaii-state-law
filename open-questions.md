@@ -252,6 +252,18 @@ chapters. See [[har-citation-graph]].
 
 ### Opened by the 2026-07-26 all-titles HAR text harvest ([[src-2026-07-26-har-text-at-scale]])
 
+- **⚠️ THE GAP HARVEST: 322 live chapters were never in the harvest work-list at all** —
+  discovered 2026-07-26 same-day by the first real query ("DLNR rules on hiking trails" →
+  HAR 13-130 Na Ala Hele, 48 LRB-known sections implementing ch. 198D, mapped-not-read).
+  Root cause: the work-list came from recon link lists, and recon under-walked the division
+  subpages (title 13: 69 links recorded for a 129-live-chapter title, `dofaw/rules/` listed
+  but not fully enumerated) — third instance of recon-reports-wrong-with-confidence, and the
+  check that catches it (diff work-list vs LRB universe BEFORE harvesting) was never run.
+  Worst titles: DLNR 66, DAGS 40 (recon concluded "CSC is the only Title 3 publisher" —
+  DAGS boards publish on their own sites), Labor 39, DBEDT 39, DHS 32, DOT 32, DHRD 25.
+  **Target list: `graph/har-gap-chapters.json`.** The fix is a gap-directed pass whose
+  work-list is derived from the LRB universe, walking each owning division's page live;
+  parser and loader unchanged. UNREAD-LIVE TOTAL: 519 of 984 (this + the causes below).
 - **The OCR tail: 243 scanned documents (~33% of the posted corpus) have no text layer** —
   t11 Health is the worst (109 of 160 docs, including 11-1). Mapped, hashed, cached in
   `raw/har/_pdf/`; unread until an OCR pass (no tesseract on this machine). This is now the

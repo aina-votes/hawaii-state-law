@@ -596,3 +596,21 @@ parsed title, not just the CSC.
 db_build VALID (10,546 sections, 71.3MB, annotations/doctrine preserved). Snapshot
 …-6ac8a544.db.gz. Next per confirmed order: full HRS (colon-form citation fix first —
 partially pre-empted: the HAR tokenizer already claims colon-form cites).
+
+## [2026-07-26] query | first real query finds the gap: 322 live chapters never entered the work-list
+
+Sam asked "DLNR's rules relating to hiking trails." The honest answer today: HAR 13-130 (Na Ala
+Hele, Statewide Trail and Access Program — 48 LRB-known sections implementing HRS ch. 198D) is
+MAPPED, NOT READ; the read corpus offers only incidental trail mentions (13-5 Conservation
+District, 13-146 State Parks). Tracing why: 13-130 was never in the harvest work-list. Recon
+listed `dofaw/rules/` among title 13's subpages but recorded only 69 links for a
+129-live-chapter title. Full accounting (this session, from DB + manifests, no network): 984
+mapped live chapters, 465 read, 519 unread — of which **322 never entered the work-list**
+(DLNR 66, DAGS 40, Labor 39, DBEDT 39, DHS 32, DOT 32, DHRD 25), the rest already recorded
+(134 scans, 21 unpublished, 19 parsed-no-sections, 11 quarantined, 11 title-20-blocked, 1
+fetch-fail). The prior entry's "everything posted online with a text layer" claim was WRONG —
+it was everything the recon-walked pages linked. Corrected in sources-of-law and the source
+record, same day. Lesson (third instance): a recon link list is a claim; the check is
+work-list ⊇ LRB universe, run BEFORE harvesting, not after a query embarrasses the corpus.
+Gap-harvest target list: `graph/har-gap-chapters.json` (committed — it is a judgment artifact,
+not a regenerable intermediate... regenerable, but load-bearing for the next pass).
