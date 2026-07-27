@@ -185,6 +185,15 @@ def norm_dst(kind, target):
     if kind in ("har_chapter", "har"):
         p = t.split(":")
         return "har:ch:" + p[-1] if len(p) > 1 else "har:" + t
+    if kind == "hi_const" and t.strip().lower() == "preamble":
+        return "hiconst:preamble"
+    if kind == "hi_const" and not t.startswith("hiconst:"):
+        # the LRB Table writes 'Art. I §1' / 'Art. XIV'; normalise to the
+        # hiconst namespace so these edges join the harvested sections
+        m = re.match(r"Art\.?\s+([IVXL]+)(?:\s*§\s*(\d+(?:\.\d+)?))?", t)
+        if m:
+            return (f"hiconst:{m.group(1)}:{m.group(2)}" if m.group(2)
+                    else f"hiconst:art:{m.group(1)}")
     return t                                    # usc:/cfr:/pl:/hiconst:/usconst/...
 
 
@@ -370,6 +379,42 @@ def build(db_path):
                     (f"har:{src}", f"slh:{act}", "session_law",
                      "implements", None, "lrb2025", raw))
 
+    # ---- Hawaii Constitution (layer: hiconst) ------------------------------
+    hc_path = os.path.join(GRAPH, "hiconst.json")
+    if os.path.exists(hc_path):
+        hc = json.load(open(hc_path, encoding="utf-8-sig"))
+        cur.execute("INSERT OR REPLACE INTO sources VALUES (?,?,?,?,?,?)",
+                    ("hiconst", hc["url"], "Legislative Reference Bureau",
+                     hc["retrieved"], None,
+                     "the whole Constitution on one LRB page; NOT in the HRS "
+                     "index on capitol.hawaii.gov"))
+        for a in hc["articles"]:
+            cur.execute("INSERT OR REPLACE INTO units VALUES (?,?,?,?,?,?,?,?,?,?)",
+                        (f"hiconst:art:{a['roman']}", "hiconst", "article",
+                         a["roman"], a["title"], None, 0, 0, hc["url"], None))
+        for sid, s in hc["sections"].items():
+            cur.execute("INSERT OR REPLACE INTO sections VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
+                        (sid, "hiconst", s["num"] or "preamble", s["article"],
+                         s["catchline"], "", int(s["repealed"]), None,
+                         hc["url"], hc["retrieved"], hc["retrieved"], "hiconst"))
+            for zone, text in (("operative", s["operative"]),
+                               ("history", s["history"])):
+                if text and text.strip():
+                    cur.execute("INSERT OR REPLACE INTO zones VALUES (?,?,?)",
+                                (sid, zone, text))
+                    cur.execute("INSERT INTO fts VALUES (?,?,?,?)",
+                                (sid, zone, s["catchline"] or "", text))
+        for e in hc["edges"]:
+            cur.execute("INSERT INTO edges (src,dst,dst_kind,relation,zone,"
+                        "attestation,raw) VALUES (?,?,?,?,?,?,?)",
+                        (e["src"], norm_dst(e["kind"], e["target"]), e["kind"],
+                         "cites", "operative", "const_text", e.get("raw")))
+        for key, note_list in hc.get("publisher_notes", {}).items():
+            cur.execute("INSERT INTO problems VALUES (?,?)",
+                        ("hiconst_publisher_note",
+                         json.dumps({"at": key, "notes": note_list},
+                                    ensure_ascii=False)))
+
     # ---- annotation-zone citations: cases / AG ops / law reviews -----------
     # The revisor's Case Notes as edges — leads, not authority (attestation
     # 'revisor_note'). Produced by tools/case_cites.py; optional so a fresh
@@ -471,7 +516,9 @@ def validate(con):
     checks = []
     def q(sql):
         return cur.execute(sql).fetchone()[0]
-    checks.append(("sections", q("SELECT COUNT(*) FROM sections"), 542))
+    checks.append(("sections", q("SELECT COUNT(*) FROM sections"), 714))
+    checks.append(("hiconst sections", q("SELECT COUNT(*) FROM sections WHERE layer='hiconst'"), 172))
+    checks.append(("hiconst articles", q("SELECT COUNT(*) FROM units WHERE layer='hiconst'"), 18))
     checks.append(("hrs sections", q("SELECT COUNT(*) FROM sections WHERE layer='hrs'"), 421))
     checks.append(("har sections", q("SELECT COUNT(*) FROM sections WHERE layer='har'"), 121))
     checks.append(("definitions", q("SELECT COUNT(*) FROM definitions"), 151))

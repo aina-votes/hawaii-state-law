@@ -523,3 +523,26 @@ pages). Recovered from git history (`git archive 5f57108~1`), and `db_build.py` 
 hand-written tables over from the previous DB on every rebuild — the
 generator-never-destroys-hand-written-rows contract is structural and self-tested, not
 procedural. Second snapshot uploaded (…-e077ac84.db.gz).
+
+## [2026-07-26] ingest | the Hawaiʻi Constitution — layer 2, complete
+
+The supreme state authority, from the LRB's single page (`lrb.hawaii.gov/constitution/`,
+deliberately NOT in the HRS index — the trap sources-of-law flagged is closed). **18 articles,
+172 sections + preamble, 3 repealed, TOC-vs-body assertion zero mismatch.** `tools/harvest_const.py`
+→ `graph/hiconst.json` → DB (714 sections total now). Amendment history parsed from the
+bracketed notes; publisher's editorial Notes captured to `problems`, never into operative text.
+
+Publisher inconsistencies handled: bracketed unofficial numbering (`Section [24].`), a section
+printed without its `<strong>` tags (Art XVII §5), section text + history riding inside an
+`<ol>` (Art I §25), REPEALED markers in caps.
+
+**Every constitutional edge now joins**: the LRB Table's `Art. I §1`-form targets and the HRS
+text's `hiconst:` targets both normalise onto the harvested sections — rules asserting
+constitutional authority (e.g. DOE's ch. 8 rules under Art I §1) land on real text. Zero
+unjoined hi_const targets.
+
+Tooling lesson (filed to memory): a Python heredoc smuggled a literal backspace into a regex —
+`\b` in a non-raw replacement string became `\x08` and the pattern could never match; caught by
+noticing 0 repealed. Never patch code via heredoc string literals; use the Edit tool or chr().
+
+Snapshot …-36734b79.db.gz. Next per confirmed order: the 14 CSC advisory opinions.
