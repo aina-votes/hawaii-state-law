@@ -153,9 +153,10 @@ Newly verified 2026-07-24, and newly missing:
   Two direct PDFs are known: `ags.hawaii.gov/campaign/files/2016/12/HAR3-160120916.pdf` and
   `.../HAR3-161120916.pdf`. Note these are **not** linked from the Office of Elections
   election-laws page; the CSC publishes separately.
-- **HAR chapters 3-170 and 3-177** — Elections Commission and Office of Elections rules, both
-  linked as PDFs from the election-laws page and not yet ingested. 3-177 is heavily cross-referenced
-  in the LRB table and carries footnote 2, an LRB-flagged defect in its own `Imp:` list.
+- ✅ **HAR chapters 3-170 and 3-177** — *ingested 2026-07-26*: 3-170 Rules of the Elections
+  Commission (15 sections) and 3-177 Rules of the Office of Elections (102 sections, TOC-checked,
+  Auth chain → §11-4 plus HAVA edges into 52 U.S.C.). Footnote 2's flagged Imp defect remains
+  reviewable against the now-ingested rule text.
 
 ### Corrected 2026-07-25: the HAR index is not what this page said
 
@@ -200,9 +201,9 @@ chapters. See [[har-citation-graph]].
   the office keeps its legal-resources page current, so silence *suggests* no newer rules — but
   that is an inference, not a check. Verify against the LRB's next Table edition. Until then,
   2016-12-09 is the currency of every `har/` page.
-- **HAR §2-71-31 (OIP records rules)** is now cited from inside the corpus
-  ([[har-3-160-10|§3-160-10]] assesses record-search fees under it) but not ingested — a title-2
-  chapter hosted under title 3, `foreign_title` in the universe.
+- ✅ **HAR §2-71-31 (OIP records rules)** — *ingested 2026-07-26 in the all-titles harvest*:
+  chapters 2-71 (16 sections) and 2-73 (appeals) both in, from the Lt. Governor's site. The
+  §3-160-10 fee cross-reference now resolves.
 - **Ten crosswalk keys are malformed in the LRB source** (`92F-__`, `189-)3.5`, `321-.15.6`,
   `431:7-`, `431:10C-B`, `157.31`, `348.3`), leaving three HAR citations unreachable. Deliberately
   not guessed at.
@@ -246,4 +247,28 @@ chapters. See [[har-citation-graph]].
   history zones carry `renumbered_from` provenance; build a translation view so old cites
   resolve to current sections (Act 211 (2010) renumbering map).
 - **Definitions from rule text.** The definitions table is HRS-only; HAR-defined terms
-  (§3-160-6 "expressly advocating") should join the mechanical backbone.
+  (§3-160-6 "expressly advocating") should join the mechanical backbone. Now much larger:
+  9,953 rule sections are in, many of them definitions sections.
+
+### Opened by the 2026-07-26 all-titles HAR text harvest ([[src-2026-07-26-har-text-at-scale]])
+
+- **The OCR tail: 243 scanned documents (~33% of the posted corpus) have no text layer** —
+  t11 Health is the worst (109 of 160 docs, including 11-1). Mapped, hashed, cached in
+  `raw/har/_pdf/`; unread until an OCR pass (no tesseract on this machine). This is now the
+  single largest read-coverage gap in the HAR layer.
+- **Title 20 (UH) is fetch-blocked**: `www.hawaii.edu` resets connections to automation
+  (urllib AND curl). 28 docs enumerated with sizes during recon. Retry from another
+  network/time, or hand-download.
+- **14 chapters quarantined on parse integrity** (see problems file; biggest: 18-235 income
+  tax, 17-1739, 17-534) — text is cached; each needs its layout quirk diagnosed.
+- **1,686 LRB-vs-rule-text Imp disagreements** now recorded as findings across all parsed
+  titles (vs 6,336 agreements). Unreviewed as a class; includes at least one digit
+  transposition (2-73-16: Table `231-19.5` vs text `213-19.5`).
+- **10 chapters exist in rule text but not in the 2025 LRB Table** (23-601…604, 17-799.1,
+  15-316, …) — the Table trails the rules. Verify against the next Table edition.
+- **99 chapters are posted only as excerpts** (`chapter_partial_vs_lrb`) — e.g. 4-42 posts 2
+  of 43 sections. The agency's own page is the gap; full text may require the Lt. Governor's
+  paper compilation or a records request.
+- **Currency is per-agency, not uniform**: some titles post 2025-2026 rules, others post
+  decade-old compilations. Per-section `effective` dates are in; a staleness sweep by title
+  would rank re-harvest priorities.

@@ -116,6 +116,13 @@ referencing acts by hi-leg-db's IDs.
      via Python.
    - When a Hawaiʻi index is missing from the agency that owns the subject, **look at the LRB**
      (AG opinions, the HAR Table & Directory).
+   - **Recon link lists rot** — 21 of 55 recorded BOE URLs were 404s with plausible-looking
+     names. Re-enumerate an agency index live before harvesting from a recorded list.
+   - **`www.hawaii.edu` resets connections to automation** (urllib and curl both; TCP-level) —
+     title 20 rules are enumerated but unfetchable from this machine.
+   - **A third of posted HAR PDFs are scans with no text layer** (Health: 109 of 160). Check
+     `chars ≈ pages` after extraction; those docs need OCR, not a better parser.
+   - **budget.hawaii.gov 429-throttles** — back off tens of seconds, not retry-loops.
 1. **Primary sources beat everything**, and each layer has its own (verified 2026-07-24):
    Constitution `lrb.hawaii.gov/constitution/` (NOT in the HRS index); HRS
    `capitol.hawaii.gov/hrscurrent/`; session laws `capitol.hawaii.gov/slh/`; HAR via the **LRB

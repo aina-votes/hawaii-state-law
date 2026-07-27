@@ -254,15 +254,22 @@ def build(db_path):
                 ("hrs-harvest", "https://www.capitol.hawaii.gov/hrscurrent/",
                  "Hawaii State Legislature", manifest["retrieved"], None,
                  "per-section fetches; discovered via " + manifest["source_page"]))
-    har_manifest = json.load(open(os.path.join(VAULT, "raw", "har", "_manifest.json"),
-                                  encoding="utf-8"))
-    for fname, m in har_manifest.items():
-        cur.execute("INSERT INTO sources VALUES (?,?,?,?,?,?)",
-                    (f"har-{m['chapter']}", m["url"],
-                     "Campaign Spending Commission (DAGS)", m["retrieved"],
-                     m["sha256_pdf"],
-                     f"chapter PDF, eff. {m['effective_as_printed']}; "
-                     f"extracted text was raw/har/{fname}"))
+    # one sources row per HAR chapter, from the scale-harvest provenance
+    # (tools/har_harvest.py + har_parse_all.py). Publisher = the owning
+    # department per the LRB title map.
+    from har_lib import TITLES as HAR_TITLES
+    har_rules = json.load(open(os.path.join(GRAPH, "har-rules.json"),
+                               encoding="utf-8"))
+    for chap, C in har_rules["chapters"].items():
+        title_num = int(chap.split("-", 1)[0])
+        cur.execute("INSERT OR REPLACE INTO sources VALUES (?,?,?,?,?,?)",
+                    (f"har-{chap}", C.get("url"),
+                     HAR_TITLES.get(title_num, f"HAR title {title_num}"),
+                     C.get("retrieved"), C.get("sha256_pdf"),
+                     f"chapter PDF; extracted text from raw/har/txt/"
+                     f"{C.get('source_doc')}"
+                     + ("" if C.get("toc_checked")
+                        else "; parsed without a TOC ground-truth check")))
     cur.execute("INSERT INTO sources VALUES (?,?,?,?,?,?)",
                 ("lrb-2025-table",
                  "https://lrb.hawaii.gov/wp-content/uploads/2025AdminRules_Supplement.pdf",
@@ -558,17 +565,17 @@ def validate(con):
     checks = []
     def q(sql):
         return cur.execute(sql).fetchone()[0]
-    checks.append(("sections", q("SELECT COUNT(*) FROM sections"), 714))
+    checks.append(("sections", q("SELECT COUNT(*) FROM sections"), 10546))
     checks.append(("hiconst sections", q("SELECT COUNT(*) FROM sections WHERE layer='hiconst'"), 172))
     checks.append(("hiconst articles", q("SELECT COUNT(*) FROM units WHERE layer='hiconst'"), 18))
     checks.append(("csc advisory opinions", q("SELECT COUNT(*) FROM opinions WHERE kind='csc_advisory'"), 56))
     checks.append(("opinions w/ text", q("SELECT COUNT(*) FROM opinions WHERE text_layer=1"), 49))
     checks.append(("hrs sections", q("SELECT COUNT(*) FROM sections WHERE layer='hrs'"), 421))
-    checks.append(("har sections", q("SELECT COUNT(*) FROM sections WHERE layer='har'"), 121))
+    checks.append(("har sections", q("SELECT COUNT(*) FROM sections WHERE layer='har'"), 9953))
     checks.append(("definitions", q("SELECT COUNT(*) FROM definitions"), 151))
     checks.append(("annotations", q("SELECT COUNT(*) FROM annotations"), 13))
     checks.append(("hrs_text edges", q("SELECT COUNT(*) FROM edges WHERE attestation='hrs_text'"), 638))
-    checks.append(("rule_text edges", q("SELECT COUNT(*) FROM edges WHERE attestation='rule_text'"), 1047))
+    checks.append(("rule_text edges", q("SELECT COUNT(*) FROM edges WHERE attestation='rule_text'"), 47258))
     checks.append(("lrb edges >", q("SELECT COUNT(*) FROM edges WHERE attestation='lrb2025'"), 42000))
     checks.append(("hrs chapter units >", q("SELECT COUNT(*) FROM units WHERE layer='hrs'"), 1000))
     checks.append(("har title units", q("SELECT COUNT(*) FROM units WHERE layer='har' AND kind='title'"), 24))

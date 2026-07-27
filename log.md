@@ -563,3 +563,36 @@ history zones' `renumbered_from` provenance, so "what has the Commission said ab
 contribution limits" answers across the 2010 renumbering seam.
 
 Snapshot …-dc53b7b8.db.gz. DB now: 714 sections, 56 opinions, ~46k edges, 5 attestations.
+
+## [2026-07-26] ingest | HAR text at scale — 480 chapters across 20 titles, the rules layer goes live
+
+The ingest-order step after the advisory opinions, and the largest single ingest yet. Work-list
+of 792 documents from the 2026-07-25 recon link lists + live re-enumeration (title 11: recon
+saved a 10-link sample of 164; title 12: six Labor subpages never recursed; title 8: 21 of 55
+recon URLs were 404s with plausible names — recon lists are claims, re-enumerate before
+harvesting) + two extras outside the LRB directory (3-170 Elections Commission, 3-177 Office of
+Elections, from the OoE election-laws page). 740 PDFs fetched and `%PDF`-verified; polite,
+resumable, 429-backoff (budget.hawaii.gov). Not fetched: titles 1/9/22 (nothing published),
+title 20 (www.hawaii.edu TCP-resets automation — retry owed), 3 genuine agency 404s.
+
+Extraction: pdfplumber parallel, verbatim. **243 of 740 docs are scans with no text layer**
+(Health: 109 of 160) — the OCR tail, now the largest read gap in the layer.
+
+Parse (`tools/har_parse_all.py`, generalizing the CSC parser; regression gate: 3-160/3-161
+re-parse EDGE-IDENTICAL to baseline): **480 chapters / 9,953 sections / 47,258 typed
+attested edges**, including 4,976 federal edges (CFR/USC/P.L.) from Auth/Imp notes — health
+and human-services rules implement federal law directly, and now the graph shows it. All
+healing corroboration-only (LRB Table or harvested corpus; 222 heals + 207 TOC-attested header
+repairs, every one logged). Honesty ledger: 14 chapters quarantined on parse integrity, 10
+OCR-stray chapters dropped, 10 out-of-universe chapters KEPT (the Table trails the rules),
+99 excerpt-only postings recorded, **6,336 rules agree with the LRB Imp crosswalk / 1,686
+differ — findings, not normalised** (incl. a Table digit transposition at 2-73-16).
+
+Resolved from open-questions: HAR 2-71/2-73 (OIP records rules — the §3-160-10 fee cross-ref
+resolves), 3-170/3-177 (elections rules; 3-177's Auth chain runs to §11-4 plus HAVA edges
+into 52 U.S.C.). "Did the agency have power to adopt this?" is now answerable for every
+parsed title, not just the CSC.
+
+db_build VALID (10,546 sections, 71.3MB, annotations/doctrine preserved). Snapshot
+…-6ac8a544.db.gz. Next per confirmed order: full HRS (colon-form citation fix first —
+partially pre-empted: the HAR tokenizer already claims colon-form cites).
