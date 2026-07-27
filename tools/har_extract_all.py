@@ -66,7 +66,7 @@ def main():
 
     todo = []
     for key, m in manifest.items():
-        if m.get("status") != "ok":
+        if m.get("status") not in ("ok", "ok_archived"):
             continue
         prior = done.get(key)
         if (prior and prior.get("status") == "ok"

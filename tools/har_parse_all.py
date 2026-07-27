@@ -715,7 +715,7 @@ def main():
     chapters, edges_by_chap = {}, {}
     doc_count = 0
     for key, meta in sorted(manifest.items()):
-        if meta.get("status") != "ok":
+        if meta.get("status") not in ("ok", "ok_archived"):
             continue
         if want and meta.get("title") not in want:
             continue
