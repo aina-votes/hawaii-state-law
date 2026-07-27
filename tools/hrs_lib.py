@@ -116,7 +116,21 @@ def file_to_section(fn):
     decimal part, concatenated: HRS_0011-0001_0005_0002.htm is §11-1.52,
     not §11-1.5.2.  Verified against the retrieved text of §11-1.52,
     §11-1.55 and §10-14.55.
+
+    Colon (article) chapters use a THREE-part filename:
+    HRS_0412-0001-0100.htm -> ('412', '412:1-100') — chapter-article-section,
+    citation as printed (identity contract). Verified against the ch. 412
+    listing 2026-07-26.
     """
+    m = re.match(r"HRS_(\d+[A-Z]?)-(\d+[A-Z]?)-(\d+)((?:_\d+)*)\.htm$", fn, re.I)
+    if m:
+        chap = m.group(1).lstrip("0") or "0"
+        art = m.group(2).lstrip("0") or "0"
+        num = m.group(3).lstrip("0") or "0"
+        if m.group(4):
+            dec = "".join(g.lstrip("0") or "0" for g in m.group(4).split("_") if g)
+            num += "." + dec
+        return chap, f"{chap}:{art}-{num}"
     m = re.match(r"HRS_(\d+[A-Z]?)-(\d*)((?:_\d+)*)\.htm$", fn, re.I)
     if not m:
         return None, None
@@ -255,7 +269,13 @@ def split_section(text):
 # ---------------------------------------------------------------------------
 # Citation extraction
 # ---------------------------------------------------------------------------
-_SEC = r"\d+[A-Z]?-\d+(?:\.\d+)?"
+# A section token, including the colon (article) form used by chapters 412,
+# 431, 432, 490: '412:2-105', '431:10A-301'. Colon form is FIRST in the
+# alternation so it wins at a shared position, and its chapter part is
+# constrained to 3+ digits so clock times ('4:30-5:00') can never match.
+# Open-questions 2026-07-25: the LRB crosswalk carries 289 colon-form keys
+# that a colon-blind _SEC silently drops.
+_SEC = r"(?:\d{3}[A-Z]?:\d+[A-Z]?-\d+(?:\.\d+)?|\d+[A-Z]?-\d+(?:\.\d+)?)"
 
 CITE_PATTERNS = [
     # "sections 11-15 to 11-19" / "sections 11-15 through 11-19"
