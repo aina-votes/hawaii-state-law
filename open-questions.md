@@ -236,3 +236,14 @@ chapters. See [[har-citation-graph]].
   [[hrs-11-26]], on when a government-closure day counts as a holiday for computing deadlines under
   HRS §1-29. Now that [[hrs-11-24]] is understood this is less urgent, but it bears on how holidays
   interact with the rollover.
+
+- **CSC advisory opinions: the layer is 57 entries, not "14 PDFs."** Discovered 2026-07-26:
+  13 PDFs (2010-2026) + 44 HTML pages (1996-2009). Open tails: **AO 06-02's page 404s though
+  the index links it** (source defect, recorded); **7 of the 2011-2016 PDFs are scans with no
+  text layer** — need OCR (no tesseract on this machine today); ingested 56 with 49 readable.
+- **Old-numbering translation.** Pre-2010 opinions cite the superseded campaign-finance part
+  (§11-191, §11-204...) — 186 of 301 opinion HRS cites fall outside current numbering. The
+  history zones carry `renumbered_from` provenance; build a translation view so old cites
+  resolve to current sections (Act 211 (2010) renumbering map).
+- **Definitions from rule text.** The definitions table is HRS-only; HAR-defined terms
+  (§3-160-6 "expressly advocating") should join the mechanical backbone.

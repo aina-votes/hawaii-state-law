@@ -546,3 +546,20 @@ Tooling lesson (filed to memory): a Python heredoc smuggled a literal backspace 
 noticing 0 repealed. Never patch code via heredoc string literals; use the Edit tool or chr().
 
 Snapshot …-36734b79.db.gz. Next per confirmed order: the 14 CSC advisory opinions.
+
+## [2026-07-26] ingest | CSC advisory opinions — 56 of 57, and the layer was 4x bigger than recorded
+
+Memory said "14 PDFs." The index actually carries **57 opinions**: 13 PDFs (2010-2026) plus
+**44 HTML pages (1996-2009)** under /campaign/guidance/advisory-opinions/. Harvested 56
+(`tools/harvest_csc_aos.py`, both forms, subjects from the index parentheticals, ground truth =
+the index's own list): **49 with full text + 405 citation edges** (attestation `opinion_text`),
+7 scanned PDFs recorded `text_layer=0` awaiting OCR, 1 fetch failure (AO 06-02 — the index
+links a page that 404s; source defect, recorded). New `opinions` table; opinion bodies in FTS.
+
+**Finding — the old-numbering gap**: pre-2010 opinions cite the superseded campaign-finance
+part (§11-191 definitions, §11-204 contribution limits): 186 of 301 opinion HRS cites point
+outside current numbering. Filed in open-questions: a renumbering-translation view from the
+history zones' `renumbered_from` provenance, so "what has the Commission said about
+contribution limits" answers across the 2010 renumbering seam.
+
+Snapshot …-dc53b7b8.db.gz. DB now: 714 sections, 56 opinions, ~46k edges, 5 attestations.

@@ -137,6 +137,24 @@ CREATE TABLE doctrine (
   updated TEXT
 );
 
+-- agency opinions and other interpretive documents (CSC advisory opinions
+-- first; AG opinions and cases join as their layers land). Binding-in-
+-- practice interpretive gloss; body verbatim; text_layer=0 marks scanned
+-- PDFs awaiting OCR (recorded absence, per rule 8).
+CREATE TABLE opinions (
+  id TEXT PRIMARY KEY,            -- 'csc_ao:07-01', 'csc_ao:98-05-amendment'
+  kind TEXT NOT NULL,             -- 'csc_advisory' | 'ag' | ...
+  number TEXT,
+  opinion_date TEXT,
+  subject TEXT,
+  body TEXT,
+  form TEXT,                      -- 'pdf' | 'html'
+  text_layer INTEGER DEFAULT 1,
+  url TEXT,
+  sha256 TEXT,
+  retrieved TEXT
+);
+
 -- provenance registry: every fetched source
 CREATE TABLE sources (
   id TEXT PRIMARY KEY,
@@ -415,6 +433,30 @@ def build(db_path):
                          json.dumps({"at": key, "notes": note_list},
                                     ensure_ascii=False)))
 
+    # ---- CSC advisory opinions ---------------------------------------------
+    ao_path = os.path.join(GRAPH, "csc-aos.json")
+    if os.path.exists(ao_path):
+        ao = json.load(open(ao_path, encoding="utf-8-sig"))
+        for o in ao["opinions"]:
+            cur.execute("INSERT OR REPLACE INTO opinions VALUES "
+                        "(?,?,?,?,?,?,?,?,?,?,?)",
+                        (o["id"], o["kind"], o["number"], o.get("date"),
+                         o.get("subject"), o.get("body"), o.get("form"),
+                         int(bool(o.get("text_layer"))), o["url"],
+                         o.get("sha256"), ao["retrieved"]))
+            if o.get("body"):
+                cur.execute("INSERT INTO fts VALUES (?,?,?,?)",
+                            (o["id"], "opinion", o.get("subject") or "",
+                             o["body"]))
+        for e in ao["edges"]:
+            cur.execute("INSERT INTO edges (src,dst,dst_kind,relation,zone,"
+                        "attestation,raw) VALUES (?,?,?,?,?,?,?)",
+                        (e["src"], norm_dst(e["kind"], e["target"]), e["kind"],
+                         "cites", "operative", "opinion_text", e.get("raw")))
+        for p in ao.get("problems", []):
+            cur.execute("INSERT INTO problems VALUES (?,?)",
+                        ("csc-aos", json.dumps(p, ensure_ascii=False)))
+
     # ---- annotation-zone citations: cases / AG ops / law reviews -----------
     # The revisor's Case Notes as edges — leads, not authority (attestation
     # 'revisor_note'). Produced by tools/case_cites.py; optional so a fresh
@@ -519,6 +561,8 @@ def validate(con):
     checks.append(("sections", q("SELECT COUNT(*) FROM sections"), 714))
     checks.append(("hiconst sections", q("SELECT COUNT(*) FROM sections WHERE layer='hiconst'"), 172))
     checks.append(("hiconst articles", q("SELECT COUNT(*) FROM units WHERE layer='hiconst'"), 18))
+    checks.append(("csc advisory opinions", q("SELECT COUNT(*) FROM opinions WHERE kind='csc_advisory'"), 56))
+    checks.append(("opinions w/ text", q("SELECT COUNT(*) FROM opinions WHERE text_layer=1"), 49))
     checks.append(("hrs sections", q("SELECT COUNT(*) FROM sections WHERE layer='hrs'"), 421))
     checks.append(("har sections", q("SELECT COUNT(*) FROM sections WHERE layer='har'"), 121))
     checks.append(("definitions", q("SELECT COUNT(*) FROM definitions"), 151))
