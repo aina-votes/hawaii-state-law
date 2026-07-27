@@ -188,7 +188,28 @@ def norm_dst(kind, target):
     return t                                    # usc:/cfr:/pl:/hiconst:/usconst/...
 
 
+def preserve_handwritten(db_path):
+    """Read the hand-written tables out of the existing DB before a rebuild.
+    THE contract: the generator never destroys hand-written rows. A rebuild
+    is from-scratch for every mechanical table; annotations and doctrine are
+    carried over. (Added after the validation caught a rebuild wiping them —
+    the page-era source was gone and the old code re-read from pages.)"""
+    if not os.path.exists(db_path):
+        return [], []
+    try:
+        old = sqlite3.connect(db_path)
+        ann = old.execute("SELECT section_id, body, created, updated "
+                          "FROM annotations").fetchall()
+        doc = old.execute("SELECT slug, kind, title, body, created, updated "
+                          "FROM doctrine").fetchall()
+        old.close()
+        return ann, doc
+    except sqlite3.Error:
+        return [], []
+
+
 def build(db_path):
+    preserved_ann, preserved_doc = preserve_handwritten(db_path)
     if os.path.exists(db_path):
         os.remove(db_path)
     for wal in (db_path + "-wal", db_path + "-shm"):
@@ -349,6 +370,20 @@ def build(db_path):
                     (f"har:{src}", f"slh:{act}", "session_law",
                      "implements", None, "lrb2025", raw))
 
+    # ---- annotation-zone citations: cases / AG ops / law reviews -----------
+    # The revisor's Case Notes as edges — leads, not authority (attestation
+    # 'revisor_note'). Produced by tools/case_cites.py; optional so a fresh
+    # clone can build before running that stage.
+    ac_path = os.path.join(GRAPH, "annotation-cites.json")
+    if os.path.exists(ac_path):
+        ac = json.load(open(ac_path, encoding="utf-8-sig"))
+        for e in ac["edges"]:
+            cur.execute("INSERT INTO edges (src,dst,dst_kind,relation,zone,"
+                        "attestation,raw,context) VALUES (?,?,?,?,?,?,?,?)",
+                        (e["src"], e["dst"], e["dst_kind"], e["relation"],
+                         "annotation", ac.get("attestation", "revisor_note"),
+                         e.get("raw"), e.get("context")))
+
     # ---- definitions --------------------------------------------------------
     for d in jload("definitions.json")["definitions"]:
         cur.execute("INSERT INTO definitions VALUES (?,?,?,?,?,?,?,?)",
@@ -366,6 +401,12 @@ def build(db_path):
                 cur.execute("INSERT INTO problems VALUES (?,?)",
                             (fname, json.dumps(it, ensure_ascii=False)))
 
+    # ---- restore hand-written rows (the contract) ---------------------------
+    for row in preserved_ann:
+        cur.execute("INSERT OR REPLACE INTO annotations VALUES (?,?,?,?)", row)
+    for row in preserved_doc:
+        cur.execute("INSERT OR REPLACE INTO doctrine VALUES (?,?,?,?,?,?)", row)
+
     cur.execute("INSERT INTO meta VALUES ('schema_version','1')")
     cur.execute("INSERT INTO meta VALUES ('built',?)", (today,))
     con.commit()
@@ -375,7 +416,7 @@ def build(db_path):
 BEGIN, END = "<!-- BEGIN CURATED -->", "<!-- END CURATED -->"
 
 
-def migrate_handwritten(con):
+def migrate_handwritten(con, base=VAULT):
     """One-time pull of hand-written content out of the retiring page layer:
     curated blocks -> annotations; concepts/agencies/synthesis -> doctrine.
     Safe to re-run only while the pages still exist; after the pages are
@@ -383,7 +424,7 @@ def migrate_handwritten(con):
     cur = con.cursor()
     today = date.today().isoformat()
     n_ann = 0
-    stat_dir = os.path.join(VAULT, "statutes")
+    stat_dir = os.path.join(base, "statutes")
     if os.path.isdir(stat_dir):
         for fn in os.listdir(stat_dir):
             path = os.path.join(stat_dir, fn)
@@ -403,7 +444,7 @@ def migrate_handwritten(con):
             n_ann += 1
     n_doc = 0
     for folder, kind in (("concepts", "doctrine"), ("agencies", "agency")):
-        d = os.path.join(VAULT, folder)
+        d = os.path.join(base, folder)
         if not os.path.isdir(d):
             continue
         for fn in os.listdir(d):
@@ -415,7 +456,7 @@ def migrate_handwritten(con):
                         (fn[:-3], kind, tm.group(1).strip() if tm else fn[:-3],
                          body, today, today))
             n_doc += 1
-    dl = os.path.join(VAULT, "deadlines.md")
+    dl = os.path.join(base, "deadlines.md")
     if os.path.exists(dl):
         cur.execute("INSERT OR REPLACE INTO doctrine VALUES (?,?,?,?,?,?)",
                     ("deadlines", "synthesis", "Deadlines — date-driven obligations",

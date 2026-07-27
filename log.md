@@ -505,3 +505,21 @@ Executed the grill-session architecture in one pass:
 
 The generator-never-destroys-hand-written-rows contract replaces the curated-block contract.
 Next: first DB-native ingest — case + AG citations from the harvested annotation zones.
+
+## [2026-07-26] ingest | first DB-native ingest: the revisor's Case Notes become edges
+
+Zero-crawl: parsed the already-harvested annotation zones (`tools/case_cites.py`). **487 edges
+from 91 sections: 240 distinct cases, 36 AG opinions, 30 law-review pieces** — attestation
+`revisor_note` (leads, not authority: the revisor curates, goes stale, is not exhaustive),
+relations `construed_by` / `discussed_by`, each edge carrying the revisor's one-paragraph
+holding summary as context. "What has been held about §X" is now queryable — §91-14 (judicial
+review) leads with 100 distinct construing cases. Sweep: 707 reporter tokens, zero missed;
+parallel citations grouped (id = official reporter, all reporters kept in raw); `U.S.C.` guarded
+from matching as `U.S.`.
+
+**Contract violation caught and fixed by the validation stack**: the first rebuild after the
+page-strip wiped the 13 annotations + 4 doctrine rows (the loader still re-read from the deleted
+pages). Recovered from git history (`git archive 5f57108~1`), and `db_build.py` now carries
+hand-written tables over from the previous DB on every rebuild — the
+generator-never-destroys-hand-written-rows contract is structural and self-tested, not
+procedural. Second snapshot uploaded (…-e077ac84.db.gz).
