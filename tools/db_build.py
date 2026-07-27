@@ -565,17 +565,17 @@ def validate(con):
     checks = []
     def q(sql):
         return cur.execute(sql).fetchone()[0]
-    checks.append(("sections", q("SELECT COUNT(*) FROM sections"), 10546))
+    checks.append(("sections", q("SELECT COUNT(*) FROM sections"), 34912))
     checks.append(("hiconst sections", q("SELECT COUNT(*) FROM sections WHERE layer='hiconst'"), 172))
     checks.append(("hiconst articles", q("SELECT COUNT(*) FROM units WHERE layer='hiconst'"), 18))
     checks.append(("csc advisory opinions", q("SELECT COUNT(*) FROM opinions WHERE kind='csc_advisory'"), 56))
     checks.append(("opinions w/ text", q("SELECT COUNT(*) FROM opinions WHERE text_layer=1"), 49))
-    checks.append(("hrs sections", q("SELECT COUNT(*) FROM sections WHERE layer='hrs'"), 421))
-    checks.append(("har sections", q("SELECT COUNT(*) FROM sections WHERE layer='har'"), 9953))
-    checks.append(("definitions", q("SELECT COUNT(*) FROM definitions"), 151))
+    checks.append(("hrs sections", q("SELECT COUNT(*) FROM sections WHERE layer='hrs'"), 22972))
+    checks.append(("har sections", q("SELECT COUNT(*) FROM sections WHERE layer='har'"), 11768))
+    checks.append(("definitions", q("SELECT COUNT(*) FROM definitions"), 12146))
     checks.append(("annotations", q("SELECT COUNT(*) FROM annotations"), 13))
-    checks.append(("hrs_text edges", q("SELECT COUNT(*) FROM edges WHERE attestation='hrs_text'"), 638))
-    checks.append(("rule_text edges", q("SELECT COUNT(*) FROM edges WHERE attestation='rule_text'"), 47258))
+    checks.append(("hrs_text edges", q("SELECT COUNT(*) FROM edges WHERE attestation='hrs_text'"), 38759))
+    checks.append(("rule_text edges", q("SELECT COUNT(*) FROM edges WHERE attestation='rule_text'"), 56559))
     checks.append(("lrb edges >", q("SELECT COUNT(*) FROM edges WHERE attestation='lrb2025'"), 42000))
     checks.append(("hrs chapter units >", q("SELECT COUNT(*) FROM units WHERE layer='hrs'"), 1000))
     checks.append(("har title units", q("SELECT COUNT(*) FROM units WHERE layer='har' AND kind='title'"), 24))

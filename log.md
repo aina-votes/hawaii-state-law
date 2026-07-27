@@ -614,3 +614,28 @@ record, same day. Lesson (third instance): a recon link list is a claim; the che
 work-list ⊇ LRB universe, run BEFORE harvesting, not after a query embarrasses the corpus.
 Gap-harvest target list: `graph/har-gap-chapters.json` (committed — it is a judgment artifact,
 not a regenerable intermediate... regenerable, but load-bearing for the next pass).
+
+## [2026-07-27] ingest | THE FULL HRS — 22,972 sections, the statute book is in
+
+Overnight harvest off the universe enumeration (`tools/harvest_hrs_all.py`, new): 1,108
+chapter directories, ~24k requests, **zero fetch failures, zero listing drift**, ~6.5h at
+~1/s sequential. The single unfetched file is a superseded `_[OLD]` duplicate of §431:9A-101,
+excluded deliberately. Server filename defects healed and recorded: a URL-encoded SOFT HYPHEN
+inside a filename (§291-24.4 — rule 0's U+00AD class, new venue), `.docx.htm` double
+extensions (§§663E-10..12).
+
+Pre-harvest, the colon-form fix went in exactly as open-questions prescribed (`_SEC` +
+`SEC_START_RE` + catchline + `file_to_section`); full-corpus parse then surfaced the
+bracketed-section convention (`[§46-55 ...]`) — no-catchline fell 3,093 → 94 after both
+fixes. Definitions scale 151 → **12,146** scoped terms. Graph: **38,759 hrs_text edges**,
+1,110 sections accounted by range repeals, 4,814 unresolved targets recorded as leads.
+
+Same window, HAR tail: gap-harvest round 1 recovered 102/312 targets (+76 chapters); title
+20 came from the PRIMARY after the VPN dropped — the TCP resets and archive.org 429s were
+VPN-exit-IP reputation blocks, now a rule-0 gotcha. HAR: 566 chapters / 11,768 sections.
+
+DB: **34,912 sections / 138,672 edges / 100,961 FTS rows / 233MB — VALID**, hand-written
+rows preserved. Snapshot …-740fce06.db.gz (57.6MB verified). The trails question that
+exposed the HAR gap now gets ch. 198D verbatim; HAR 13-130 remains recorded-unfound
+(round-2 seeds queued). Next per confirmed order: act→HRS bridge with hi-leg-db; background
+per-layer update feeds.

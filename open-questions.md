@@ -168,13 +168,10 @@ chapters. See [[har-citation-graph]].
 
 ### New, opened by the HAR ingest
 
-- **`tools/hrs_lib.py` cannot parse colon-form HRS citations, and will silently drop them.**
-  Chapters 412 (Code of Financial Institutions), 431 (Insurance Code) and 490 (UCC) number their
-  sections `412:2-105`, `431:10A-301`, `490:2-201`. `_SEC` in `hrs_lib.py` is
-  `\d+[A-Z]?-\d+(?:\.\d+)?`, which does not match a colon. The LRB crosswalk uses this form for 289
-  keys — 93% of the keys a chapter-section pattern rejects. **Nothing is broken today** because the
-  harvested corpus (chapters 10–50) does not use the form, but any HRS harvest reaching 412, 431 or
-  490 loses those cross-references without erroring. Fix `_SEC` before the next chapter expansion.
+- ✅ **`tools/hrs_lib.py` colon-form citations** — *fixed 2026-07-26 before the full-HRS
+  harvest, exactly as this entry prescribed*: `_SEC`, `SEC_START_RE`, the catchline regex and
+  `file_to_section` all handle `412:2-105` / `431:10A-301` / three-part filenames. Regression
+  on the prior corpus recovered 2 dropped edges (§§11-351, 11-432 → §412:1-109), lost none.
 - **Is HAR 19-150 (autonomous vehicle regulations) in force?** The LRB Directory lists chapter
   19-150 twice: live under "Subtitle 5 Motor Vehicle Safety Office" as "Autonomous Vehicle
   Regulations", and "Repealed" under "Subtitle 6 Statewide Transportation Planning Office". HAR
@@ -252,6 +249,13 @@ chapters. See [[har-citation-graph]].
 
 ### Opened by the 2026-07-26 all-titles HAR text harvest ([[src-2026-07-26-har-text-at-scale]])
 
+- **Gap harvest ROUND 1 RUN 2026-07-26** (`har_gap_harvest.py`): 102 of 312 targets
+  recovered (+76 chapters, +1,667 sections). **210 still unfound**, per-title with pages
+  searched in `raw/har/_pdf/_gap_discovery.json`. Round 2 needs deeper seeds: DAGS board
+  sites (Stadium Authority, OIP, Elections Comm'n siblings — 32 left), DLNR division
+  sub-subpages (38 left), DHRD (25 — may genuinely not be posted), DBEDT boards (15),
+  DOT (25). Title 23's 11 are likely inside the scanned consolidated DCR PDF → OCR tail,
+  not a fetch problem. Title 20 RESOLVED from primary off-VPN 2026-07-27.
 - **⚠️ THE GAP HARVEST: 322 live chapters were never in the harvest work-list at all** —
   discovered 2026-07-26 same-day by the first real query ("DLNR rules on hiking trails" →
   HAR 13-130 Na Ala Hele, 48 LRB-known sections implementing ch. 198D, mapped-not-read).

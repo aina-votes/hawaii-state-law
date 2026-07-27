@@ -122,6 +122,16 @@ def file_to_section(fn):
     citation as printed (identity contract). Verified against the ch. 412
     listing 2026-07-26.
     """
+    # Server-side filename defects, each observed in the 2026-07-26 full
+    # harvest: a URL-encoded soft hyphen inside a name (%C2%AD in §291-24.4),
+    # and '.docx.htm' double extensions (§§663E-10..12). An '_[OLD]' name is
+    # a SUPERSEDED copy the State left in the directory — deliberately not
+    # parsed; the caller records it and the current file stands.
+    import urllib.parse as _up
+    fn = _up.unquote(fn).replace("­", "")
+    if "[OLD]" in fn.upper():
+        return None, None
+    fn = re.sub(r"\.docx(?=\.htm$)", "", fn, flags=re.I)
     m = re.match(r"HRS_(\d+[A-Z]?)-(\d+[A-Z]?)-(\d+)((?:_\d+)*)\.htm$", fn, re.I)
     if m:
         chap = m.group(1).lstrip("0") or "0"
@@ -185,7 +195,9 @@ def normalize_dashes(s):
 
 PART_RE = re.compile(r"^\s*(?:HRS\s*)?(?:PART\s+([IVXLC]+[A-Z]?)\s*\.?\s*\n)+", re.I | re.M)
 # §§ (double) marks a range repeal, e.g. "§§11-71 to 11-75 REPEALED".
-SEC_START_RE = re.compile(r"(?:^|\n)\s*\[?\s*§{1,2}\s*([\dA-Z]+-[\d.]+)\s*\]?\s")
+# id allows the colon (article) form: 431:10A-301, 560:1-101
+SEC_START_RE = re.compile(
+    r"(?:^|\n)\s*\[?\s*§{1,2}\s*([\dA-Z]+(?::[\dA-Z]+)?-[\d.]+)\s*\]?\s")
 
 
 def split_section(text):
@@ -257,7 +269,10 @@ def split_section(text):
         annotations = body[cut:].strip()
         body_only = operative
 
-    m = re.match(r"\s*\[?\s*§{0,2}\s*([\dA-Z]+-[\d.]+)\s*\]?\s+(.{0,250}?)\.(?:\s|$)",
+    # id allows colon form; the terminator allows the bracketed-section
+    # convention '[§46-55 Catchline.]' where the period closes as '.]'
+    m = re.match(r"\s*\[?\s*§{0,2}\s*([\dA-Z]+(?::[\dA-Z]+)?-[\d.]+)\s*\]?\s+"
+                 r"(.{0,250}?)\.\]?(?:\s|$)",
                  operative, re.S)
     catchline = " ".join(m.group(2).split()) if m else ""
     return {"part_heading": part_heading, "subpart_heading": subpart,

@@ -123,6 +123,14 @@ referencing acts by hi-leg-db's IDs.
    - **A third of posted HAR PDFs are scans with no text layer** (Health: 109 of 160). Check
      `chars ≈ pages` after extraction; those docs need OCR, not a better parser.
    - **budget.hawaii.gov 429-throttles** — back off tens of seconds, not retry-loops.
+   - **A VPN exit IP gets reputation-blocked where the same request succeeds bare** —
+     www.hawaii.edu TCP-reset and archive.org 429'd every attempt through the VPN
+     (2026-07-26); both worked instantly off it. Before diagnosing an agency block,
+     check whether the machine is on a VPN.
+   - **The State's own filenames carry defects**: URL-encoded soft hyphens
+     (`%C2%AD` in §291-24.4's filename), `.docx.htm` double extensions, and `_[OLD]`
+     superseded duplicates left in chapter directories. `file_to_section` sanitizes;
+     `[OLD]` files are excluded deliberately.
 1. **Primary sources beat everything**, and each layer has its own (verified 2026-07-24):
    Constitution `lrb.hawaii.gov/constitution/` (NOT in the HRS index); HRS
    `capitol.hawaii.gov/hrscurrent/`; session laws `capitol.hawaii.gov/slh/`; HAR via the **LRB
