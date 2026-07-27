@@ -477,3 +477,31 @@ era; the parsers, corroborated-repair discipline, validation stack, and PDFs-out
 provenance policy all carry over unchanged. Migration owed: re-point pipeline outputs from
 markdown/JSON to tables; decide whether annotated pages keep an Obsidian render as a generated
 view. Recorded in the parent decision log same day.
+
+## [2026-07-26] schema | THE MIGRATION — hawaii-law.db is the artifact; the page era ends
+
+Executed the grill-session architecture in one pass:
+
+- **`hawaii-law.db` built and validated** (`tools/db_build.py`): 542 sections (421 HRS + 121
+  HAR) with zoned verbatim text (1,490 zone rows), **44,142 typed+attested edges** (hrs_text 638
+  / rule_text 1,047 / lrb2025 42,457), 2,703 mapped units (the LRB's 12 double-listed chapters
+  preserved as `contested` with both listings — never deduped), 151 scoped definitions, **13
+  annotations and 4 doctrine rows migrated out of the retiring pages** (verified: zero
+  hand-written prose existed outside them), sources registry, 4 problems files folded in, FTS5,
+  and the `coverage` view (derived, cannot go stale). All validation checks green.
+- **Page era stripped**: statutes/, har/, concepts/, agencies/, .obsidian/, INDEX.md,
+  overview.md, deadlines.md, citation-queue.md removed from tree (git history preserves them);
+  raw/ and graph/*.json remain on disk as gitignored cache/intermediates. The DB never enters
+  git.
+- **CLAUDE.md rewritten for the DB era**: storage architecture + three-copy shape, the
+  hi-leg-db sibling contract, the shared identity contract (as-printed ids), the data model,
+  rules 0–14 carried over (storage-agnostic), the answer-quality doctrine (§4), pipeline ops
+  (harvest → parse → db_build → snapshot), confirmed ingest order.
+- **First snapshot uploaded**: `tools/snapshot.py` — sqlite backup-API copy → gzip → ephemeral
+  bucket-scoped key → private object `hawaii-law/snapshots/hawaii-law-2026-07-26-bfd820b6.db.gz`
+  (1.9MB), verified, key deleted. Run after every ingest.
+- Gap logged: definitions are HRS-only — HAR §3-160-6 "expressly advocating" isn't in
+  `definitions` yet (FTS finds it); extend definition extraction to rule text.
+
+The generator-never-destroys-hand-written-rows contract replaces the curated-block contract.
+Next: first DB-native ingest — case + AG citations from the harvested annotation zones.

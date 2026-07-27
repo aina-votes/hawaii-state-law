@@ -26,3 +26,19 @@ graph/*.db
 
 # frontier-sizing cache (rebuildable, 15 requests)
 tools/.chapmap.json
+
+# ============ DB era (2026-07-26) ============
+# THE artifact. Laptop primary; versioned snapshots go to DO Spaces after
+# each ingest; a read-only serving copy lands on the droplet when the public
+# surface is built. Never in git.
+hawaii-law.db
+hawaii-law.db-wal
+hawaii-law.db-shm
+hawaii-law.db.check
+
+# Pipeline intermediates: parse outputs folded into the DB by tools/db_build.py.
+# Regenerable from raw/; raw/ is itself a fetch cache regenerable from the
+# sources registry (with the caveat that a re-fetch reflects CURRENT law -
+# the DB and its snapshots are the dated record).
+graph/*.json
+raw/
