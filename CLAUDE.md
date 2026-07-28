@@ -65,9 +65,24 @@ referencing acts by hi-leg-db's IDs.
 - **`sections` + `zones`** — verbatim text, one row per zone. HRS zones:
   `preamble|operative|history|annotation`. HAR zones: `operative|source_note|auth|imp|annotation`.
   Zones are never merged (rules 10–11 below).
-- **`edges`** — typed (`cites|authorized_by|implements|delegates_to|renumbered_from`), zoned, and
-  **attested** (`hrs_text|rule_text|lrb2025`, growing as layers land). Two attestations of the
-  same relation are two rows; where they disagree, that is a finding, never normalised (rule 12).
+- **`edges`** — typed (`cites|authorized_by|implements|delegates_to|renumbered_from`, plus the
+  session-law relations `amended_by|repealed_by|added_by|affected_by`), zoned, and
+  **attested** (`hrs_text|rule_text|lrb2025|act_text|bill_refs`, growing as layers land). Two
+  attestations of the same relation are two rows; where they disagree, that is a finding, never
+  normalised (rule 12).
+  - **Session-law edges run statute→act**: `src='hrs:11-102'`, `dst='slh:2021:213'`,
+    `dst_kind='session_law'`. So "which acts touched §X" is one indexed lookup on `src`, matching
+    the corpus grain where `src` is always something this DB holds. Built by `tools/act_bridge.py`
+    from the sibling hi-leg-db; **optional stage** — a clone without hi-leg-db still builds and
+    validates. `context` carries the bill section and the change counts
+    (`Act 213 (2021) §18: amend (b) [-2/+8]`); the change TEXT lives in hi-leg-db's `act_changes`,
+    not here.
+  - The two act attestations are **not interchangeable**. `act_text` is parsed from the act's own
+    operative sentence and is the better witness; `bill_refs` is hi-leg-db's citation extraction
+    over the whole bill and is broader but looser. Measured 2026-07-27: 2,545 statute→act
+    relationships asserted by `act_text` are **absent** from `bill_refs`, including Act 166 (2022)
+    on §11-102, which hi-leg-db labels `amends` on the introduced and HD1 drafts and merely
+    `references` on the enacted SD1. Never filter to one leg and call it coverage.
 - **`units`** — everything MAPPED (enumerated), whether or not READ. Source contradictions (LRB
   double-listings) are preserved in `extra.listings` with `contested`, never deduped.
 - **`definitions`** — the mechanical concept backbone: statute-declared, scope-resolved terms.

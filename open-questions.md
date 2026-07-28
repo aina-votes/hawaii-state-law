@@ -57,10 +57,28 @@ chasing. Two things still open:
 
 ## Verification debt
 
-- **What did Act 213 (2021) §18 and Act 166 (2022) §2 change in [[hrs-11-102]]?** If the 10-day or
-  7-day figures ever moved, guidance written before the 2024 primary is wrong. Need the session
-  laws. Amendment histories are now recorded on all 393 pages but **no page traces what an act
-  actually changed** — that is the largest single piece of unfinished verification in the vault.
+- **✅ What did Act 213 (2021) §18 and Act 166 (2022) §2 change in [[hrs-11-102]]?** *(resolved
+  2026-07-27 by the act→HRS bridge)* Both acts were read from their own enacted text, markup
+  intact.
+
+  **Act 213 (2021) §18** amended §11-102(b) and is where today's figures come from:
+  - the address-update deadline moved from **fourteen days to seven days** (`[fourteen]` → `seven`);
+  - the mailing target moved from "**approximately** eighteen days" to "**at least** eighteen days",
+    with a new proviso that the State and counties are **not liable** if a package arrives fewer
+    than eighteen days out;
+  - it added the ten-day registration clause and the qualifier that the clerk keeps mailing to
+    address-updaters "**and who have not yet voted**".
+
+  **Act 166 (2022) §2** did **not** touch any day-count. It added a new subsection (c) requiring
+  ballot-package envelope instructions and renumbered the old (c) to (d).
+
+  So the seven-day figure dates from 2021 and nothing since has moved it — guidance written after
+  Act 213 is safe, guidance written before it is wrong by a week. The 2026 calendar's Aug 1
+  address-update cutoff is correct.
+
+  *This was called "the largest single piece of unfinished verification in the vault." What
+  actually unblocked it was not more reading but a missing layer: nothing joined an act to the
+  section it changed. That layer now exists — see the act→HRS bridge below.*
 - **Did Hawaiʻi actually join ERIC?** [[hrs-11-1.52|§11-1.52]] (Act 190, 2024) *requires* the
   Office of Elections to apply by June 30, 2025 and maintain membership. The statute creates the
   duty; it does not report compliance, and ERIC membership has been politically volatile in other
@@ -246,6 +264,36 @@ chapters. See [[har-citation-graph]].
 - **Definitions from rule text.** The definitions table is HRS-only; HAR-defined terms
   (§3-160-6 "expressly advocating") should join the mechanical backbone. Now much larger:
   9,953 rule sections are in, many of them definitions sections.
+
+### Opened by the 2026-07-27 act→HRS bridge
+
+- **Uncodified provisions are still unread, and they are the half that bites.** The bridge reads
+  what an act changed in the HRS. It does **not** read effective dates, sunsets, applicability
+  clauses, severability, or legislative findings — which live in the act and never enter HRS at
+  all. A provision can be fully in force, or expired, with nothing in this corpus showing it.
+  This is now the largest known correctness gap in layer 4.
+- **Pre-2008 acts are out of range.** hi-leg-db starts at 2008, so a section last amended in 1998
+  shows zero acts and looks untouched rather than unmapped. The `history` zone of each HRS section
+  carries the full amendment citation list; reconciling that list against the act edges would say,
+  per section, how much of its history is actually covered. Until then, **absence of an act edge
+  is not evidence the section was never amended.**
+- **252 relation conflicts between the two attestations** (`act_text` says one thing, `bill_refs`
+  another) are recorded in `graph/act-edges.json` under `disagreements` and unreviewed as a class.
+  The 2,545 `act_text`-only relationships are a measured defect in hi-leg-db's citation extraction
+  on enacted drafts, worth fixing upstream in `build_bill_hrs_refs.py`.
+- **194 unresolved citation targets** — an act names a section that does not exist in the current
+  HRS. Each is a lead, not an error: a repeal, a pre-2010 number, or a section the revisor
+  renumbered on codification. `302B-3`, `435H-4`, `196-4`, `201-72.5`, `201N-1` lead the list.
+- **1,355 quarantined bill sections** carry real amendment markup against no recognised HRS
+  target — mostly appropriation tables amended in place. Whether any are genuine parser misses
+  rather than genuine non-HRS amendments has not been checked.
+- **The revisor's reconciliation is invisible.** Two acts in one session can amend the same
+  section; what the published HRS shows is the revisor's merge, not either act's markup. Where
+  two acts of one year both claim a section, the corpus currently asserts both without noting the
+  collision.
+- **Change atoms are not readings.** `[fourteen] → seven` is mechanical and now queryable at
+  scale. What a change *does* — that a shortened window makes a prior practice non-compliant —
+  is annotation, needs provenance, and does not exist yet for any of the 122,627 atoms.
 
 ### Opened by the 2026-07-26 all-titles HAR text harvest ([[src-2026-07-26-har-text-at-scale]])
 

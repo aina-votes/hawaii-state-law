@@ -478,6 +478,26 @@ def build(db_path):
                          "annotation", ac.get("attestation", "revisor_note"),
                          e.get("raw"), e.get("context")))
 
+    # ---- act -> statute edges (layer 4, Session Laws) -----------------------
+    # Which acts touched a section, from the sibling hi-leg-db. Produced by
+    # tools/act_bridge.py; optional, like the case cites, so a clone without
+    # hi-leg-db present still builds. Two attestations are carried
+    # unmerged -- 'act_text' (the act's own operative sentence, precise) and
+    # 'bill_refs' (hi-leg-db's citation extraction, broader and looser).
+    ae_path = os.path.join(GRAPH, "act-edges.json")
+    if os.path.exists(ae_path):
+        ae = json.load(open(ae_path, encoding="utf-8-sig"))
+        for e in ae["edges"]:
+            cur.execute("INSERT INTO edges (src,dst,dst_kind,relation,zone,"
+                        "attestation,raw,context) VALUES (?,?,?,?,?,?,?,?)",
+                        (e["src"], e["dst"], e["dst_kind"], e["relation"],
+                         None, e["attestation"], e.get("raw"),
+                         e.get("context")))
+        cur.execute("INSERT INTO meta VALUES ('act_edges',?)",
+                    (str(len(ae["edges"])),))
+        cur.execute("INSERT INTO meta VALUES ('act_edges_built',?)",
+                    (ae.get("built", ""),))
+
     # ---- definitions --------------------------------------------------------
     for d in jload("definitions.json")["definitions"]:
         cur.execute("INSERT INTO definitions VALUES (?,?,?,?,?,?,?,?)",
@@ -581,6 +601,15 @@ def validate(con):
     checks.append(("har title units", q("SELECT COUNT(*) FROM units WHERE layer='har' AND kind='title'"), 24))
     checks.append(("har chapter units", q("SELECT COUNT(*) FROM units WHERE layer='har' AND kind='chapter'"), 1583))
     checks.append(("har listings (meta)", q("SELECT CAST(value AS INT) FROM meta WHERE key='har_chapter_listings'"), 1595))
+    # Optional stage: only asserted once the bridge has been run, so a clone
+    # without the sibling hi-leg-db still validates clean.
+    if q("SELECT COUNT(*) FROM meta WHERE key='act_edges'"):
+        checks.append(("act edges >", q(
+            "SELECT COUNT(*) FROM edges WHERE dst_kind='session_law' "
+            "AND attestation IN ('act_text','bill_refs')"), 8000))
+        checks.append(("acts represented >", q(
+            "SELECT COUNT(DISTINCT dst) FROM edges WHERE dst_kind='session_law' "
+            "AND attestation IN ('act_text','bill_refs')"), 2700))
     ok = True
     for name, got, want in checks:
         good = got >= want if name.endswith(">") else got == want

@@ -639,3 +639,63 @@ rows preserved. Snapshot …-740fce06.db.gz (57.6MB verified). The trails questi
 exposed the HAR gap now gets ch. 198D verbatim; HAR 13-130 remains recorded-unfound
 (round-2 seeds queued). Next per confirmed order: act→HRS bridge with hi-leg-db; background
 per-layer update feeds.
+
+## [2026-07-27] ingest | the act→HRS bridge — layer 4 goes live, and the statute book gets a history
+
+Session Laws was the layer most likely to make this corpus quietly wrong: the codified HRS lags
+the session, and uncodified provisions never enter HRS at all. It is now joined, 2008 forward.
+
+**What was built.** Three stages, two repos. In hi-leg-db: `build_acts.py` recovers **4,747 acts**
+from the free-text disposition line on `measures.status` (the Capitol publishes no structured act
+index), each joined to the draft that actually became law — inferred from the last action carrying
+a draft, NOT from "highest draft number", since 318 acts passed unamended at draft `''` and a
+Senate bill can be enacted at HD1 with no conference draft. `fetch_enacted_html.py` re-fetches the
+enacted draft's raw HTM, and `parse_act_amendments.py` reads the amendment markup into
+**12,133 amendment rows / 122,627 change atoms** (34,472 deletions, 88,155 insertions) across
+4,031 acts. In this repo, `act_bridge.py` emits **19,191 edges** over **3,801 acts** and
+**5,662 statutes**; `db_build.py` loads them as an optional stage. DB **VALID**, all 18 checks.
+
+**The markup had to come back off the wire.** `measure_versions.text` is a plain-text render whose
+stripper removed every tag. Hawaii bills carry the change IN the markup — `[<s>deleted</s>]`,
+`<u>inserted</u>` — so the stored text records what was removed and never what was added. Exactly
+**4 of 177,947** stored docs still contained a `<u>`. Scope was held to enacted drafts only (4,746
+fetches, not 178,000): what HD1 proposed is history, what the act says is law.
+
+**Four defects found and fixed, each a known class recurring in a new venue:**
+- `measure_versions.text_url` points at the PDF for a large share of measures, and a PDF renders
+  the markup as glyphs with no tags — 9 of the first 12 smoke fetches came back "no markup" on
+  bills full of it. URLs are now constructed as `.HTM` directly.
+- Bill HTM is Word-exported and declares **windows-1252**; decoding as UTF-8 pocked every atom
+  with U+FFFD (rule 0's HRS.htm defect, new venue).
+- Cutting the operative sentence at the first `:` truncated `Section 412:2-105` to `Section 412` —
+  the colon-form citation class again, this time in bill headers. 19 targets recovered.
+- Bills sometimes write "Chapter 425E-102" for what is a section; chapter numbers never carry a
+  hyphen-suffix, so this is a drafting error in the source, matched explicitly rather than guessed.
+
+**THE CROSS-CHECK IS THE FINDING.** Two attestations are carried unmerged, and they disagree at
+scale: **2,545 statute→act relationships asserted by `act_text` are absent from `bill_refs`**, plus
+252 relation conflicts. The clean example is Act 166 (2022) on §11-102 — hi-leg-db labels the
+introduced and HD1 drafts `amends` and the ENACTED SD1 draft merely `references`, so any
+operative-kinds filter over `bill_refs` drops the act entirely. Filtering to one leg and calling it
+coverage is now a recorded error, not a hypothetical.
+
+**It immediately paid the vault's largest verification debt.** "What did Act 213 (2021) §18 and Act
+166 (2022) §2 change in §11-102?" — carried since the founding note as the largest single piece of
+unfinished verification — was answered by the first file opened. Act 213 §18 moved the
+address-update deadline **fourteen days → seven**, changed "approximately eighteen days" to "at
+least eighteen", added the non-liability proviso and "and who have not yet voted". Act 166 §2
+touched no day-count: it added envelope-instruction subsection (c) and renumbered (c)→(d). The
+seven-day figure dates from 2021 and nothing since has moved it. What unblocked it was not more
+reading but the missing layer.
+
+**Recorded gaps, not guessed at:** 20 acts (0.4%) whose inferred enacted draft 404s — one is
+literally `CD0`; substituting a different draft would attribute changes to an act that did not make
+them, which is worse than a hole. 1,355 quarantined bill sections (mostly appropriation tables that
+carry real markup against no HRS target). 194 unresolved citation targets — repealed sections,
+pre-2010 numbering — kept as leads. Pre-2008 acts are out of range entirely, and **uncodified
+provisions remain unread**: effective dates, sunsets, applicability, findings live in the act and
+never enter HRS, so a rule can be in force and invisible to this corpus.
+
+**Ledger corrections, same commit.** `sources-of-law.md` rows 2 and 7 still read "read: no" for the
+Constitution and agency opinions — both ingested 2026-07-26, the ledger never updated. The coverage
+ledger is only as good as the commit that updates it.
